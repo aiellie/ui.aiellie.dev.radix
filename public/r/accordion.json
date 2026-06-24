@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "Collapsible sections for AI answer metadata such as sources, follow-ups, and how the response was generated.",
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/accordion.tsx",
+      "content": "\"use client\"\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\"\n\nexport default function AccordionExample() {\n  return (\n    <Accordion\n      type=\"single\"\n      collapsible\n      defaultValue=\"sources\"\n      className=\"w-full max-w-md\"\n    >\n      <AccordionItem value=\"sources\">\n        <AccordionTrigger>Sources used (3)</AccordionTrigger>\n        <AccordionContent className=\"space-y-1.5 text-muted-foreground\">\n          <p>1. nextjs.org — Release Blog: Next.js 16</p>\n          <p>2. react.dev — You Might Not Need an Effect</p>\n          <p>3. internal-architecture.pdf — page 12</p>\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"followups\">\n        <AccordionTrigger>Suggested follow-ups</AccordionTrigger>\n        <AccordionContent className=\"space-y-1.5 text-muted-foreground\">\n          <p>· How do I migrate from the Pages Router?</p>\n          <p>· What changed in caching behavior?</p>\n          <p>· Show me a minimal example.</p>\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"how\">\n        <AccordionTrigger>How was this answered?</AccordionTrigger>\n        <AccordionContent className=\"text-muted-foreground\">\n          Retrieved 3 passages, ranked by similarity, then summarized with Claude\n          Opus 4.8 at temperature 0.4.\n        </AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

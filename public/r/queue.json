@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "queue",
+  "title": "Queue",
+  "description": "Pending prompt queue with positions and one-click removal.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/queue.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Cancel01Icon, Queue02Icon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst DEFAULT_ITEMS = [\n  \"Summarize the Q3 board deck into five bullets\",\n  \"Draft a reply to the design-review thread\",\n  \"Generate unit tests for use-chat.ts\",\n]\n\nexport function Queue({\n  items = DEFAULT_ITEMS,\n  className,\n}: {\n  items?: string[]\n  className?: string\n}) {\n  const [queue, setQueue] = React.useState(items)\n\n  return (\n    <div className={cn(\"w-full max-w-md rounded-xl border bg-card\", className)}>\n      <div className=\"flex items-center gap-2.5 border-b px-4 py-3\">\n        <span className=\"flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={Queue02Icon} className=\"size-3.5\" />\n        </span>\n        <span className=\"text-sm font-medium\">Queue</span>\n        <span className=\"ms-auto rounded-full bg-muted px-2 py-0.5 font-mono text-xs text-muted-foreground tabular-nums\">\n          {queue.length} queued\n        </span>\n      </div>\n\n      {queue.length === 0 ? (\n        <p className=\"px-4 py-7 text-center text-sm text-muted-foreground\">\n          The queue is empty.\n        </p>\n      ) : (\n        <ul className=\"flex flex-col p-2\">\n          {queue.map((item, i) => (\n            <li\n              key={item}\n              className=\"group flex items-center gap-2.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-accent\"\n            >\n              <span\n                className=\"grid shrink-0 grid-cols-2 gap-0.5 text-muted-foreground/40\"\n                aria-hidden\n              >\n                {Array.from({ length: 6 }).map((_, d) => (\n                  <span key={d} className=\"size-1 rounded-full bg-current\" />\n                ))}\n              </span>\n              <span className=\"flex size-5 shrink-0 items-center justify-center rounded-md bg-muted font-mono text-[11px] text-muted-foreground tabular-nums\">\n                {i + 1}\n              </span>\n              <span className=\"min-w-0 flex-1 truncate text-sm\">{item}</span>\n              <button\n                type=\"button\"\n                onClick={() => setQueue((q) => q.filter((x) => x !== item))}\n                aria-label=\"Remove from queue\"\n                className=\"flex size-6 shrink-0 items-center justify-center rounded-md text-muted-foreground opacity-0 transition hover:bg-background hover:text-foreground group-hover:opacity-100\"\n              >\n                <HugeiconsIcon icon={Cancel01Icon} className=\"size-3.5\" />\n              </button>\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

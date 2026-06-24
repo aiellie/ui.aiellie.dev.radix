@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "title": "Toggle",
+  "description": "Single pressed-state toggle for enabling deep research mode with dynamic description.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/toggle.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { AiBrain01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Toggle } from \"@/components/ui/toggle\"\n\nexport default function ToggleExample() {\n  const [on, setOn] = React.useState(false)\n\n  return (\n    <div className=\"flex flex-col items-center gap-3\">\n      <Toggle\n        variant=\"outline\"\n        size=\"lg\"\n        pressed={on}\n        onPressedChange={setOn}\n        aria-label=\"Toggle deep research\"\n        className=\"data-[state=on]:border-primary/40 data-[state=on]:bg-primary/10 data-[state=on]:text-primary\"\n      >\n        <HugeiconsIcon icon={AiBrain01Icon} strokeWidth={2} />\n        Deep research\n      </Toggle>\n      <p className=\"text-sm text-muted-foreground\">\n        {on\n          ? \"The agent will plan, browse, and synthesize multiple sources.\"\n          : \"Off — the assistant answers directly.\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "title": "Pagination",
+  "description": "Paged navigation for retrieved RAG passages with previous, numbered, and ellipsis links.",
+  "registryDependencies": [
+    "pagination"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/pagination.tsx",
+      "content": "\"use client\"\n\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from \"@/components/ui/pagination\"\n\nexport default function PaginationExample() {\n  return (\n    <div className=\"w-full max-w-md space-y-3\">\n      <p className=\"text-center text-xs text-muted-foreground\">\n        Showing passages 21–30 of 128 retrieved for this answer\n      </p>\n      <Pagination>\n        <PaginationContent>\n          <PaginationItem>\n            <PaginationPrevious href=\"#\" />\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">1</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">2</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\" isActive>\n              3\n            </PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationEllipsis />\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">13</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationNext href=\"#\" />\n          </PaginationItem>\n        </PaginationContent>\n      </Pagination>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

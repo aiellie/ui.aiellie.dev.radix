@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-window",
+  "title": "Context Window",
+  "description": "Token and context-window usage panel with input, output, reasoning, and cache breakdown.",
+  "dependencies": [
+    "ai",
+    "tokenlens"
+  ],
+  "registryDependencies": [
+    "context"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/context-window.tsx",
+      "content": "\"use client\";\n\nimport {\n  Context,\n  ContextCacheUsage,\n  ContextContent,\n  ContextContentBody,\n  ContextContentFooter,\n  ContextContentHeader,\n  ContextInputUsage,\n  ContextOutputUsage,\n  ContextReasoningUsage,\n  ContextTrigger,\n} from \"@/registry/ai/context\";\n\nconst Example = () => (\n  <div className=\"flex items-center justify-center p-8\">\n    <Context\n      maxTokens={128_000}\n      modelId=\"openai:gpt-5\"\n      usage={{\n        cachedInputTokens: 0,\n        inputTokens: 32_000,\n        inputTokenDetails: {\n          noCacheTokens: 32_000,\n          cacheReadTokens: 0,\n          cacheWriteTokens: 0,\n        },\n        outputTokens: 8000,\n        outputTokenDetails: {\n          textTokens: 8000,\n          reasoningTokens: 0,\n        },\n        reasoningTokens: 0,\n        totalTokens: 40_000,\n      }}\n      usedTokens={40_000}\n    >\n      <ContextTrigger />\n      <ContextContent>\n        <ContextContentHeader />\n        <ContextContentBody>\n          <ContextInputUsage />\n          <ContextOutputUsage />\n          <ContextReasoningUsage />\n          <ContextCacheUsage />\n        </ContextContentBody>\n        <ContextContentFooter />\n      </ContextContent>\n    </Context>\n  </div>\n);\n\nexport default Example;",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

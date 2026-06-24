@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "Keyboard shortcut reference list for send, command bar, new chat, and stop actions.",
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/kbd.tsx",
+      "content": "\"use client\"\n\nimport { Kbd, KbdGroup } from \"@/components/ui/kbd\"\n\nconst shortcuts: { keys: string[]; label: string }[] = [\n  { keys: [\"⌘\", \"↵\"], label: \"Send message\" },\n  { keys: [\"⌘\", \"K\"], label: \"Open command bar\" },\n  { keys: [\"⌘\", \"⇧\", \"O\"], label: \"New chat\" },\n  { keys: [\"Esc\"], label: \"Stop generating\" },\n]\n\nexport default function KbdExample() {\n  return (\n    <div className=\"w-full max-w-sm divide-y rounded-xl border\">\n      {shortcuts.map((s) => (\n        <div\n          key={s.label}\n          className=\"flex items-center justify-between px-4 py-2.5 text-sm\"\n        >\n          <span className=\"text-muted-foreground\">{s.label}</span>\n          <KbdGroup>\n            {s.keys.map((k) => (\n              <Kbd key={k}>{k}</Kbd>\n            ))}\n          </KbdGroup>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

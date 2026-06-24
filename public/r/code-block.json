@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code Block",
+  "description": "Code surface with a filename tab, language badge, line numbers, and copy button.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/code/code-block.tsx",
+      "content": "\"use client\";\n\nimport { FileCodeIcon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { useCallback, useState } from \"react\";\nimport type { BundledLanguage } from \"shiki\";\n\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockCopyButton,\n  CodeBlockFilename,\n  CodeBlockHeader,\n  CodeBlockLanguageSelector,\n  CodeBlockLanguageSelectorContent,\n  CodeBlockLanguageSelectorItem,\n  CodeBlockLanguageSelectorTrigger,\n  CodeBlockLanguageSelectorValue,\n  CodeBlockTitle,\n} from \"@/components/ui/code/code-block\";\n\nconst codeExamples = {\n  go: {\n    code: `package main\n\nimport \"fmt\"\n\nfunc greet(name string) string {\n    return fmt.Sprintf(\"Hello, %s!\", name)\n}\n\nfunc main() {\n    fmt.Println(greet(\"World\"))\n}`,\n    filename: \"greet.go\",\n  },\n  python: {\n    code: `def greet(name: str) -> str:\n    return f\"Hello, {name}!\"\n\nprint(greet(\"World\"))`,\n    filename: \"greet.py\",\n  },\n  rust: {\n    code: `fn greet(name: &str) -> String {\n    format!(\"Hello, {}!\", name)\n}\n\nfn main() {\n    println!(\"{}\", greet(\"World\"));\n}`,\n    filename: \"greet.rs\",\n  },\n  typescript: {\n    code: `function greet(name: string): string {\n  return \\`Hello, \\${name}!\\`;\n}\n\nconsole.log(greet(\"World\"));`,\n    filename: \"greet.ts\",\n  },\n} as const;\n\ntype Language = keyof typeof codeExamples;\n\nconst languages: { value: Language; label: string }[] = [\n  { label: \"TypeScript\", value: \"typescript\" },\n  { label: \"Python\", value: \"python\" },\n  { label: \"Rust\", value: \"rust\" },\n  { label: \"Go\", value: \"go\" },\n];\n\nconst handleCopy = () => {\n  console.log(\"Copied code to clipboard\");\n};\n\nconst handleCopyError = () => {\n  console.error(\"Failed to copy code to clipboard\");\n};\n\nexport function CodeBlockExample() {\n  const [language, setLanguage] = useState<Language>(\"typescript\");\n  const { code, filename } = codeExamples[language];\n\n  const handleLanguageChange = useCallback((value: string) => {\n    setLanguage(value as Language);\n  }, []);\n\n  return (\n    <CodeBlock code={code} language={language as BundledLanguage}>\n      <CodeBlockHeader>\n        <CodeBlockTitle>\n          <HugeiconsIcon icon={FileCodeIcon} strokeWidth={2} className=\"size-4\" />\n          <CodeBlockFilename>{filename}</CodeBlockFilename>\n        </CodeBlockTitle>\n        <CodeBlockActions>\n          <CodeBlockLanguageSelector\n            onValueChange={handleLanguageChange}\n            value={language}\n          >\n            <CodeBlockLanguageSelectorTrigger>\n              <CodeBlockLanguageSelectorValue />\n            </CodeBlockLanguageSelectorTrigger>\n            <CodeBlockLanguageSelectorContent>\n              {languages.map((lang) => (\n                <CodeBlockLanguageSelectorItem\n                  key={lang.value}\n                  value={lang.value}\n                >\n                  {lang.label}\n                </CodeBlockLanguageSelectorItem>\n              ))}\n            </CodeBlockLanguageSelectorContent>\n          </CodeBlockLanguageSelector>\n          <CodeBlockCopyButton onCopy={handleCopy} onError={handleCopyError} />\n        </CodeBlockActions>\n      </CodeBlockHeader>\n    </CodeBlock>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

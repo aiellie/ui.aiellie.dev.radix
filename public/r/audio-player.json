@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "audio-player",
+  "title": "Audio Player",
+  "description": "Voice-note player with a waveform scrubber, speed control, and download.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/voice/audio-player.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Download04Icon,\n  PauseIcon,\n  PlayIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst BARS = [\n  0.3, 0.6, 0.8, 0.5, 0.9, 0.7, 1, 0.6, 0.4, 0.7, 0.9, 0.5, 0.8, 0.6, 0.3, 0.7,\n  0.85, 0.5, 0.65, 0.9, 0.4, 0.7, 0.55, 0.8, 0.45, 0.7, 0.6, 0.9, 0.5, 0.75,\n]\n\nexport function AudioPlayer({\n  duration = \"0:48\",\n  className,\n}: {\n  duration?: string\n  className?: string\n}) {\n  const [playing, setPlaying] = React.useState(false)\n  const [progress, setProgress] = React.useState(0.42)\n  const [speed, setSpeed] = React.useState(1)\n\n  React.useEffect(() => {\n    if (!playing) return\n    const id = setInterval(() => {\n      setProgress((p) => {\n        const next = p + 0.01 * speed\n        if (next >= 1) {\n          setPlaying(false)\n          return 0\n        }\n        return next\n      })\n    }, 120)\n    return () => clearInterval(id)\n  }, [playing, speed])\n\n  return (\n    <div\n      className={cn(\n        \"flex w-full max-w-md items-center gap-3 rounded-2xl border bg-card p-2.5 ps-3\",\n        className\n      )}\n    >\n      <button\n        type=\"button\"\n        onClick={() => setPlaying((p) => !p)}\n        aria-label={playing ? \"Pause\" : \"Play\"}\n        className=\"flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105\"\n      >\n        <HugeiconsIcon icon={playing ? PauseIcon : PlayIcon} className=\"size-5\" />\n      </button>\n\n      <div\n        className=\"flex h-9 min-w-0 flex-1 items-center gap-[3px]\"\n        role=\"progressbar\"\n        aria-valuenow={Math.round(progress * 100)}\n        aria-valuemin={0}\n        aria-valuemax={100}\n      >\n        {BARS.map((h, i) => (\n          <span\n            key={i}\n            className={cn(\n              \"min-w-0 flex-1 rounded-full transition-colors\",\n              i / BARS.length <= progress\n                ? \"bg-primary\"\n                : \"bg-muted-foreground/25\"\n            )}\n            style={{ height: `${Math.max(15, h * 100)}%` }}\n          />\n        ))}\n      </div>\n\n      <span className=\"shrink-0 font-mono text-xs text-muted-foreground tabular-nums\">\n        {duration}\n      </span>\n      <button\n        type=\"button\"\n        onClick={() =>\n          setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 2 : 1))\n        }\n        className=\"shrink-0 rounded-md border px-1.5 py-0.5 text-[11px] font-medium text-muted-foreground tabular-nums transition-colors hover:bg-accent hover:text-foreground\"\n      >\n        {speed}×\n      </button>\n      <button\n        type=\"button\"\n        aria-label=\"Download\"\n        className=\"flex size-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground\"\n      >\n        <HugeiconsIcon icon={Download04Icon} className=\"size-4\" />\n      </button>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

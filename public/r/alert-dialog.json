@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-dialog",
+  "title": "Alert Dialog",
+  "description": "Destructive confirmation dialog for clearing a conversation, with a toast on confirm.",
+  "dependencies": [
+    "sonner",
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "alert-dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/alert-dialog.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Delete02Icon } from \"@hugeicons/core-free-icons\"\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n} from \"@/components/ui/alert-dialog\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function AlertDialogExample() {\n  return (\n    <AlertDialog>\n      <AlertDialogTrigger asChild>\n        <Button variant=\"destructive\">\n          <HugeiconsIcon icon={Delete02Icon} strokeWidth={2} />\n          Clear conversation\n        </Button>\n      </AlertDialogTrigger>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Clear this conversation?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This permanently deletes every message and erases the assistant&apos;s\n            memory of this chat. This action can&apos;t be undone.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel>Keep chat</AlertDialogCancel>\n          <AlertDialogAction\n            onClick={() => toast(\"Conversation cleared\")}\n            className=\"bg-destructive text-white hover:bg-destructive/90\"\n          >\n            Delete everything\n          </AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

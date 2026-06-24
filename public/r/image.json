@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image",
+  "title": "Image",
+  "description": "AI image frame with a loading state, AI badge, and hover actions.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/media/image.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowExpand01Icon,\n  Download04Icon,\n  Image01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function Image({\n  src,\n  alt = \"Generated image\",\n  caption = \"A wide-angle shot of a misty pine forest at dawn\",\n  gradient = \"from-emerald-400 via-teal-500 to-sky-600\",\n  className,\n}: {\n  src?: string\n  alt?: string\n  caption?: string\n  gradient?: string\n  className?: string\n}) {\n  const [loaded, setLoaded] = React.useState(!src)\n\n  return (\n    <figure className={cn(\"group w-full max-w-xs\", className)}>\n      <div className=\"relative aspect-square overflow-hidden rounded-xl border\">\n        {src ? (\n          <>\n            {!loaded ? (\n              <div className=\"absolute inset-0 animate-pulse bg-muted\" />\n            ) : null}\n            {/* eslint-disable-next-line @next/next/no-img-element */}\n            <img\n              src={src}\n              alt={alt}\n              onLoad={() => setLoaded(true)}\n              className={cn(\n                \"size-full object-cover transition-opacity duration-500\",\n                loaded ? \"opacity-100\" : \"opacity-0\"\n              )}\n            />\n          </>\n        ) : (\n          <div\n            className={cn(\n              \"flex size-full items-center justify-center bg-gradient-to-br\",\n              gradient\n            )}\n          >\n            <HugeiconsIcon icon={Image01Icon} className=\"size-8 text-white/40\" />\n          </div>\n        )}\n\n        <span className=\"absolute start-2 top-2 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur\">\n          AI\n        </span>\n\n        <div className=\"absolute inset-x-0 bottom-0 flex items-center justify-end gap-1 bg-gradient-to-t from-black/50 to-transparent p-2 opacity-0 transition-opacity group-hover:opacity-100\">\n          <button\n            type=\"button\"\n            aria-label=\"Download\"\n            className=\"flex size-7 items-center justify-center rounded-md bg-white/20 text-white backdrop-blur transition-colors hover:bg-white/30\"\n          >\n            <HugeiconsIcon icon={Download04Icon} className=\"size-4\" />\n          </button>\n          <button\n            type=\"button\"\n            aria-label=\"Expand\"\n            className=\"flex size-7 items-center justify-center rounded-md bg-white/20 text-white backdrop-blur transition-colors hover:bg-white/30\"\n          >\n            <HugeiconsIcon icon={ArrowExpand01Icon} className=\"size-4\" />\n          </button>\n        </div>\n      </div>\n      {caption ? (\n        <figcaption className=\"mt-2 text-xs leading-relaxed text-muted-foreground\">\n          {caption}\n        </figcaption>\n      ) : null}\n    </figure>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

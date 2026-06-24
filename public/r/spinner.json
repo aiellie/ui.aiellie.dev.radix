@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "Loading spinners for thinking state, in-progress tool steps, and disabled generate button.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "spinner",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/spinner.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Globe02Icon, CheckmarkCircle02Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Spinner } from \"@/components/ui/spinner\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function SpinnerExample() {\n  return (\n    <div className=\"w-full max-w-sm space-y-4\">\n      <div className=\"flex items-center gap-2 text-sm text-muted-foreground\">\n        <Spinner className=\"text-primary\" />\n        Thinking…\n      </div>\n\n      <div className=\"space-y-2 rounded-xl border p-3 text-sm\">\n        <div className=\"flex items-center gap-2 text-muted-foreground\">\n          <HugeiconsIcon\n            icon={CheckmarkCircle02Icon}\n            strokeWidth={2}\n            className=\"size-4 text-emerald-500\"\n          />\n          Planned the steps\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <Spinner className=\"text-primary\" />\n          <span className=\"flex items-center gap-1.5\">\n            <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} className=\"size-4\" />\n            Searching the web…\n          </span>\n        </div>\n      </div>\n\n      <Button disabled className=\"w-full\">\n        <Spinner />\n        Generating response\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "title": "Input OTP",
+  "description": "Six-digit verification code input with grouped slots and a disabled-until-complete unlock button.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "input-otp",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/input-otp.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { CheckmarkCircle02Icon } from \"@hugeicons/core-free-icons\"\n\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function InputOtpExample() {\n  const [value, setValue] = React.useState(\"\")\n  const complete = value.length === 6\n\n  return (\n    <div className=\"flex w-full max-w-sm flex-col items-center gap-4 text-center\">\n      <div className=\"space-y-1\">\n        <p className=\"text-sm font-medium\">Verify it&apos;s you</p>\n        <p className=\"text-xs text-muted-foreground\">\n          Enter the 6-digit code to unlock the agent&apos;s billing tools.\n        </p>\n      </div>\n      <InputOTP maxLength={6} value={value} onChange={setValue}>\n        <InputOTPGroup>\n          <InputOTPSlot index={0} />\n          <InputOTPSlot index={1} />\n          <InputOTPSlot index={2} />\n        </InputOTPGroup>\n        <InputOTPSeparator />\n        <InputOTPGroup>\n          <InputOTPSlot index={3} />\n          <InputOTPSlot index={4} />\n          <InputOTPSlot index={5} />\n        </InputOTPGroup>\n      </InputOTP>\n      <Button disabled={!complete} className=\"w-full\">\n        {complete ? (\n          <>\n            <HugeiconsIcon icon={CheckmarkCircle02Icon} strokeWidth={2} />\n            Unlock\n          </>\n        ) : (\n          \"Enter code\"\n        )}\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "title": "Popover",
+  "description": "Generation parameters popover with temperature and top-p sliders for the next message.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "popover",
+    "label",
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/popover.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Settings02Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\nimport { Label } from \"@/components/ui/label\"\nimport { Slider } from \"@/components/ui/slider\"\n\nexport default function PopoverExample() {\n  const [temp, setTemp] = React.useState([0.7])\n  const [topP, setTopP] = React.useState([0.9])\n\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          <HugeiconsIcon icon={Settings02Icon} strokeWidth={2} />\n          Parameters\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-80\">\n        <PopoverHeader>\n          <PopoverTitle>Generation</PopoverTitle>\n          <PopoverDescription>Applies to your next message only.</PopoverDescription>\n        </PopoverHeader>\n        <div className=\"grid gap-5 pt-3\">\n          <div className=\"grid gap-2\">\n            <div className=\"flex items-center justify-between\">\n              <Label>Temperature</Label>\n              <span className=\"font-mono text-xs text-muted-foreground\">\n                {temp[0].toFixed(2)}\n              </span>\n            </div>\n            <Slider value={temp} onValueChange={setTemp} min={0} max={1} step={0.01} />\n          </div>\n          <div className=\"grid gap-2\">\n            <div className=\"flex items-center justify-between\">\n              <Label>Top-p</Label>\n              <span className=\"font-mono text-xs text-muted-foreground\">\n                {topP[0].toFixed(2)}\n              </span>\n            </div>\n            <Slider value={topP} onValueChange={setTopP} min={0} max={1} step={0.05} />\n          </div>\n        </div>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "citation-list",
+  "title": "Citation List",
+  "description": "Numbered source citations with favicons, titles, and snippets for RAG answers.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/citation-list.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport { ArrowUpRight01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Badge } from \"@/components/ui/badge\"\n\nexport interface Citation {\n  title: string\n  url: string\n  snippet?: string\n}\n\nconst DEFAULT_CITATIONS: Citation[] = [\n  {\n    title: \"Attention Is All You Need\",\n    url: \"https://arxiv.org/abs/1706.03762\",\n    snippet:\n      \"Introduces the Transformer, a model architecture relying entirely on attention mechanisms.\",\n  },\n  {\n    title: \"Retrieval-Augmented Generation\",\n    url: \"https://ai.meta.com/research/rag\",\n    snippet:\n      \"Combines a parametric model with a non-parametric retriever for knowledge-intensive tasks.\",\n  },\n  {\n    title: \"Scaling Laws for Neural Language Models\",\n    url: \"https://arxiv.org/abs/2001.08361\",\n  },\n]\n\nfunction hostname(url: string) {\n  try {\n    return new URL(url).hostname.replace(/^www\\./, \"\")\n  } catch {\n    return url\n  }\n}\n\nexport function CitationList({\n  citations = DEFAULT_CITATIONS,\n  className,\n}: {\n  citations?: Citation[]\n  className?: string\n}) {\n  return (\n    <div className={cn(\"flex flex-col gap-2\", className)}>\n      <div className=\"flex items-center gap-2 px-1\">\n        <span className=\"text-xs font-medium text-muted-foreground\">\n          Sources\n        </span>\n        <Badge variant=\"secondary\" className=\"h-5 px-1.5 text-xs\">\n          {citations.length}\n        </Badge>\n      </div>\n      <div className=\"grid gap-2 sm:grid-cols-2\">\n        {citations.map((citation, i) => {\n          const host = hostname(citation.url)\n          return (\n            <a\n              key={i}\n              href={citation.url}\n              target=\"_blank\"\n              rel=\"noreferrer\"\n              className=\"group flex gap-2.5 rounded-xl border bg-card p-3 transition-colors hover:border-ring hover:bg-accent\"\n            >\n              <span className=\"flex size-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-xs font-semibold text-primary\">\n                {i + 1}\n              </span>\n              <span className=\"flex min-w-0 flex-1 flex-col gap-1\">\n                <span className=\"flex items-center gap-1 text-sm font-medium\">\n                  <span className=\"truncate\">{citation.title}</span>\n                  <HugeiconsIcon\n                    icon={ArrowUpRight01Icon}\n                    className=\"size-3.5 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100\"\n                  />\n                </span>\n                {citation.snippet ? (\n                  <span className=\"line-clamp-2 text-xs leading-relaxed text-muted-foreground\">\n                    {citation.snippet}\n                  </span>\n                ) : null}\n                <span className=\"flex items-center gap-1 text-xs text-muted-foreground/80\">\n                  <span className=\"flex size-3.5 items-center justify-center rounded-full bg-muted text-[8px] font-bold uppercase\">\n                    {host.charAt(0)}\n                  </span>\n                  {host}\n                </span>\n              </span>\n            </a>\n          )\n        })}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

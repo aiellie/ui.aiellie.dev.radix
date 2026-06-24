@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item",
+  "title": "Item",
+  "description": "List of retrieved sources with icons, metadata, relevance scores, and link-style rows.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "item",
+    "badge",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/item.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  File01Icon,\n  Globe02Icon,\n  Book01Icon,\n  ArrowRight01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from \"@/components/ui/item\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Button } from \"@/components/ui/button\"\n\nconst sources = [\n  { icon: Globe02Icon, title: \"Next.js 16 release notes\", meta: \"nextjs.org\", score: 98 },\n  { icon: File01Icon, title: \"internal-architecture.pdf\", meta: \"page 12 · uploaded\", score: 91 },\n  { icon: Book01Icon, title: \"App Router caching guide\", meta: \"docs · 4 min read\", score: 84 },\n]\n\nexport default function ItemExample() {\n  return (\n    <ItemGroup className=\"w-full max-w-md gap-2\">\n      <p className=\"px-1 text-xs font-medium text-muted-foreground\">\n        Sources used in this answer\n      </p>\n      {sources.map((s) => (\n        <Item key={s.title} variant=\"outline\" asChild>\n          <a href=\"#\">\n            <ItemMedia variant=\"icon\">\n              <HugeiconsIcon icon={s.icon} strokeWidth={2} />\n            </ItemMedia>\n            <ItemContent>\n              <ItemTitle>{s.title}</ItemTitle>\n              <ItemDescription>{s.meta}</ItemDescription>\n            </ItemContent>\n            <ItemActions>\n              <Badge variant=\"secondary\">{s.score}% match</Badge>\n              <HugeiconsIcon\n                icon={ArrowRight01Icon}\n                strokeWidth={2}\n                className=\"size-4 text-muted-foreground rtl:rotate-180\"\n              />\n            </ItemActions>\n          </a>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

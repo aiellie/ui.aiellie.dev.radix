@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-menu",
+  "title": "Command Menu",
+  "description": "Command palette with grouped, keyboard-navigable actions.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/code/command-menu.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  DashboardSquare01Icon,\n  File01Icon,\n  Moon02Icon,\n  Settings01Icon,\n  SourceCodeIcon,\n  SparklesIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from \"@/components/ui/command\"\n\nexport function CommandMenu({ className }: { className?: string }) {\n  return (\n    <Command\n      className={cn(\n        \"w-full max-w-md ring-1 shadow-lg ring-border\",\n        className\n      )}\n    >\n      <CommandInput placeholder=\"Type a command or search…\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Actions\">\n          <CommandItem>\n            <HugeiconsIcon icon={File01Icon} />\n            New file\n            <CommandShortcut>⌘N</CommandShortcut>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={SparklesIcon} />\n            Ask AI to edit\n            <CommandShortcut>⌘K</CommandShortcut>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Moon02Icon} />\n            Toggle theme\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Navigation\">\n          <CommandItem>\n            <HugeiconsIcon icon={DashboardSquare01Icon} />\n            Go to dashboard\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={SourceCodeIcon} />\n            Browse components\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Settings01Icon} />\n            Open settings\n            <CommandShortcut>⌘,</CommandShortcut>\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </Command>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

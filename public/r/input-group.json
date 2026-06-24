@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group",
+  "title": "Input Group",
+  "description": "Chat composer with textarea, attach/search/dictate buttons, shortcut hint, and send control.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/input-group.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Attachment01Icon,\n  Mic01Icon,\n  SentIcon,\n  Globe02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupTextarea,\n  InputGroupText,\n} from \"@/components/ui/input-group\"\n\nexport default function InputGroupExample() {\n  return (\n    <InputGroup className=\"w-full max-w-xl\">\n      <InputGroupTextarea placeholder=\"Message aiellie…\" rows={2} />\n      <InputGroupAddon align=\"block-end\">\n        <InputGroupButton size=\"icon-xs\" aria-label=\"Attach file\">\n          <HugeiconsIcon icon={Attachment01Icon} strokeWidth={2} />\n        </InputGroupButton>\n        <InputGroupButton size=\"xs\">\n          <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} />\n          Search\n        </InputGroupButton>\n        <InputGroupButton size=\"icon-xs\" aria-label=\"Dictate\">\n          <HugeiconsIcon icon={Mic01Icon} strokeWidth={2} />\n        </InputGroupButton>\n        <InputGroupText className=\"ms-auto font-mono text-xs\">⌘↵</InputGroupText>\n        <InputGroupButton\n          size=\"icon-xs\"\n          variant=\"default\"\n          aria-label=\"Send message\"\n        >\n          <HugeiconsIcon icon={SentIcon} strokeWidth={2} className=\"rtl:-scale-x-100\" />\n        </InputGroupButton>\n      </InputGroupAddon>\n    </InputGroup>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

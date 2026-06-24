@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-card",
+  "title": "Video Card",
+  "description": "Thumbnail card with duration pill, channel avatar, and view metadata.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/media/video-card.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport { PlayIcon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\"\nimport { Badge } from \"@/components/ui/badge\"\n\nexport interface VideoCardProps {\n  title?: string\n  channel?: string\n  channelAvatar?: string\n  views?: string\n  age?: string\n  duration?: string\n  thumbnail?: string\n  gradient?: string\n  className?: string\n}\n\nexport function VideoCard({\n  title = \"Designing a component registry from scratch\",\n  channel = \"shadcn\",\n  channelAvatar,\n  views = \"128K views\",\n  age = \"3 days ago\",\n  duration = \"12:48\",\n  thumbnail,\n  gradient = \"from-indigo-500 via-purple-500 to-pink-500\",\n  className,\n}: VideoCardProps) {\n  return (\n    <div className={cn(\"group w-full max-w-xs\", className)}>\n      <div className=\"relative aspect-video overflow-hidden rounded-xl border\">\n        {thumbnail ? (\n          // eslint-disable-next-line @next/next/no-img-element\n          <img\n            src={thumbnail}\n            alt={title}\n            className=\"size-full object-cover\"\n          />\n        ) : (\n          <div\n            className={cn(\"size-full bg-gradient-to-br\", gradient)}\n            aria-hidden\n          />\n        )}\n\n        <div className=\"absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20\">\n          <span className=\"flex size-11 scale-90 items-center justify-center rounded-full bg-black/55 text-white opacity-0 backdrop-blur transition-all group-hover:scale-100 group-hover:opacity-100\">\n            <HugeiconsIcon icon={PlayIcon} className=\"size-5\" />\n          </span>\n        </div>\n\n        <Badge className=\"absolute end-2 bottom-2 bg-black/75 font-mono text-white tabular-nums\">\n          {duration}\n        </Badge>\n      </div>\n\n      <div className=\"mt-3 flex gap-3\">\n        <Avatar className=\"size-9 border\">\n          {channelAvatar ? (\n            <AvatarImage src={channelAvatar} alt={channel} />\n          ) : null}\n          <AvatarFallback className=\"bg-primary/10 text-xs font-semibold text-primary uppercase\">\n            {channel.charAt(0)}\n          </AvatarFallback>\n        </Avatar>\n        <div className=\"flex min-w-0 flex-col\">\n          <h3 className=\"line-clamp-2 text-sm leading-snug font-medium\">\n            {title}\n          </h3>\n          <p className=\"mt-0.5 truncate text-xs text-muted-foreground\">\n            {channel}\n          </p>\n          <p className=\"truncate text-xs text-muted-foreground\">\n            {views} · {age}\n          </p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

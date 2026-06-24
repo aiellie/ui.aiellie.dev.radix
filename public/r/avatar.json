@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "Assistant and user avatars with online badges and a grouped avatar stack for collaborators.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/avatar.tsx",
+      "content": "\"use client\"\n\nimport {\n  Avatar,\n  AvatarBadge,\n  AvatarFallback,\n  AvatarGroup,\n  AvatarGroupCount,\n} from \"@/components/ui/avatar\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SparklesIcon } from \"@hugeicons/core-free-icons\"\n\nexport default function AvatarExample() {\n  return (\n    <div className=\"flex flex-col items-center gap-8\">\n      <div className=\"flex items-end gap-8\">\n        <div className=\"flex flex-col items-center gap-2\">\n          <Avatar size=\"lg\">\n            <AvatarFallback className=\"bg-primary/10 text-primary\">\n              <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} className=\"size-5\" />\n            </AvatarFallback>\n            <AvatarBadge className=\"bg-emerald-500\" />\n          </Avatar>\n          <span className=\"text-xs text-muted-foreground\">Assistant · online</span>\n        </div>\n        <div className=\"flex flex-col items-center gap-2\">\n          <Avatar size=\"lg\">\n            <AvatarFallback>EL</AvatarFallback>\n            <AvatarBadge className=\"bg-emerald-500\" />\n          </Avatar>\n          <span className=\"text-xs text-muted-foreground\">You</span>\n        </div>\n      </div>\n\n      <div className=\"flex flex-col items-center gap-2\">\n        <AvatarGroup>\n          <Avatar>\n            <AvatarFallback className=\"bg-primary/10 text-primary\">\n              <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} className=\"size-4\" />\n            </AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarFallback>EL</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarFallback>JD</AvatarFallback>\n          </Avatar>\n          <AvatarGroupCount>+3</AvatarGroupCount>\n        </AvatarGroup>\n        <span className=\"text-xs text-muted-foreground\">\n          Assistant &amp; 5 collaborators in this thread\n        </span>\n      </div>\n    </div>\n  )\n}",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

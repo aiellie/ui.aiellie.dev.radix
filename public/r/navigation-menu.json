@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu",
+  "title": "Navigation Menu",
+  "description": "Site navigation with a models mega-menu dropdown plus Pricing and Docs links.",
+  "registryDependencies": [
+    "navigation-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/navigation-menu.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger,\n  navigationMenuTriggerStyle,\n} from \"@/components/ui/navigation-menu\"\n\nconst models = [\n  { title: \"Opus 4.8\", desc: \"Deepest reasoning for hard problems.\" },\n  { title: \"Sonnet 4.6\", desc: \"Balanced speed and capability.\" },\n  { title: \"Haiku 4.5\", desc: \"Fastest, lowest cost for simple tasks.\" },\n  { title: \"Vision\", desc: \"Understands images, charts, and PDFs.\" },\n]\n\nfunction ListItem({ title, desc }: { title: string; desc: string }) {\n  return (\n    <li>\n      <NavigationMenuLink asChild>\n        <a\n          href=\"#\"\n          className=\"block space-y-1 rounded-lg p-3 leading-none no-underline transition-colors hover:bg-accent\"\n        >\n          <div className=\"text-sm font-medium\">{title}</div>\n          <p className=\"line-clamp-2 text-sm text-muted-foreground\">{desc}</p>\n        </a>\n      </NavigationMenuLink>\n    </li>\n  )\n}\n\nexport default function NavigationMenuExample() {\n  return (\n    <NavigationMenu>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Models</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <ul className=\"grid w-[420px] gap-1 p-2 md:grid-cols-2\">\n              {models.map((m) => (\n                <ListItem key={m.title} title={m.title} desc={m.desc} />\n              ))}\n            </ul>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>\n            <a href=\"#\">Pricing</a>\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>\n            <a href=\"#\">Docs</a>\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

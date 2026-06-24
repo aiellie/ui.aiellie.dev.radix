@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "title": "Dialog",
+  "description": "Share-chat modal with read-only link input and copy-to-clipboard toast feedback.",
+  "dependencies": [
+    "sonner",
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "dialog",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/dialog.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Share08Icon, Copy01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/components/ui/dialog\"\nimport { Input } from \"@/components/ui/input\"\n\nconst shareUrl = \"https://aiellie.chat/s/9f2a7c41\"\n\nexport default function DialogExample() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">\n          <HugeiconsIcon icon={Share08Icon} strokeWidth={2} />\n          Share chat\n        </Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Share this chat</DialogTitle>\n          <DialogDescription>\n            Anyone with the link can view this conversation up to now and\n            continue it in their own copy.\n          </DialogDescription>\n        </DialogHeader>\n        <div className=\"flex items-center gap-2\">\n          <Input readOnly value={shareUrl} className=\"font-mono text-xs\" />\n          <Button\n            type=\"button\"\n            onClick={() => {\n              navigator.clipboard?.writeText(shareUrl)\n              toast.success(\"Share link copied to clipboard\")\n            }}\n          >\n            <HugeiconsIcon icon={Copy01Icon} strokeWidth={2} />\n            Copy\n          </Button>\n        </div>\n        <DialogFooter className=\"sm:justify-between\">\n          <span className=\"text-xs text-muted-foreground\">\n            New messages stay private until you re-share.\n          </span>\n          <DialogClose asChild>\n            <Button variant=\"ghost\">Done</Button>\n          </DialogClose>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "conversation",
+  "title": "Conversation",
+  "description": "Scrollable message thread with a floating scroll-to-bottom button.",
+  "dependencies": [
+    "use-stick-to-bottom",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/conversation.tsx",
+      "content": "\"use client\"\n\nimport {\n  Conversation as ConversationRoot,\n  ConversationContent,\n  ConversationScrollButton,\n} from \"@/components/ai-elements/conversation\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface ConversationMessage {\n  role: \"user\" | \"assistant\"\n  content: string\n}\n\nconst DEFAULT_MESSAGES: ConversationMessage[] = [\n  {\n    role: \"user\",\n    content: \"Can you give me a quick rundown of App Router caching?\",\n  },\n  {\n    role: \"assistant\",\n    content:\n      \"Sure — there are four layers: Request Memoization, the Data Cache, the Full Route Cache, and the client-side Router Cache.\",\n  },\n  { role: \"user\", content: \"Which one do I disable for always-fresh data?\" },\n  {\n    role: \"assistant\",\n    content:\n      \"Use cache: 'no-store' on the fetch, or export dynamic = 'force-dynamic' from the route to opt out of the Data and Full Route caches.\",\n  },\n  { role: \"user\", content: \"Perfect, thanks!\" },\n]\n\nexport function Conversation({\n  messages = DEFAULT_MESSAGES,\n  className,\n}: {\n  messages?: ConversationMessage[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\n        \"relative flex h-72 w-full max-w-md flex-col overflow-hidden rounded-xl border bg-card\",\n        className\n      )}\n    >\n      <ConversationRoot className=\"min-h-0 flex-1\">\n        <ConversationContent className=\"gap-4\">\n          {messages.map((m, i) => (\n            <div\n              key={i}\n              className={cn(\n                \"flex\",\n                m.role === \"user\" ? \"justify-end\" : \"justify-start\"\n              )}\n            >\n              <div\n                className={cn(\n                  \"max-w-[80%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed\",\n                  m.role === \"user\"\n                    ? \"rounded-ee-sm bg-primary text-primary-foreground\"\n                    : \"rounded-es-sm bg-muted\"\n                )}\n              >\n                {m.content}\n              </div>\n            </div>\n          ))}\n        </ConversationContent>\n        <ConversationScrollButton />\n      </ConversationRoot>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

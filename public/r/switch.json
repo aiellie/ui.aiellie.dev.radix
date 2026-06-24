@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "Toggle switches for web search and pro mode with contextual helper text.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "switch",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/switch.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Globe02Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Switch } from \"@/components/ui/switch\"\nimport { Label } from \"@/components/ui/label\"\n\nexport default function SwitchExample() {\n  const [web, setWeb] = React.useState(true)\n\n  return (\n    <div className=\"w-full max-w-sm space-y-4\">\n      <div className=\"flex items-center justify-between rounded-xl border p-4\">\n        <div className=\"flex items-center gap-3\">\n          <span className=\"flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n            <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} className=\"size-5\" />\n          </span>\n          <div className=\"grid gap-0.5 leading-snug\">\n            <Label htmlFor=\"web-search\">Web search</Label>\n            <span className=\"text-xs text-muted-foreground\">\n              {web ? \"Answers will cite live sources\" : \"Using the model's training data only\"}\n            </span>\n          </div>\n        </div>\n        <Switch id=\"web-search\" checked={web} onCheckedChange={setWeb} />\n      </div>\n      <div className=\"flex items-center justify-between px-1\">\n        <Label htmlFor=\"pro\" className=\"text-sm font-normal text-muted-foreground\">\n          Pro mode (slower, deeper reasoning)\n        </Label>\n        <Switch id=\"pro\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

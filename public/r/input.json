@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "Single-line ask-anything input with send button disabled until text is entered.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "input",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SentIcon } from \"@hugeicons/core-free-icons\"\n\nimport { Input } from \"@/components/ui/input\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function InputExample() {\n  const [value, setValue] = React.useState(\"\")\n\n  return (\n    <form\n      className=\"w-full max-w-md space-y-2\"\n      onSubmit={(e) => e.preventDefault()}\n    >\n      <label htmlFor=\"ask\" className=\"text-sm font-medium\">\n        Ask anything\n      </label>\n      <div className=\"flex items-center gap-2\">\n        <Input\n          id=\"ask\"\n          value={value}\n          onChange={(e) => setValue(e.target.value)}\n          placeholder=\"How do I deploy a Next.js app?\"\n        />\n        <Button type=\"submit\" size=\"icon\" disabled={!value.trim()} aria-label=\"Send\">\n          <HugeiconsIcon icon={SentIcon} strokeWidth={2} className=\"rtl:-scale-x-100\" />\n        </Button>\n      </div>\n      <p className=\"text-xs text-muted-foreground\">\n        The assistant will answer in this thread.\n      </p>\n    </form>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

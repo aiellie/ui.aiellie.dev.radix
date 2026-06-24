@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-indicator",
+  "title": "Typing Indicator",
+  "description": "Animated indicator that shows when the assistant is thinking.",
+  "registryDependencies": [
+    "loader"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/typing-indicator.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nexport interface TypingIndicatorProps extends React.ComponentProps<\"div\"> {\n  label?: string\n}\n\nexport function TypingIndicator({\n  label,\n  className,\n  ...props\n}: TypingIndicatorProps) {\n  return (\n    <div\n      className={cn(\n        \"inline-flex items-center gap-2 rounded-full bg-muted px-3 py-2\",\n        className\n      )}\n      {...props}\n    >\n      <span className=\"flex gap-1\" aria-hidden>\n        {[0, 1, 2].map((i) => (\n          <span\n            key={i}\n            className=\"size-1.5 animate-bounce rounded-full bg-muted-foreground/60\"\n            style={{ animationDelay: `${i * 0.16}s`, animationDuration: \"1s\" }}\n          />\n        ))}\n      </span>\n      {label ? (\n        <span className=\"text-xs text-muted-foreground\">{label}</span>\n      ) : (\n        <span className=\"sr-only\">Assistant is typing</span>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

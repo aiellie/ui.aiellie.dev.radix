@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-generation-card",
+  "title": "Image Generation Card",
+  "description": "Generated-image result card with the prompt, variations, and quick actions.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "badge",
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/media/image-generation-card.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Download01Icon,\n  HeartIcon,\n  MoreHorizontalIcon,\n  RefreshIcon,\n  SparklesIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Card } from \"@/components/ui/card\"\n\nexport function ImageGenerationCard({\n  prompt = \"A bioluminescent jellyfish drifting through a midnight ocean, cinematic, 35mm\",\n  model = \"Imagine v3\",\n  aspect = \"1:1\",\n  gradient = \"from-cyan-400 via-blue-500 to-indigo-700\",\n  className,\n}: {\n  prompt?: string\n  model?: string\n  aspect?: string\n  gradient?: string\n  className?: string\n}) {\n  const [liked, setLiked] = React.useState(false)\n\n  return (\n    <Card\n      className={cn(\n        \"w-full max-w-xs gap-0 rounded-2xl py-0 shadow-sm\",\n        className\n      )}\n    >\n      <div className=\"relative aspect-square\">\n        <div\n          className={cn(\"size-full bg-gradient-to-br\", gradient)}\n          aria-hidden\n        />\n        <Badge className=\"absolute start-2.5 top-2.5 gap-1 bg-black/55 text-white backdrop-blur\">\n          <HugeiconsIcon icon={SparklesIcon} className=\"size-3\" />\n          AI\n        </Badge>\n        <Badge\n          variant=\"secondary\"\n          className=\"absolute end-2.5 top-2.5 bg-black/55 font-mono text-white backdrop-blur\"\n        >\n          {aspect}\n        </Badge>\n      </div>\n\n      <div className=\"flex flex-col gap-3 p-3\">\n        <p className=\"line-clamp-2 text-sm leading-relaxed text-foreground\">\n          {prompt}\n        </p>\n        <div className=\"flex items-center justify-between\">\n          <span className=\"flex items-center gap-1.5 text-xs text-muted-foreground\">\n            <span className=\"size-1.5 rounded-full bg-emerald-500\" />\n            {model}\n          </span>\n          <div className=\"flex items-center gap-0.5\">\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label=\"Like\"\n              aria-pressed={liked}\n              onClick={() => setLiked((l) => !l)}\n              className={cn(\n                \"text-muted-foreground\",\n                liked && \"text-rose-500\"\n              )}\n            >\n              <HugeiconsIcon icon={HeartIcon} />\n            </Button>\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label=\"Make variations\"\n              className=\"text-muted-foreground\"\n            >\n              <HugeiconsIcon icon={RefreshIcon} />\n            </Button>\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label=\"Download\"\n              className=\"text-muted-foreground\"\n            >\n              <HugeiconsIcon icon={Download01Icon} />\n            </Button>\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label=\"More\"\n              className=\"text-muted-foreground\"\n            >\n              <HugeiconsIcon icon={MoreHorizontalIcon} />\n            </Button>\n          </div>\n        </div>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

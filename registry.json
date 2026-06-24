@@ -1,0 +1,2098 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "aiellieui",
+  "homepage": "https://ui.aiellie.dev",
+  "items": [
+    {
+      "name": "chat-message",
+      "type": "registry:component",
+      "title": "Chat Message",
+      "description": "User and assistant message bubbles with avatars, timestamps, and streaming support.",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/chat-message.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:component",
+      "title": "Prompt Input",
+      "description": "Auto-resizing composer with attachment, voice, model picker, and send controls.",
+      "registryDependencies": [
+        "button",
+        "textarea"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/prompt-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "loader",
+      "type": "registry:component",
+      "title": "Loader",
+      "description": "Multi-variant loading indicators including spinners, dots, waves, and text animations.",
+      "files": [
+        {
+          "path": "components/ui/loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "typing-indicator",
+      "type": "registry:component",
+      "title": "Typing Indicator",
+      "description": "Animated indicator that shows when the assistant is thinking.",
+      "registryDependencies": [
+        "loader"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/typing-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "model-selector",
+      "type": "registry:component",
+      "title": "Model Selector",
+      "description": "Dropdown for switching between AI models, with provider badges and context sizes.",
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/model-selector.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "prompt-suggestions",
+      "type": "registry:component",
+      "title": "Prompt Suggestions",
+      "description": "A grid of suggested starter prompts to kick off a conversation.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/prompt-suggestions.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "reasoning-panel",
+      "type": "registry:component",
+      "title": "Reasoning Panel",
+      "description": "Collapsible chain-of-thought panel with a live duration timer.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/reasoning-panel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "message-actions",
+      "type": "registry:component",
+      "title": "Message Actions",
+      "description": "Copy, regenerate, and feedback toolbar that sits under an assistant reply.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/message-actions.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "citation-list",
+      "type": "registry:component",
+      "title": "Citation List",
+      "description": "Numbered source citations with favicons, titles, and snippets for RAG answers.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/citation-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "media-player",
+      "type": "registry:component",
+      "title": "Media Player",
+      "description": "Compact audio/video transport with scrubber, time, and volume controls.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "slider"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/media-player.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "audio-waveform",
+      "type": "registry:component",
+      "title": "Audio Waveform",
+      "description": "Waveform player with animated bars and seek-on-click.",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/audio-waveform.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-gallery",
+      "type": "registry:component",
+      "title": "Image Gallery",
+      "description": "Responsive masonry gallery with hover overlays and a selectable lead image.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/image-gallery.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "video-card",
+      "type": "registry:component",
+      "title": "Video Card",
+      "description": "Thumbnail card with duration pill, channel avatar, and view metadata.",
+      "registryDependencies": [
+        "avatar",
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/video-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-generation-card",
+      "type": "registry:component",
+      "title": "Image Generation Card",
+      "description": "Generated-image result card with the prompt, variations, and quick actions.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/image-generation-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:component",
+      "title": "File Dropzone",
+      "description": "Drag-and-drop upload surface with per-file progress and status.",
+      "registryDependencies": [
+        "progress"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/file-dropzone.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "now-playing",
+      "type": "registry:component",
+      "title": "Now Playing",
+      "description": "Music widget with album art, marquee title, scrubber, and transport controls.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "slider"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/now-playing.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-compare",
+      "type": "registry:component",
+      "title": "Image Compare",
+      "description": "Before/after slider for comparing two images with a draggable handle.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/image-compare.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Code surface with a filename tab, language badge, line numbers, and copy button.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/code-block.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "terminal",
+      "type": "registry:component",
+      "title": "Terminal",
+      "description": "Faux terminal that types out a sequence of commands and their output.",
+      "files": [
+        {
+          "path": "registry/code/terminal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "diff-view",
+      "type": "registry:component",
+      "title": "Diff View",
+      "description": "Unified diff with added/removed lines, gutter markers, and a stat summary.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/code/diff-view.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:component",
+      "title": "File Tree",
+      "description": "Collapsible file explorer with folder/file icons and an active item.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/file-tree.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "command-menu",
+      "type": "registry:component",
+      "title": "Command Menu",
+      "description": "Command palette with grouped, keyboard-navigable actions.",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/command-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pull-request-card",
+      "type": "registry:component",
+      "title": "Pull Request Card",
+      "description": "Pull-request summary with status, reviewers, checks, and additions/deletions.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/pull-request-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "package-install",
+      "type": "registry:component",
+      "title": "Package Install",
+      "description": "Tabbed install command for npm, pnpm, yarn, and bun with one-click copy.",
+      "registryDependencies": [
+        "tabs",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/package-install.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "snippet-card",
+      "type": "registry:component",
+      "title": "Snippet Card",
+      "description": "Shareable code snippet card with language badge, author, copy, and actions.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/snippet-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "conversation",
+      "type": "registry:component",
+      "title": "Conversation",
+      "description": "Scrollable message thread with a floating scroll-to-bottom button.",
+      "registryDependencies": [
+        "button",
+        "scroll-area"
+      ],
+      "dependencies": [
+        "use-stick-to-bottom",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/conversation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "attachments",
+      "type": "registry:component",
+      "title": "Attachments",
+      "description": "Removable file chips for images, PDFs, and code attached to a prompt.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/attachments.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:component",
+      "title": "Chain of Thought",
+      "description": "Collapsible multi-step reasoning trail with statuses and search results.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/chain-of-thought.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tool",
+      "type": "registry:component",
+      "title": "Tool",
+      "description": "Tool-call card with status, JSON parameters, and the returned result.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/tool.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "task",
+      "type": "registry:component",
+      "title": "Task",
+      "description": "Collapsible agent task showing the files and actions it touched.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/task.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "plan",
+      "type": "registry:component",
+      "title": "Plan",
+      "description": "Agent task plan with done, active, and todo steps and a progress count.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/plan.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sources",
+      "type": "registry:component",
+      "title": "Sources",
+      "description": "Collapsible list of the web sources cited in a RAG answer.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/sources.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inline-citation",
+      "type": "registry:component",
+      "title": "Inline Citation",
+      "description": "Inline numbered citation markers that reveal the source on hover.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/inline-citation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "context",
+      "type": "registry:component",
+      "title": "Context",
+      "description": "Hover-card breakdown of model context usage with token and cost details.",
+      "registryDependencies": [
+        "button",
+        "hover-card",
+        "progress"
+      ],
+      "dependencies": [
+        "tokenlens"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/context.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "confirmation",
+      "type": "registry:component",
+      "title": "Confirmation",
+      "description": "Approve/reject card for gating a tool call or risky action.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/confirmation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkpoint",
+      "type": "registry:component",
+      "title": "Checkpoint",
+      "description": "A labeled restore-point divider for rewinding a conversation.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/checkpoint.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "queue",
+      "type": "registry:component",
+      "title": "Queue",
+      "description": "Pending prompt queue with positions and one-click removal.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/queue.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "shimmer",
+      "type": "registry:component",
+      "title": "Shimmer",
+      "description": "Animated shimmer for loading text and skeleton lines.",
+      "files": [
+        {
+          "path": "registry/ai/shimmer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "open-in-chat",
+      "type": "registry:component",
+      "title": "Open in Chat",
+      "description": "Button that hands the current context off to a chat assistant.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/open-in-chat.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "type": "registry:component",
+      "title": "Image",
+      "description": "AI image frame with a loading state, AI badge, and hover actions.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/media/image.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "web-preview",
+      "type": "registry:component",
+      "title": "Web Preview",
+      "description": "Browser frame with a URL bar and a live site viewport.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/web-preview.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "agent",
+      "type": "registry:component",
+      "title": "Agent",
+      "description": "Live agent run card with model, status, current step, and tools.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/agent.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "artifact",
+      "type": "registry:component",
+      "title": "Artifact",
+      "description": "Framed artifact panel with a title, type badge, and copy/download actions.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/artifact.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "commit",
+      "type": "registry:component",
+      "title": "Commit",
+      "description": "Git commit card with message, author, short hash, and diff stats.",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/commit.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "test-results",
+      "type": "registry:component",
+      "title": "Test Results",
+      "description": "Test run summary with pass/fail counts and inline failure messages.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/test-results.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stack-trace",
+      "type": "registry:component",
+      "title": "Stack Trace",
+      "description": "Error stack viewer with highlighted app frames and copy-to-clipboard.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/stack-trace.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sandbox",
+      "type": "registry:component",
+      "title": "Sandbox",
+      "description": "Runnable code panel with a Run button and console output.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/sandbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "jsx-preview",
+      "type": "registry:component",
+      "title": "JSX Preview",
+      "description": "Preview / code toggle that renders a JSX snippet live.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/jsx-preview.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "schema-display",
+      "type": "registry:component",
+      "title": "Schema Display",
+      "description": "Field-by-field schema table with types and required badges.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/schema-display.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "package-info",
+      "type": "registry:component",
+      "title": "Package Info",
+      "description": "npm package summary with version, downloads, license, and keywords.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/package-info.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "environment-variables",
+      "type": "registry:component",
+      "title": "Environment Variables",
+      "description": "Editable .env list with masked secrets, reveal, and copy.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/code/environment-variables.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "audio-player",
+      "type": "registry:component",
+      "title": "Audio Player",
+      "description": "Voice-note player with a waveform scrubber, speed control, and download.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/audio-player.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "speech-input",
+      "type": "registry:component",
+      "title": "Speech Input",
+      "description": "Press-to-talk mic button with live speech recognition and transcript display.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/speech-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "transcription",
+      "type": "registry:component",
+      "title": "Transcription",
+      "description": "Live transcript with speaker labels and timed segment highlighting.",
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "ai",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/transcription.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "voice-selector",
+      "type": "registry:component",
+      "title": "Voice Selector",
+      "description": "Searchable voice picker with gender, accent labels, and sample preview.",
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "command",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/voice-selector.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mic-selector",
+      "type": "registry:component",
+      "title": "Mic Selector",
+      "description": "Input device picker with a live microphone level meter.",
+      "registryDependencies": [
+        "button",
+        "command",
+        "popover"
+      ],
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/mic-selector.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "persona",
+      "type": "registry:component",
+      "title": "Persona",
+      "description": "Voice-agent persona card with animated avatar, traits, and state controls.",
+      "dependencies": [
+        "@rive-app/react-webgl2",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/voice/persona.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Collapsible sections for AI answer metadata such as sources, follow-ups, and how the response was generated.",
+      "files": [
+        {
+          "path": "registry/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "accordion"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "Destructive confirmation dialog for clearing a conversation, with a toast on confirm.",
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "alert-dialog",
+        "button"
+      ],
+      "dependencies": [
+        "sonner",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Informational and destructive alerts for AI disclaimers and usage limits, including an optional action button.",
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "alert",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Fixed 16:9 frame for an AI-generated image preview with overlay badge and prompt caption.",
+      "files": [
+        {
+          "path": "registry/ui/aspect-ratio.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "aspect-ratio",
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "Assistant and user avatars with online badges and a grouped avatar stack for collaborators.",
+      "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Status and metadata badges for plans, models, context limits, grounding, and token throughput.",
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Hierarchical navigation trail from workspace to agent to the current chat thread.",
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "Grouped message actions with tooltips and toggle state.",
+      "files": [
+        {
+          "path": "registry/ui/button-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button-group",
+        "button",
+        "tooltip"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Primary chat actions and secondary prompt shortcuts across multiple button variants and sizes.",
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "Single-date calendar paired with an assistant suggestion to schedule a design review.",
+      "files": [
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "calendar"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Model selection card showing specs, a selected badge, and a call-to-action.",
+      "files": [
+        {
+          "path": "registry/ui/card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Swipeable carousel of image-generation variations with previous/next controls.",
+      "files": [
+        {
+          "path": "registry/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "carousel"
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Chart",
+      "description": "Stacked bar chart of weekly token usage by model inside a card with legend and tooltip.",
+      "files": [
+        {
+          "path": "registry/ui/chart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "dependencies": [
+        "recharts"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "Multi-select checklist for enabling agent tools like web search and file analysis.",
+      "files": [
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "Expandable reasoning trace showing step-by-step chain-of-thought before the final answer.",
+      "files": [
+        {
+          "path": "registry/ui/collapsible.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "Searchable model picker built from popover, command list, and combobox-style trigger button.",
+      "files": [
+        {
+          "path": "registry/ui/combobox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "command",
+        "popover"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "Command palette with AI actions, shortcuts, and recent chats grouped in a searchable menu.",
+      "files": [
+        {
+          "path": "registry/ui/command.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "context-window",
+      "type": "registry:component",
+      "title": "Context Window",
+      "description": "Token and context-window usage panel with input, output, reasoning, and cache breakdown.",
+      "files": [
+        {
+          "path": "registry/ui/context-window.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "context"
+      ],
+      "dependencies": [
+        "ai",
+        "tokenlens"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "Right-click menu on an assistant message with copy, quote, regenerate, and report actions.",
+      "files": [
+        {
+          "path": "registry/ui/context-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "context-menu"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data Table",
+      "description": "Sortable, selectable agent-runs table with status badges and per-row action dropdown.",
+      "files": [
+        {
+          "path": "registry/ui/data-table.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "table",
+        "badge",
+        "button",
+        "checkbox",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "Popover date picker for filtering conversations by day with formatted display text.",
+      "files": [
+        {
+          "path": "registry/ui/date-picker.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "label",
+        "popover"
+      ],
+      "dependencies": [
+        "date-fns",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "Share-chat modal with read-only link input and copy-to-clipboard toast feedback.",
+      "files": [
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "input"
+      ],
+      "dependencies": [
+        "sonner",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:component",
+      "title": "Direction",
+      "description": "LTR/RTL toggle showing mirrored chat bubbles, input placeholder, and send icon alignment.",
+      "files": [
+        {
+          "path": "registry/ui/direction.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "direction",
+        "toggle-group"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "Bottom sheet prompt library listing saved prompts to insert into the composer.",
+      "files": [
+        {
+          "path": "registry/ui/drawer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "drawer"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "Message options menu with copy, regenerate, nested model selection, and report.",
+      "files": [
+        {
+          "path": "registry/ui/dropdown-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:component",
+      "title": "Empty",
+      "description": "Empty chat state with icon, title, description, and suggested starter prompts.",
+      "files": [
+        {
+          "path": "registry/ui/empty.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "empty",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Structured settings form with legends, horizontal switch fields, and a stop-sequence input.",
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "switch"
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "Inline citation superscript that previews source title, relevance score, and excerpt on hover.",
+      "files": [
+        {
+          "path": "registry/ui/hover-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "hover-card",
+        "badge"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "Chat composer with textarea, attach/search/dictate buttons, shortcut hint, and send control.",
+      "files": [
+        {
+          "path": "registry/ui/input-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "input-group"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Input OTP",
+      "description": "Six-digit verification code input with grouped slots and a disabled-until-complete unlock button.",
+      "files": [
+        {
+          "path": "registry/ui/input-otp.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "input-otp",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Single-line ask-anything input with send button disabled until text is entered.",
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "List of retrieved sources with icons, metadata, relevance scores, and link-style rows.",
+      "files": [
+        {
+          "path": "registry/ui/item.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "item",
+        "badge",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "Keyboard shortcut reference list for send, command bar, new chat, and stop actions.",
+      "files": [
+        {
+          "path": "registry/ui/kbd.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "kbd"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "Form labels paired with required agent name and masked API key inputs.",
+      "files": [
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "label",
+        "input"
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "Desktop-style menubar for chat, model selection with radio items, and view toggles.",
+      "files": [
+        {
+          "path": "registry/ui/menubar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "menubar"
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:component",
+      "title": "Native Select",
+      "description": "Native HTML select with optgroups for choosing a model tier on mobile-friendly forms.",
+      "files": [
+        {
+          "path": "registry/ui/native-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "native-select",
+        "label"
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "Site navigation with a models mega-menu dropdown plus Pricing and Docs links.",
+      "files": [
+        {
+          "path": "registry/ui/navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "navigation-menu"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Paged navigation for retrieved RAG passages with previous, numbered, and ellipsis links.",
+      "files": [
+        {
+          "path": "registry/ui/pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "pagination"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Generation parameters popover with temperature and top-p sliders for the next message.",
+      "files": [
+        {
+          "path": "registry/ui/popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "popover",
+        "label",
+        "slider"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "Animated fine-tuning job progress bar with percentage and estimated time remaining.",
+      "files": [
+        {
+          "path": "registry/ui/progress.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "progress"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Card-style radio options for choosing assistant response length.",
+      "files": [
+        {
+          "path": "registry/ui/radio-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "radio-group",
+        "label"
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:component",
+      "title": "Resizable",
+      "description": "Split chat and code-artifact panels with a draggable handle and syntax-highlighted code block.",
+      "files": [
+        {
+          "path": "registry/ui/resizable.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "resizable",
+        "code-block"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Scrollable chat transcript container with alternating user and assistant message bubbles.",
+      "files": [
+        {
+          "path": "registry/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "scroll-area"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Grouped model dropdown separating frontier and fast models with controlled selection.",
+      "files": [
+        {
+          "path": "registry/ui/select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "select",
+        "label"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "Horizontal and vertical dividers for chat date labels, context boundaries, and model stats.",
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "separator"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "Side panel for model settings including model select, temperature slider, and feature toggles.",
+      "files": [
+        {
+          "path": "registry/ui/sheet.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "label",
+        "slider",
+        "switch",
+        "select"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "Chat app sidebar layout with new chat, search, grouped history, and user profile footer.",
+      "files": [
+        {
+          "path": "registry/ui/sidebar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "avatar"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Loading placeholder mimicking an in-progress assistant response with text and image skeletons.",
+      "files": [
+        {
+          "path": "registry/ui/skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Dual sliders for temperature and max output tokens with live numeric readouts.",
+      "files": [
+        {
+          "path": "registry/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "slider",
+        "label"
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "Toast notifications for copy, save, error, and promise-based async actions via Sonner.",
+      "files": [
+        {
+          "path": "registry/ui/sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "Loading spinners for thinking state, in-progress tool steps, and disabled generate button.",
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "spinner",
+        "button"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "Toggle switches for web search and pro mode with contextual helper text.",
+      "files": [
+        {
+          "path": "registry/ui/switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "switch",
+        "label"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "Per-turn token and cost breakdown table with model badges and footer totals.",
+      "files": [
+        {
+          "path": "registry/ui/table.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "table",
+        "badge"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Chat, code, and preview tabs for an assistant response with a code block in the code tab.",
+      "files": [
+        {
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "tabs",
+        "code-block"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Editable system prompt textarea with approximate token count and save button.",
+      "files": [
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "textarea",
+        "button"
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "Single pressed-state toggle for enabling deep research mode with dynamic description.",
+      "files": [
+        {
+          "path": "registry/ui/toggle.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "Single-select toggle group for answer mode (Concise, Balanced, Creative).",
+      "files": [
+        {
+          "path": "registry/ui/toggle-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "toggle-group"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Icon toolbar with tooltips for attach, image, web search, dictate, and deep reasoning tools.",
+      "files": [
+        {
+          "path": "registry/ui/tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "Status and metadata badges for plans, models, context limits, grounding, and token throughput.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/badge.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  SparklesIcon,\n  ZapIcon,\n  CheckmarkCircle02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { Badge } from \"@/components/ui/badge\"\n\nexport default function BadgeExample() {\n  return (\n    <div className=\"flex max-w-md flex-col items-center gap-4\">\n      <div className=\"flex flex-wrap items-center justify-center gap-2\">\n        <Badge>\n          <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} />\n          Pro\n        </Badge>\n        <Badge variant=\"secondary\">Claude Opus 4.8</Badge>\n        <Badge variant=\"outline\">200K context</Badge>\n        <Badge variant=\"outline\" className=\"border-amber-500/40 text-amber-600 dark:text-amber-400\">\n          Beta\n        </Badge>\n        <Badge variant=\"destructive\">Rate limited</Badge>\n      </div>\n      <div className=\"flex flex-wrap items-center justify-center gap-2\">\n        <Badge className=\"bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\">\n          <HugeiconsIcon icon={CheckmarkCircle02Icon} strokeWidth={2} />\n          Grounded\n        </Badge>\n        <Badge variant=\"secondary\">\n          <HugeiconsIcon icon={ZapIcon} strokeWidth={2} />\n          12 tok/s\n        </Badge>\n        <Badge variant=\"secondary\" className=\"font-mono\">\n          1,284 tokens\n        </Badge>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group",
+  "title": "Button Group",
+  "description": "Grouped message actions with tooltips and toggle state.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button-group",
+    "button",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/button-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport {\n  Copy01Icon,\n  RefreshIcon,\n  ThumbsUpIcon,\n  ThumbsDownIcon,\n  VolumeHighIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { ButtonGroup } from \"@/components/ui/button-group\"\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\"\n\nfunction Action({\n  icon,\n  label,\n  active,\n  onClick,\n}: {\n  icon: IconSvgElement\n  label: string\n  active?: boolean\n  onClick?: () => void\n}) {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label={label}\n          aria-pressed={active}\n          onClick={onClick}\n          className={active ? \"text-primary\" : undefined}\n        >\n          <HugeiconsIcon icon={icon} strokeWidth={2} />\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>{label}</TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport default function ButtonGroupExample() {\n  const [vote, setVote] = React.useState<\"up\" | \"down\" | null>(null)\n\n  return (\n    <div className=\"flex flex-col items-center gap-3\">\n      <p className=\"max-w-sm rounded-xl rounded-bl-sm bg-muted px-3.5 py-2.5 text-sm\">\n        Here&apos;s a tighter version of your function — it memoizes the result and\n        exits early on empty input.\n      </p>\n      <ButtonGroup>\n        <Action icon={Copy01Icon} label=\"Copy\" />\n        <Action icon={RefreshIcon} label=\"Regenerate\" />\n        <Action icon={VolumeHighIcon} label=\"Read aloud\" />\n        <Action\n          icon={ThumbsUpIcon}\n          label=\"Good response\"\n          active={vote === \"up\"}\n          onClick={() => setVote(vote === \"up\" ? null : \"up\")}\n        />\n        <Action\n          icon={ThumbsDownIcon}\n          label=\"Bad response\"\n          active={vote === \"down\"}\n          onClick={() => setVote(vote === \"down\" ? null : \"down\")}\n        />\n      </ButtonGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

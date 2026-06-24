@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inline-citation",
+  "title": "Inline Citation",
+  "description": "Inline numbered citation markers that reveal the source on hover.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/inline-citation.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { ArrowUpRight01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface Citation {\n  title: string\n  url: string\n  snippet?: string\n}\n\nconst DEFAULT_CITATIONS: Citation[] = [\n  {\n    title: \"Caching is now opt-in — Next.js 15 release notes\",\n    url: \"https://nextjs.org/blog/next-15\",\n    snippet:\n      \"fetch requests are no longer cached by default. GET route handlers and the client Router Cache are also uncached by default.\",\n  },\n  {\n    title: \"Turbopack is the default dev bundler\",\n    url: \"https://nextjs.org/docs/architecture/turbopack\",\n    snippet:\n      \"New applications created with create-next-app use Turbopack in development for significantly faster local iteration.\",\n  },\n]\n\nfunction hostname(url: string) {\n  try {\n    return new URL(url).hostname.replace(/^www\\./, \"\")\n  } catch {\n    return url\n  }\n}\n\nfunction CitationMarker({\n  index,\n  citation,\n}: {\n  index: number\n  citation: Citation\n}) {\n  return (\n    <span className=\"group/cite relative inline-block align-baseline\">\n      <button\n        type=\"button\"\n        className=\"mx-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-[5px] bg-primary/10 px-1 align-[2px] text-[10px] font-semibold text-primary tabular-nums transition-colors hover:bg-primary hover:text-primary-foreground\"\n      >\n        {index}\n      </button>\n      <span className=\"pointer-events-none absolute bottom-[calc(100%+6px)] start-1/2 z-20 w-64 -translate-x-1/2 rounded-xl border bg-popover p-3 text-start opacity-0 shadow-lg transition-opacity group-hover/cite:opacity-100 group-focus-within/cite:opacity-100 rtl:translate-x-1/2\">\n        <span className=\"flex items-center gap-1.5 text-xs font-medium text-muted-foreground\">\n          <span className=\"truncate\">{hostname(citation.url)}</span>\n          <HugeiconsIcon icon={ArrowUpRight01Icon} className=\"size-3\" />\n        </span>\n        <span className=\"mt-1 block text-sm leading-snug font-medium\">\n          {citation.title}\n        </span>\n        {citation.snippet ? (\n          <span className=\"mt-1 line-clamp-3 block text-xs leading-relaxed text-muted-foreground\">\n            {citation.snippet}\n          </span>\n        ) : null}\n      </span>\n    </span>\n  )\n}\n\nexport function InlineCitation({\n  citations = DEFAULT_CITATIONS,\n  className,\n}: {\n  citations?: Citation[]\n  className?: string\n}) {\n  return (\n    <p\n      className={cn(\n        \"max-w-prose text-sm leading-7 text-foreground\",\n        className\n      )}\n    >\n      Next.js 15 made caching opt-in rather than opt-out\n      <CitationMarker index={1} citation={citations[0]} />, reversing one of the\n      most criticized defaults of the previous release. New apps also use\n      Turbopack as the default development bundler\n      <CitationMarker index={2} citation={citations[1]} /> for noticeably faster\n      local iteration.\n    </p>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "Icon toolbar with tooltips for attach, image, web search, dictate, and deep reasoning tools.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/tooltip.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport {\n  Attachment01Icon,\n  Image01Icon,\n  Globe02Icon,\n  Mic01Icon,\n  AiBrain01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\"\n\nconst tools: { icon: IconSvgElement; label: string }[] = [\n  { icon: Attachment01Icon, label: \"Attach a file\" },\n  { icon: Image01Icon, label: \"Generate an image\" },\n  { icon: Globe02Icon, label: \"Search the web\" },\n  { icon: Mic01Icon, label: \"Dictate your prompt\" },\n  { icon: AiBrain01Icon, label: \"Enable deep reasoning\" },\n]\n\nexport default function TooltipExample() {\n  return (\n    <div className=\"flex items-center gap-1 rounded-full border bg-card p-1\">\n      {tools.map((t) => (\n        <Tooltip key={t.label}>\n          <TooltipTrigger asChild>\n            <Button variant=\"ghost\" size=\"icon\" aria-label={t.label}>\n              <HugeiconsIcon icon={t.icon} strokeWidth={2} />\n            </Button>\n          </TooltipTrigger>\n          <TooltipContent>{t.label}</TooltipContent>\n        </Tooltip>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

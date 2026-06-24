@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox",
+  "title": "Combobox",
+  "description": "Searchable model picker built from popover, command list, and combobox-style trigger button.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "command",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/combobox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { UnfoldMoreIcon, Tick02Icon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from \"@/components/ui/command\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\nconst models = [\n  { value: \"claude-opus\", label: \"Claude Opus 4.8\", hint: \"Anthropic\" },\n  { value: \"claude-sonnet\", label: \"Claude Sonnet 4.6\", hint: \"Anthropic\" },\n  { value: \"gpt-4o\", label: \"GPT-4o\", hint: \"OpenAI\" },\n  { value: \"o3\", label: \"o3\", hint: \"OpenAI\" },\n  { value: \"gemini-pro\", label: \"Gemini 2.5 Pro\", hint: \"Google\" },\n  { value: \"llama-70b\", label: \"Llama 3.1 70B\", hint: \"Meta\" },\n  { value: \"mistral-large\", label: \"Mistral Large\", hint: \"Mistral\" },\n]\n\nexport default function ComboboxExample() {\n  const [open, setOpen] = React.useState(false)\n  const [value, setValue] = React.useState(\"claude-opus\")\n  const selected = models.find((m) => m.value === value)\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          role=\"combobox\"\n          aria-expanded={open}\n          className=\"w-[270px] justify-between font-normal\"\n        >\n          {selected ? selected.label : \"Select a model…\"}\n          <HugeiconsIcon\n            icon={UnfoldMoreIcon}\n            strokeWidth={2}\n            className=\"text-muted-foreground\"\n          />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-[270px] p-0\" align=\"start\">\n        <Command>\n          <CommandInput placeholder=\"Search 100+ models…\" />\n          <CommandList>\n            <CommandEmpty>No model found.</CommandEmpty>\n            <CommandGroup>\n              {models.map((m) => (\n                <CommandItem\n                  key={m.value}\n                  value={m.value}\n                  keywords={[m.label, m.hint]}\n                  onSelect={(current) => {\n                    setValue(current)\n                    setOpen(false)\n                  }}\n                >\n                  <span>{m.label}</span>\n                  <span className=\"text-xs text-muted-foreground\">{m.hint}</span>\n                  <HugeiconsIcon\n                    icon={Tick02Icon}\n                    strokeWidth={2}\n                    className={cn(\n                      \"ms-auto size-4\",\n                      value === m.value ? \"opacity-100\" : \"opacity-0\"\n                    )}\n                  />\n                </CommandItem>\n              ))}\n            </CommandGroup>\n          </CommandList>\n        </Command>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

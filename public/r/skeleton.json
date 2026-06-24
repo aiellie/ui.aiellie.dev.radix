@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Loading placeholder mimicking an in-progress assistant response with text and image skeletons.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/skeleton.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SparklesIcon } from \"@hugeicons/core-free-icons\"\n\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\nexport default function SkeletonExample() {\n  return (\n    <div className=\"w-full max-w-md space-y-4\">\n      <div className=\"flex gap-3\">\n        <div className=\"flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} className=\"size-4\" />\n        </div>\n        <div className=\"flex-1 space-y-2 pt-1\">\n          <Skeleton className=\"h-3.5 w-[90%]\" />\n          <Skeleton className=\"h-3.5 w-full\" />\n          <Skeleton className=\"h-3.5 w-[75%]\" />\n          <div className=\"pt-2\">\n            <Skeleton className=\"h-28 w-full rounded-xl\" />\n          </div>\n        </div>\n      </div>\n      <p className=\"ps-11 text-xs text-muted-foreground\">\n        The assistant is thinking…\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

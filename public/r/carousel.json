@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel",
+  "title": "Carousel",
+  "description": "Swipeable carousel of image-generation variations with previous/next controls.",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/carousel.tsx",
+      "content": "\"use client\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/components/ui/carousel\"\n\nconst variations = [\n  \"bg-gradient-to-br from-amber-400 to-rose-500\",\n  \"bg-gradient-to-br from-sky-400 to-indigo-600\",\n  \"bg-gradient-to-br from-emerald-400 to-teal-600\",\n  \"bg-gradient-to-br from-fuchsia-500 to-purple-700\",\n]\n\nexport default function CarouselExample() {\n  return (\n    <div className=\"w-full max-w-xs space-y-3\">\n      <p className=\"text-center text-sm text-muted-foreground\">\n        4 variations for{\" \"}\n        <span className=\"font-medium text-foreground\">\n          “a fox in a spacesuit”\n        </span>\n      </p>\n      <Carousel className=\"w-full\">\n        <CarouselContent>\n          {variations.map((grad, i) => (\n            <CarouselItem key={i}>\n              <div\n                className={cn(\n                  \"flex aspect-square items-end rounded-xl p-3 text-sm font-medium text-white shadow-inner\",\n                  grad\n                )}\n              >\n                Variation {i + 1}\n              </div>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n        <CarouselPrevious />\n        <CarouselNext />\n      </Carousel>\n      <p className=\"text-center text-xs text-muted-foreground\">\n        Swipe or use the arrows · tap to upscale\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

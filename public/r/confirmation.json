@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confirmation",
+  "title": "Confirmation",
+  "description": "Approve/reject card for gating a tool call or risky action.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/confirmation.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  AlertDiamondIcon,\n  Cancel01Icon,\n  CheckmarkCircle02Icon,\n  Tick02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\ntype Decision = \"pending\" | \"approved\" | \"rejected\"\n\nexport function Confirmation({\n  title = \"Run terminal command\",\n  description = \"The agent wants to run a command in your workspace.\",\n  command = \"rm -rf .next && pnpm build\",\n  onApprove,\n  onReject,\n  className,\n}: {\n  title?: string\n  description?: string\n  command?: string\n  onApprove?: () => void\n  onReject?: () => void\n  className?: string\n}) {\n  const [decision, setDecision] = React.useState<Decision>(\"pending\")\n\n  return (\n    <div\n      className={cn(\n        \"w-full max-w-md overflow-hidden rounded-xl border bg-card\",\n        className\n      )}\n    >\n      <div className=\"flex items-start gap-3 p-4\">\n        <span className=\"flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500\">\n          <HugeiconsIcon icon={AlertDiamondIcon} className=\"size-5\" />\n        </span>\n        <div className=\"flex min-w-0 flex-col gap-1\">\n          <h3 className=\"text-sm font-semibold\">{title}</h3>\n          <p className=\"text-sm text-muted-foreground\">{description}</p>\n          {command ? (\n            <code\n              dir=\"ltr\"\n              className=\"mt-1.5 block overflow-x-auto rounded-lg border bg-muted/50 px-2.5 py-1.5 font-mono text-xs whitespace-nowrap\"\n            >\n              {command}\n            </code>\n          ) : null}\n        </div>\n      </div>\n\n      {decision === \"pending\" ? (\n        <div className=\"flex items-center justify-end gap-2 border-t bg-muted/30 px-4 py-3\">\n          <Button\n            variant=\"ghost\"\n            size=\"sm\"\n            onClick={() => {\n              setDecision(\"rejected\")\n              onReject?.()\n            }}\n          >\n            <HugeiconsIcon icon={Cancel01Icon} className=\"size-4\" />\n            Reject\n          </Button>\n          <Button\n            size=\"sm\"\n            onClick={() => {\n              setDecision(\"approved\")\n              onApprove?.()\n            }}\n          >\n            <HugeiconsIcon icon={Tick02Icon} className=\"size-4\" />\n            Approve\n          </Button>\n        </div>\n      ) : (\n        <div\n          className={cn(\n            \"flex items-center gap-2 border-t px-4 py-3 text-sm font-medium\",\n            decision === \"approved\"\n              ? \"bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\"\n              : \"bg-red-500/10 text-red-600 dark:text-red-400\"\n          )}\n        >\n          <HugeiconsIcon\n            icon={decision === \"approved\" ? CheckmarkCircle02Icon : Cancel01Icon}\n            className=\"size-4\"\n          />\n          {decision === \"approved\" ? \"Approved — running command\" : \"Rejected\"}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

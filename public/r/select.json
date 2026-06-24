@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select",
+  "title": "Select",
+  "description": "Grouped model dropdown separating frontier and fast models with controlled selection.",
+  "registryDependencies": [
+    "select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/select.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectSeparator,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\"\nimport { Label } from \"@/components/ui/label\"\n\nexport default function SelectExample() {\n  const [model, setModel] = React.useState(\"claude-opus\")\n\n  return (\n    <div className=\"w-full max-w-xs space-y-2\">\n      <Label htmlFor=\"model\">Model</Label>\n      <Select value={model} onValueChange={setModel}>\n        <SelectTrigger id=\"model\" className=\"w-full\">\n          <SelectValue placeholder=\"Choose a model\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectGroup>\n            <SelectLabel>Frontier · most capable</SelectLabel>\n            <SelectItem value=\"claude-opus\">Claude Opus 4.8</SelectItem>\n            <SelectItem value=\"gpt-4o\">GPT-4o</SelectItem>\n            <SelectItem value=\"gemini-pro\">Gemini 2.5 Pro</SelectItem>\n          </SelectGroup>\n          <SelectSeparator />\n          <SelectGroup>\n            <SelectLabel>Fast · low latency</SelectLabel>\n            <SelectItem value=\"claude-haiku\">Claude Haiku 4.5</SelectItem>\n            <SelectItem value=\"gpt-4o-mini\">GPT-4o mini</SelectItem>\n          </SelectGroup>\n        </SelectContent>\n      </Select>\n      <p className=\"text-xs text-muted-foreground\">\n        Frontier models reason more deeply; fast models reply quicker.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

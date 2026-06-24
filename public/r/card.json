@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "Model selection card showing specs, a selected badge, and a call-to-action.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "card",
+    "badge",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/card.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  SparklesIcon,\n  ZapIcon,\n  Wallet01Icon,\n  AiBrain01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Button } from \"@/components/ui/button\"\n\nconst specs = [\n  { icon: AiBrain01Icon, label: \"Context\", value: \"200K\" },\n  { icon: ZapIcon, label: \"Speed\", value: \"Fast\" },\n  { icon: Wallet01Icon, label: \"Cost\", value: \"$15 / 1M\" },\n]\n\nexport default function CardExample() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <span className=\"flex size-7 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n            <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} className=\"size-4\" />\n          </span>\n          Claude Opus 4.8\n        </CardTitle>\n        <CardDescription>Anthropic · frontier reasoning</CardDescription>\n        <CardAction>\n          <Badge variant=\"secondary\">Selected</Badge>\n        </CardAction>\n      </CardHeader>\n      <CardContent className=\"grid grid-cols-3 gap-2\">\n        {specs.map((s) => (\n          <div key={s.label} className=\"rounded-lg border p-2.5 text-center\">\n            <HugeiconsIcon\n              icon={s.icon}\n              strokeWidth={2}\n              className=\"mx-auto mb-1 size-4 text-muted-foreground\"\n            />\n            <div className=\"text-sm font-medium\">{s.value}</div>\n            <div className=\"text-xs text-muted-foreground\">{s.label}</div>\n          </div>\n        ))}\n      </CardContent>\n      <CardFooter>\n        <Button className=\"w-full\">Use this model</Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

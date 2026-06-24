@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group",
+  "title": "Toggle Group",
+  "description": "Single-select toggle group for answer mode (Concise, Balanced, Creative).",
+  "registryDependencies": [
+    "toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/toggle-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"\n\nconst modes = [\"Concise\", \"Balanced\", \"Creative\"]\n\nexport default function ToggleGroupExample() {\n  const [mode, setMode] = React.useState(\"Balanced\")\n\n  return (\n    <div className=\"flex flex-col items-center gap-3\">\n      <span className=\"text-sm font-medium\">Answer mode</span>\n      <ToggleGroup\n        type=\"single\"\n        variant=\"outline\"\n        value={mode}\n        onValueChange={(v) => v && setMode(v)}\n      >\n        {modes.map((m) => (\n          <ToggleGroupItem\n            key={m}\n            value={m}\n            className=\"px-4 data-[state=on]:bg-primary/10 data-[state=on]:text-primary\"\n          >\n            {m}\n          </ToggleGroupItem>\n        ))}\n      </ToggleGroup>\n      <p className=\"text-xs text-muted-foreground\">\n        Temperature is tuned automatically for{\" \"}\n        <span className=\"font-medium text-foreground\">{mode}</span>.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

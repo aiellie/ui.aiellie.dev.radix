@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "voice-selector",
+  "title": "Voice Selector",
+  "description": "Searchable voice picker with gender, accent labels, and sample preview.",
+  "dependencies": [
+    "@radix-ui/react-use-controllable-state",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "command",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "registry/voice/voice-selector.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  PauseIcon,\n  PlayIcon,\n  Tick02Icon,\n  VoiceIdIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface Voice {\n  id: string\n  name: string\n  tags: string\n  gradient: string\n}\n\nconst DEFAULT_VOICES: Voice[] = [\n  {\n    id: \"aria\",\n    name: \"Aria\",\n    tags: \"Female · British\",\n    gradient: \"from-violet-500 to-fuchsia-500\",\n  },\n  {\n    id: \"atlas\",\n    name: \"Atlas\",\n    tags: \"Male · American\",\n    gradient: \"from-sky-500 to-cyan-500\",\n  },\n  {\n    id: \"nova\",\n    name: \"Nova\",\n    tags: \"Female · Neutral\",\n    gradient: \"from-amber-500 to-orange-500\",\n  },\n  {\n    id: \"echo\",\n    name: \"Echo\",\n    tags: \"Male · Australian\",\n    gradient: \"from-emerald-500 to-teal-500\",\n  },\n]\n\nexport function VoiceSelector({\n  voices = DEFAULT_VOICES,\n  defaultVoice = \"aria\",\n  className,\n}: {\n  voices?: Voice[]\n  defaultVoice?: string\n  className?: string\n}) {\n  const [selected, setSelected] = React.useState(defaultVoice)\n  const [playing, setPlaying] = React.useState<string | null>(null)\n\n  return (\n    <div\n      className={cn(\"grid w-full max-w-md gap-2 sm:grid-cols-2\", className)}\n    >\n      {voices.map((v) => {\n        const isSelected = selected === v.id\n        const isPlaying = playing === v.id\n        return (\n          <button\n            key={v.id}\n            type=\"button\"\n            onClick={() => setSelected(v.id)}\n            className={cn(\n              \"group relative flex items-center gap-3 rounded-xl border bg-card p-3 text-start transition-colors hover:border-ring\",\n              isSelected && \"border-primary ring-1 ring-primary\"\n            )}\n          >\n            <span className=\"relative shrink-0\">\n              <span\n                className={cn(\n                  \"flex size-9 items-center justify-center rounded-full bg-gradient-to-br text-white\",\n                  v.gradient\n                )}\n              >\n                <HugeiconsIcon icon={VoiceIdIcon} className=\"size-4.5\" />\n              </span>\n              {isSelected ? (\n                <span className=\"absolute -end-1 -bottom-1 flex size-4 items-center justify-center rounded-full border-2 border-card bg-primary text-primary-foreground\">\n                  <HugeiconsIcon icon={Tick02Icon} className=\"size-2.5\" />\n                </span>\n              ) : null}\n            </span>\n            <span className=\"flex min-w-0 flex-1 flex-col\">\n              <span className=\"truncate text-sm font-medium\">{v.name}</span>\n              <span className=\"truncate text-xs text-muted-foreground\">\n                {v.tags}\n              </span>\n            </span>\n            <span\n              role=\"button\"\n              tabIndex={0}\n              aria-label={isPlaying ? \"Pause sample\" : \"Play sample\"}\n              onClick={(e) => {\n                e.stopPropagation()\n                setPlaying(isPlaying ? null : v.id)\n              }}\n              onKeyDown={(e) => {\n                if (e.key === \"Enter\" || e.key === \" \") {\n                  e.preventDefault()\n                  e.stopPropagation()\n                  setPlaying(isPlaying ? null : v.id)\n                }\n              }}\n              className=\"flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors hover:text-foreground\"\n            >\n              <HugeiconsIcon\n                icon={isPlaying ? PauseIcon : PlayIcon}\n                className=\"size-3.5\"\n              />\n            </span>\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

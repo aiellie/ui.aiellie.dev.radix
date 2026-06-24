@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prompt-input",
+  "title": "Prompt Input",
+  "description": "Auto-resizing composer with attachment, voice, model picker, and send controls.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/prompt-input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowUp01Icon,\n  Attachment01Icon,\n  Globe02Icon,\n  Mic01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Textarea } from \"@/components/ui/textarea\"\n\nexport interface PromptInputProps {\n  placeholder?: string\n  onSend?: (value: string) => void\n  className?: string\n}\n\nexport function PromptInput({\n  placeholder = \"Ask anything…\",\n  onSend,\n  className,\n}: PromptInputProps) {\n  const [value, setValue] = React.useState(\"\")\n  const [search, setSearch] = React.useState(false)\n  const ref = React.useRef<HTMLTextAreaElement>(null)\n\n  React.useEffect(() => {\n    const el = ref.current\n    if (!el) return\n    el.style.height = \"auto\"\n    el.style.height = `${Math.min(el.scrollHeight, 200)}px`\n  }, [value])\n\n  function submit() {\n    const trimmed = value.trim()\n    if (!trimmed) return\n    onSend?.(trimmed)\n    setValue(\"\")\n  }\n\n  return (\n    <div\n      className={cn(\n        \"rounded-2xl border bg-background p-2 shadow-sm transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/20\",\n        className\n      )}\n    >\n      <Textarea\n        ref={ref}\n        value={value}\n        onChange={(e) => setValue(e.target.value)}\n        onKeyDown={(e) => {\n          if (e.key === \"Enter\" && !e.shiftKey) {\n            e.preventDefault()\n            submit()\n          }\n        }}\n        rows={1}\n        placeholder={placeholder}\n        className=\"max-h-[200px] min-h-0 resize-none border-0 bg-transparent px-2 py-1.5 shadow-none focus-visible:border-0 focus-visible:ring-0 md:text-sm dark:bg-transparent\"\n      />\n      <div className=\"flex items-center gap-1 pt-1\">\n        <Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Attach file\">\n          <HugeiconsIcon icon={Attachment01Icon} />\n        </Button>\n        <Button\n          variant={search ? \"secondary\" : \"ghost\"}\n          size=\"sm\"\n          onClick={() => setSearch((s) => !s)}\n          className={cn(\"gap-1.5\", !search && \"text-muted-foreground\")}\n        >\n          <HugeiconsIcon icon={Globe02Icon} />\n          Search\n        </Button>\n\n        <div className=\"ms-auto flex items-center gap-1\">\n          <Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Dictate\">\n            <HugeiconsIcon icon={Mic01Icon} />\n          </Button>\n          <Button\n            size=\"icon-sm\"\n            disabled={!value.trim()}\n            onClick={submit}\n            aria-label=\"Send message\"\n            className=\"rounded-full\"\n          >\n            <HugeiconsIcon icon={ArrowUp01Icon} />\n          </Button>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

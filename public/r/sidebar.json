@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar",
+  "title": "Sidebar",
+  "description": "Chat app sidebar layout with new chat, search, grouped history, and user profile footer.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/sidebar.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Add01Icon,\n  Search01Icon,\n  AiChat02Icon,\n  MoreHorizontalIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Avatar, AvatarFallback } from \"@/components/ui/avatar\"\n\nconst groups = [\n  {\n    label: \"Today\",\n    chats: [\"Refactor auth middleware\", \"Explain vector embeddings\"],\n  },\n  {\n    label: \"Yesterday\",\n    chats: [\"Q3 launch email draft\", \"Debug failing CI job\", \"SQL query tuning\"],\n  },\n  {\n    label: \"Previous 7 days\",\n    chats: [\"Trip itinerary for Lisbon\", \"Summarize research paper\"],\n  },\n]\n\nexport default function SidebarExample() {\n  return (\n    <div className=\"flex h-[26rem] w-72 flex-col overflow-hidden rounded-xl border bg-sidebar text-sidebar-foreground\">\n      <div className=\"flex flex-col gap-2 p-2\">\n        <Button className=\"justify-start\">\n          <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />\n          New chat\n        </Button>\n        <div className=\"relative\">\n          <HugeiconsIcon\n            icon={Search01Icon}\n            strokeWidth={2}\n            className=\"pointer-events-none absolute inset-y-0 start-2 my-auto size-4 text-muted-foreground\"\n          />\n          <input\n            placeholder=\"Search chats…\"\n            className=\"h-8 w-full rounded-lg border bg-background ps-8 pe-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/50\"\n          />\n        </div>\n      </div>\n      <div className=\"flex-1 overflow-y-auto px-2 pb-2\">\n        {groups.map((g) => (\n          <div key={g.label} className=\"mb-2\">\n            <p className=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\">\n              {g.label}\n            </p>\n            <div className=\"flex flex-col\">\n              {g.chats.map((c, i) => (\n                <button\n                  key={c}\n                  className={cn(\n                    \"group flex items-center gap-2 rounded-lg px-2 py-1.5 text-start text-sm\",\n                    g.label === \"Today\" && i === 0\n                      ? \"bg-sidebar-accent text-sidebar-accent-foreground\"\n                      : \"hover:bg-sidebar-accent/60\"\n                  )}\n                >\n                  <HugeiconsIcon\n                    icon={AiChat02Icon}\n                    strokeWidth={2}\n                    className=\"size-4 shrink-0 text-muted-foreground\"\n                  />\n                  <span className=\"flex-1 truncate\">{c}</span>\n                  <HugeiconsIcon\n                    icon={MoreHorizontalIcon}\n                    strokeWidth={2}\n                    className=\"size-4 shrink-0 text-muted-foreground opacity-0 group-hover:opacity-100\"\n                  />\n                </button>\n              ))}\n            </div>\n          </div>\n        ))}\n      </div>\n      <div className=\"flex items-center gap-2 border-t p-2\">\n        <Avatar size=\"sm\">\n          <AvatarFallback>EL</AvatarFallback>\n        </Avatar>\n        <div className=\"flex-1 leading-tight\">\n          <div className=\"text-sm font-medium\">Ellie Sophia</div>\n          <div className=\"text-xs text-muted-foreground\">Pro plan</div>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

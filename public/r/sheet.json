@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet",
+  "title": "Sheet",
+  "description": "Side panel for model settings including model select, temperature slider, and feature toggles.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "sheet",
+    "label",
+    "slider",
+    "switch",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/sheet.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Settings01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from \"@/components/ui/sheet\"\nimport { Label } from \"@/components/ui/label\"\nimport { Slider } from \"@/components/ui/slider\"\nimport { Switch } from \"@/components/ui/switch\"\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\"\n\nexport default function SheetExample() {\n  const [temp, setTemp] = React.useState([0.7])\n\n  return (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\">\n          <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />\n          Model settings\n        </Button>\n      </SheetTrigger>\n      <SheetContent className=\"flex flex-col\">\n        <SheetHeader>\n          <SheetTitle>Model settings</SheetTitle>\n          <SheetDescription>Tune how the assistant responds in this chat.</SheetDescription>\n        </SheetHeader>\n        <div className=\"grid flex-1 gap-6 px-4\">\n          <div className=\"grid gap-2\">\n            <Label>Model</Label>\n            <Select defaultValue=\"opus\">\n              <SelectTrigger className=\"w-full\">\n                <SelectValue />\n              </SelectTrigger>\n              <SelectContent>\n                <SelectItem value=\"opus\">Claude Opus 4.8</SelectItem>\n                <SelectItem value=\"sonnet\">Claude Sonnet 4.6</SelectItem>\n                <SelectItem value=\"haiku\">Claude Haiku 4.5</SelectItem>\n              </SelectContent>\n            </Select>\n          </div>\n          <div className=\"grid gap-3\">\n            <div className=\"flex items-center justify-between\">\n              <Label>Temperature</Label>\n              <span className=\"font-mono text-sm text-muted-foreground\">\n                {temp[0].toFixed(2)}\n              </span>\n            </div>\n            <Slider value={temp} onValueChange={setTemp} min={0} max={1} step={0.01} />\n          </div>\n          <div className=\"flex items-center justify-between\">\n            <Label htmlFor=\"sheet-web\">Web search</Label>\n            <Switch id=\"sheet-web\" defaultChecked />\n          </div>\n          <div className=\"flex items-center justify-between\">\n            <Label htmlFor=\"sheet-mem\">Use memory</Label>\n            <Switch id=\"sheet-mem\" />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose asChild>\n            <Button>Save changes</Button>\n          </SheetClose>\n          <SheetClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

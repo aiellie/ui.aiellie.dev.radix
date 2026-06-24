@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable",
+  "title": "Resizable",
+  "description": "Split chat and code-artifact panels with a draggable handle and syntax-highlighted code block.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "resizable",
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/resizable.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { CodeIcon } from \"@hugeicons/core-free-icons\"\n\nimport { CodeBlock } from \"@/components/ui/code/code-block\"\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from \"@/components/ui/resizable\"\n\nexport default function ResizableExample() {\n  return (\n    <ResizablePanelGroup\n      orientation=\"horizontal\"\n      className=\"h-[24rem] w-full max-w-2xl rounded-xl border\"\n    >\n      <ResizablePanel defaultSize={45} minSize={28}>\n        <div className=\"flex h-full flex-col gap-2 p-3\">\n          <span className=\"text-xs font-medium text-muted-foreground\">Chat</span>\n          <div className=\"ms-auto max-w-[85%] rounded-2xl rounded-br-sm bg-primary px-3 py-2 text-sm text-primary-foreground\">\n            Build me a counter component.\n          </div>\n          <div className=\"max-w-[85%] rounded-2xl rounded-bl-sm bg-muted px-3 py-2 text-sm\">\n            Done — open the artifact on the right and drag the divider to resize.\n          </div>\n        </div>\n      </ResizablePanel>\n      <ResizableHandle withHandle />\n      <ResizablePanel defaultSize={55} minSize={28}>\n        <div className=\"flex h-full flex-col\">\n          <div className=\"flex items-center gap-2 border-b px-3 py-2 text-xs font-medium text-muted-foreground\">\n            <HugeiconsIcon icon={CodeIcon} strokeWidth={2} className=\"size-4\" />\n            Counter.tsx · Artifact\n          </div>\n          <CodeBlock\n            className=\"flex-1 p-3\"\n            language=\"tsx\"\n            code={`export function Counter() {\n  const [n, setN] = useState(0)\n  return (\n    <button onClick={() => setN(n + 1)}>\n      Count: {n}\n    </button>\n  )\n}`}\n          />\n        </div>\n      </ResizablePanel>\n    </ResizablePanelGroup>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

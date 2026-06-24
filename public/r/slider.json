@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "description": "Dual sliders for temperature and max output tokens with live numeric readouts.",
+  "registryDependencies": [
+    "slider",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/slider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Slider } from \"@/components/ui/slider\"\nimport { Label } from \"@/components/ui/label\"\n\nexport default function SliderExample() {\n  const [temp, setTemp] = React.useState([0.7])\n  const [maxTokens, setMaxTokens] = React.useState([2048])\n\n  return (\n    <div className=\"w-full max-w-md space-y-7\">\n      <div className=\"space-y-3\">\n        <div className=\"flex items-center justify-between\">\n          <Label>Temperature</Label>\n          <span className=\"font-mono text-sm text-muted-foreground\">\n            {temp[0].toFixed(2)}\n          </span>\n        </div>\n        <Slider\n          value={temp}\n          onValueChange={setTemp}\n          min={0}\n          max={1}\n          step={0.01}\n        />\n        <div className=\"flex justify-between text-xs text-muted-foreground\">\n          <span>Precise</span>\n          <span>Creative</span>\n        </div>\n      </div>\n\n      <div className=\"space-y-3\">\n        <div className=\"flex items-center justify-between\">\n          <Label>Max output tokens</Label>\n          <span className=\"font-mono text-sm text-muted-foreground\">\n            {maxTokens[0].toLocaleString()}\n          </span>\n        </div>\n        <Slider\n          value={maxTokens}\n          onValueChange={setMaxTokens}\n          min={256}\n          max={8192}\n          step={256}\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

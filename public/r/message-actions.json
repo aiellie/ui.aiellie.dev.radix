@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "message-actions",
+  "title": "Message Actions",
+  "description": "Copy, regenerate, and feedback toolbar that sits under an assistant reply.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/message-actions.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport {\n  Copy01Icon,\n  RefreshIcon,\n  ThumbsDownIcon,\n  ThumbsUpIcon,\n  Tick02Icon,\n  VolumeHighIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\"\n\nfunction Action({\n  icon,\n  label,\n  active,\n  onClick,\n}: {\n  icon: IconSvgElement\n  label: string\n  active?: boolean\n  onClick?: () => void\n}) {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label={label}\n          aria-pressed={active}\n          onClick={onClick}\n          className={cn(\n            \"text-muted-foreground\",\n            active && \"bg-accent text-foreground\"\n          )}\n        >\n          <HugeiconsIcon icon={icon} />\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>{label}</TooltipContent>\n    </Tooltip>\n  )\n}\n\nexport function MessageActions({\n  value = \"\",\n  onRegenerate,\n  className,\n}: {\n  value?: string\n  onRegenerate?: () => void\n  className?: string\n}) {\n  const [copied, setCopied] = React.useState(false)\n  const [vote, setVote] = React.useState<\"up\" | \"down\" | null>(null)\n\n  React.useEffect(() => {\n    if (!copied) return\n    const t = setTimeout(() => setCopied(false), 2000)\n    return () => clearTimeout(t)\n  }, [copied])\n\n  return (\n    <div\n      className={cn(\n        \"inline-flex items-center gap-0.5 rounded-lg border bg-card p-0.5\",\n        className\n      )}\n    >\n      <Action\n        icon={copied ? Tick02Icon : Copy01Icon}\n        label={copied ? \"Copied\" : \"Copy\"}\n        onClick={() => {\n          navigator.clipboard.writeText(value).then(() => setCopied(true))\n        }}\n      />\n      <Action icon={RefreshIcon} label=\"Regenerate\" onClick={onRegenerate} />\n      <Action icon={VolumeHighIcon} label=\"Read aloud\" />\n      <span className=\"mx-0.5 h-5 w-px bg-border\" />\n      <Action\n        icon={ThumbsUpIcon}\n        label=\"Good response\"\n        active={vote === \"up\"}\n        onClick={() => setVote((v) => (v === \"up\" ? null : \"up\"))}\n      />\n      <Action\n        icon={ThumbsDownIcon}\n        label=\"Bad response\"\n        active={vote === \"down\"}\n        onClick={() => setVote((v) => (v === \"down\" ? null : \"down\"))}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

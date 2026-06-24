@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart",
+  "title": "Chart",
+  "description": "Stacked bar chart of weekly token usage by model inside a card with legend and tooltip.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/chart.tsx",
+      "content": "\"use client\"\n\nimport { Bar, BarChart, CartesianGrid, XAxis } from \"recharts\"\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/components/ui/chart\"\n\nconst data = [\n  { day: \"Mon\", opus: 38, haiku: 64 },\n  { day: \"Tue\", opus: 52, haiku: 71 },\n  { day: \"Wed\", opus: 41, haiku: 88 },\n  { day: \"Thu\", opus: 67, haiku: 73 },\n  { day: \"Fri\", opus: 58, haiku: 96 },\n  { day: \"Sat\", opus: 22, haiku: 40 },\n  { day: \"Sun\", opus: 19, haiku: 33 },\n]\n\nconst config = {\n  opus: { label: \"Opus 4.8\", color: \"var(--chart-4)\" },\n  haiku: { label: \"Haiku 4.5\", color: \"var(--chart-2)\" },\n} satisfies ChartConfig\n\nexport default function ChartExample() {\n  return (\n    <Card className=\"w-full max-w-lg\">\n      <CardHeader>\n        <CardTitle>Token usage</CardTitle>\n        <CardDescription>Thousands of tokens · last 7 days, by model</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={config} className=\"h-[220px] w-full\">\n          <BarChart accessibilityLayer data={data}>\n            <CartesianGrid vertical={false} />\n            <XAxis\n              dataKey=\"day\"\n              tickLine={false}\n              axisLine={false}\n              tickMargin={8}\n            />\n            <ChartTooltip content={<ChartTooltipContent />} />\n            <ChartLegend content={<ChartLegendContent />} />\n            <Bar dataKey=\"opus\" fill=\"var(--color-opus)\" radius={[4, 4, 0, 0]} />\n            <Bar dataKey=\"haiku\" fill=\"var(--color-haiku)\" radius={[4, 4, 0, 0]} />\n          </BarChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

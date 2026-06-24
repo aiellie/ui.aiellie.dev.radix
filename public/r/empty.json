@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "title": "Empty",
+  "description": "Empty chat state with icon, title, description, and suggested starter prompts.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "empty",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/empty.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SparklesIcon } from \"@hugeicons/core-free-icons\"\n\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\"\nimport { Button } from \"@/components/ui/button\"\n\nconst suggestions = [\n  \"Draft a follow-up email\",\n  \"Explain this error\",\n  \"Plan my week\",\n  \"Summarize a PDF\",\n]\n\nexport default function EmptyExample() {\n  return (\n    <Empty className=\"w-full max-w-md rounded-xl border border-dashed\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} />\n        </EmptyMedia>\n        <EmptyTitle>Start a conversation</EmptyTitle>\n        <EmptyDescription>\n          Ask anything, or try one of these to get going.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <div className=\"flex flex-wrap justify-center gap-2\">\n          {suggestions.map((s) => (\n            <Button key={s} variant=\"outline\" size=\"sm\">\n              {s}\n            </Button>\n          ))}\n        </div>\n      </EmptyContent>\n    </Empty>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker",
+  "title": "Date Picker",
+  "description": "Popover date picker for filtering conversations by day with formatted display text.",
+  "dependencies": [
+    "date-fns",
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "label",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/date-picker.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { format } from \"date-fns\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Calendar03Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Label } from \"@/components/ui/label\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\nexport default function DatePickerExample() {\n  const [date, setDate] = React.useState<Date | undefined>()\n\n  return (\n    <div className=\"w-full max-w-xs space-y-2\">\n      <Label>Filter conversations by day</Label>\n      <Popover>\n        <PopoverTrigger asChild>\n          <Button\n            variant=\"outline\"\n            className=\"w-full justify-start font-normal data-[empty=true]:text-muted-foreground\"\n            data-empty={!date}\n          >\n            <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />\n            {date ? format(date, \"PPP\") : \"Pick a date\"}\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent className=\"w-auto p-0\" align=\"start\">\n          <Calendar\n            mode=\"single\"\n            selected={date}\n            onSelect={setDate}\n            defaultMonth={date}\n          />\n        </PopoverContent>\n      </Popover>\n      <p className=\"text-xs text-muted-foreground\">\n        Showing analytics for {date ? format(date, \"MMMM d\") : \"all time\"}.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

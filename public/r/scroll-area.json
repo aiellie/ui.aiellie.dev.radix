@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "title": "Scroll Area",
+  "description": "Scrollable chat transcript container with alternating user and assistant message bubbles.",
+  "registryDependencies": [
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/scroll-area.tsx",
+      "content": "\"use client\"\n\nimport { cn } from \"@/lib/utils\"\nimport { ScrollArea } from \"@/components/ui/scroll-area\"\n\nconst messages: { role: \"user\" | \"assistant\"; text: string }[] = [\n  { role: \"user\", text: \"Can you explain what a vector embedding is?\" },\n  { role: \"assistant\", text: \"An embedding maps text into a list of numbers so similar meanings land close together in space.\" },\n  { role: \"user\", text: \"How many dimensions are typical?\" },\n  { role: \"assistant\", text: \"Often 256–3072. More dimensions can capture more nuance but cost more to store and compare.\" },\n  { role: \"user\", text: \"And how do I search them?\" },\n  { role: \"assistant\", text: \"You compute the query embedding, then rank stored vectors by cosine similarity — that's nearest-neighbor search.\" },\n  { role: \"user\", text: \"Got it. Any libraries you'd recommend?\" },\n  { role: \"assistant\", text: \"For a quick start: pgvector if you're on Postgres, or a managed vector DB if you need scale and filtering.\" },\n]\n\nexport default function ScrollAreaExample() {\n  return (\n    <ScrollArea className=\"h-80 w-full max-w-md rounded-xl border bg-card\">\n      <div className=\"flex flex-col gap-3 p-4\">\n        {messages.map((m, i) => (\n          <div\n            key={i}\n            className={cn(\n              \"flex\",\n              m.role === \"user\" ? \"justify-end\" : \"justify-start\"\n            )}\n          >\n            <div\n              className={cn(\n                \"max-w-[80%] rounded-2xl px-3.5 py-2 text-sm\",\n                m.role === \"user\"\n                  ? \"rounded-br-sm bg-primary text-primary-foreground\"\n                  : \"rounded-bl-sm bg-muted\"\n              )}\n            >\n              {m.text}\n            </div>\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

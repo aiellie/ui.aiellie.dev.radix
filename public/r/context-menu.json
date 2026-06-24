@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "title": "Context Menu",
+  "description": "Right-click menu on an assistant message with copy, quote, regenerate, and report actions.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "context-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/context-menu.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Copy01Icon,\n  Message02Icon,\n  RefreshIcon,\n  VolumeHighIcon,\n  Bookmark01Icon,\n  Alert02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport {\n  ContextMenu,\n  ContextMenuContent,\n  ContextMenuItem,\n  ContextMenuSeparator,\n  ContextMenuShortcut,\n  ContextMenuTrigger,\n} from \"@/components/ui/context-menu\"\n\nexport default function ContextMenuExample() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col items-start gap-2\">\n      <ContextMenu>\n        <ContextMenuTrigger asChild>\n          <div className=\"max-w-[85%] cursor-context-menu rounded-2xl rounded-bl-sm bg-muted px-3.5 py-2.5 text-sm select-none\">\n            A vector database stores embeddings and lets you retrieve the most\n            semantically similar items to a query.\n          </div>\n        </ContextMenuTrigger>\n        <ContextMenuContent className=\"w-52\">\n          <ContextMenuItem>\n            <HugeiconsIcon icon={Copy01Icon} strokeWidth={2} />\n            Copy\n            <ContextMenuShortcut>⌘C</ContextMenuShortcut>\n          </ContextMenuItem>\n          <ContextMenuItem>\n            <HugeiconsIcon icon={Message02Icon} strokeWidth={2} />\n            Quote reply\n          </ContextMenuItem>\n          <ContextMenuItem>\n            <HugeiconsIcon icon={RefreshIcon} strokeWidth={2} />\n            Regenerate\n          </ContextMenuItem>\n          <ContextMenuItem>\n            <HugeiconsIcon icon={VolumeHighIcon} strokeWidth={2} />\n            Read aloud\n          </ContextMenuItem>\n          <ContextMenuSeparator />\n          <ContextMenuItem>\n            <HugeiconsIcon icon={Bookmark01Icon} strokeWidth={2} />\n            Save to memory\n          </ContextMenuItem>\n          <ContextMenuItem className=\"text-destructive focus:text-destructive\">\n            <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} />\n            Report\n          </ContextMenuItem>\n        </ContextMenuContent>\n      </ContextMenu>\n      <span className=\"ps-1 text-xs text-muted-foreground\">\n        Right-click the message ↑\n      </span>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

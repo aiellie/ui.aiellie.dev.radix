@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prompt-suggestions",
+  "title": "Prompt Suggestions",
+  "description": "A grid of suggested starter prompts to kick off a conversation.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/prompt-suggestions.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport {\n  ArrowUpRight01Icon,\n  BookOpen01Icon,\n  PaintBoardIcon,\n  PenTool03Icon,\n  SourceCodeIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface Suggestion {\n  icon: IconSvgElement\n  title: string\n  subtitle: string\n}\n\nconst DEFAULT_SUGGESTIONS: Suggestion[] = [\n  {\n    icon: PenTool03Icon,\n    title: \"Write a first draft\",\n    subtitle: \"for a launch announcement\",\n  },\n  {\n    icon: SourceCodeIcon,\n    title: \"Debug a function\",\n    subtitle: \"and explain the fix step by step\",\n  },\n  {\n    icon: PaintBoardIcon,\n    title: \"Brainstorm names\",\n    subtitle: \"for a new design system\",\n  },\n  {\n    icon: BookOpen01Icon,\n    title: \"Summarize an article\",\n    subtitle: \"into five key takeaways\",\n  },\n]\n\nexport function PromptSuggestions({\n  suggestions = DEFAULT_SUGGESTIONS,\n  onSelect,\n  className,\n}: {\n  suggestions?: Suggestion[]\n  onSelect?: (suggestion: Suggestion) => void\n  className?: string\n}) {\n  return (\n    <div className={cn(\"grid gap-2 sm:grid-cols-2\", className)}>\n      {suggestions.map((suggestion, i) => (\n        <button\n          key={i}\n          type=\"button\"\n          onClick={() => onSelect?.(suggestion)}\n          className=\"group flex items-start gap-3 rounded-xl border bg-card p-3 text-start transition-colors hover:border-ring hover:bg-accent\"\n        >\n          <span className=\"flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n            <HugeiconsIcon icon={suggestion.icon} className=\"size-4\" />\n          </span>\n          <span className=\"flex min-w-0 flex-1 flex-col\">\n            <span className=\"text-sm font-medium\">{suggestion.title}</span>\n            <span className=\"truncate text-xs text-muted-foreground\">\n              {suggestion.subtitle}\n            </span>\n          </span>\n          <HugeiconsIcon\n            icon={ArrowUpRight01Icon}\n            className=\"size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100\"\n          />\n        </button>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

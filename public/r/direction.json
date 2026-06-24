@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction",
+  "title": "Direction",
+  "description": "LTR/RTL toggle showing mirrored chat bubbles, input placeholder, and send icon alignment.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "direction",
+    "toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/direction.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SentIcon } from \"@hugeicons/core-free-icons\"\n\nimport { DirectionProvider } from \"@/components/ui/direction\"\nimport { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"\n\nexport default function DirectionExample() {\n  const [dir, setDir] = React.useState<\"ltr\" | \"rtl\">(\"ltr\")\n\n  return (\n    <DirectionProvider dir={dir}>\n      <div className=\"w-full max-w-md space-y-4\">\n        <ToggleGroup\n          type=\"single\"\n          variant=\"outline\"\n          value={dir}\n          onValueChange={(v) => v && setDir(v as \"ltr\" | \"rtl\")}\n          className=\"justify-center\"\n        >\n          <ToggleGroupItem value=\"ltr\" className=\"px-4\">\n            LTR · English\n          </ToggleGroupItem>\n          <ToggleGroupItem value=\"rtl\" className=\"px-4\">\n            RTL · עברית\n          </ToggleGroupItem>\n        </ToggleGroup>\n\n        <div dir={dir} className=\"space-y-3 rounded-xl border p-3\">\n          <div className=\"me-auto max-w-[85%] rounded-2xl rounded-bl-sm bg-muted px-3.5 py-2 text-sm\">\n            {dir === \"ltr\"\n              ? \"Hello! How can I help you today?\"\n              : \"שלום! איך אפשר לעזור לך היום?\"}\n          </div>\n          <div className=\"ms-auto max-w-[85%] rounded-2xl rounded-br-sm bg-primary px-3.5 py-2 text-sm text-primary-foreground\">\n            {dir === \"ltr\"\n              ? \"Summarize this article for me.\"\n              : \"סכם לי את המאמר הזה.\"}\n          </div>\n          <div className=\"flex items-center gap-2 rounded-full border bg-card p-1 ps-3\">\n            <input\n              dir={dir}\n              placeholder={dir === \"ltr\" ? \"Message…\" : \"כתוב הודעה…\"}\n              className=\"min-w-0 flex-1 bg-transparent text-sm outline-none\"\n            />\n            <button\n              className=\"flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground\"\n              aria-label=\"Send\"\n            >\n              <HugeiconsIcon\n                icon={SentIcon}\n                strokeWidth={2}\n                className=\"size-4 rtl:-scale-x-100\"\n              />\n            </button>\n          </div>\n        </div>\n        <p className=\"text-center text-xs text-muted-foreground\">\n          Alignment, spacing, and the send icon all mirror automatically.\n        </p>\n      </div>\n    </DirectionProvider>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

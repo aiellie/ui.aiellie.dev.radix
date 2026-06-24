@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "artifact",
+  "title": "Artifact",
+  "description": "Framed artifact panel with a title, type badge, and copy/download actions.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/code/artifact.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowExpand01Icon,\n  Copy01Icon,\n  CubeIcon,\n  Download04Icon,\n  Tick02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function Artifact({\n  title = \"pricing-section.tsx\",\n  type = \"React\",\n  children,\n  className,\n}: {\n  title?: string\n  type?: string\n  children?: React.ReactNode\n  className?: string\n}) {\n  const [copied, setCopied] = React.useState(false)\n\n  return (\n    <div\n      className={cn(\n        \"w-full max-w-md overflow-hidden rounded-xl border bg-card shadow-sm\",\n        className\n      )}\n    >\n      <div className=\"flex items-center gap-2.5 border-b bg-muted/30 px-3 py-2\">\n        <span className=\"flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={CubeIcon} className=\"size-3.5\" />\n        </span>\n        <span className=\"truncate text-sm font-medium\">{title}</span>\n        <span className=\"rounded-full border bg-background px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground\">\n          {type}\n        </span>\n        <div className=\"ms-auto flex items-center gap-0.5\">\n          <button\n            type=\"button\"\n            onClick={() => {\n              setCopied(true)\n              setTimeout(() => setCopied(false), 1500)\n            }}\n            aria-label=\"Copy\"\n            className=\"flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground\"\n          >\n            <HugeiconsIcon\n              icon={copied ? Tick02Icon : Copy01Icon}\n              className=\"size-4\"\n            />\n          </button>\n          <button\n            type=\"button\"\n            aria-label=\"Download\"\n            className=\"flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground\"\n          >\n            <HugeiconsIcon icon={Download04Icon} className=\"size-4\" />\n          </button>\n          <button\n            type=\"button\"\n            aria-label=\"Expand\"\n            className=\"flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground\"\n          >\n            <HugeiconsIcon icon={ArrowExpand01Icon} className=\"size-4\" />\n          </button>\n        </div>\n      </div>\n      <div className=\"p-4\">{children ?? <DefaultArtifact />}</div>\n    </div>\n  )\n}\n\nfunction DefaultArtifact() {\n  return (\n    <div className=\"rounded-xl border bg-gradient-to-br from-muted/50 to-background p-5 text-center\">\n      <p className=\"text-xs font-medium text-primary\">PRO</p>\n      <p className=\"mt-1 text-2xl font-semibold\">\n        $29\n        <span className=\"text-sm font-normal text-muted-foreground\">/mo</span>\n      </p>\n      <p className=\"mt-1 text-xs text-muted-foreground\">\n        Everything you need to ship.\n      </p>\n      <div className=\"mt-3 rounded-lg bg-primary py-2 text-xs font-medium text-primary-foreground\">\n        Get started\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

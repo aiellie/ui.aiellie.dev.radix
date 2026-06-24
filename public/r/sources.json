@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sources",
+  "title": "Sources",
+  "description": "Collapsible list of the web sources cited in a RAG answer.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/sources.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowDown01Icon,\n  ArrowUpRight01Icon,\n  Globe02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/components/ui/collapsible\"\n\nexport interface Source {\n  title: string\n  url: string\n}\n\nconst DEFAULT_SOURCES: Source[] = [\n  { title: \"Next.js 15 — release notes\", url: \"https://nextjs.org/blog/next-15\" },\n  {\n    title: \"App Router caching documentation\",\n    url: \"https://nextjs.org/docs/app/building-your-application/caching\",\n  },\n  {\n    title: \"Turbopack architecture overview\",\n    url: \"https://nextjs.org/docs/architecture/turbopack\",\n  },\n  { title: \"React 19 — what's new\", url: \"https://react.dev/blog\" },\n]\n\nfunction hostname(url: string) {\n  try {\n    return new URL(url).hostname.replace(/^www\\./, \"\")\n  } catch {\n    return url\n  }\n}\n\nexport function Sources({\n  sources = DEFAULT_SOURCES,\n  defaultOpen = false,\n  className,\n}: {\n  sources?: Source[]\n  defaultOpen?: boolean\n  className?: string\n}) {\n  const [open, setOpen] = React.useState(defaultOpen)\n\n  return (\n    <Collapsible\n      open={open}\n      onOpenChange={setOpen}\n      className={cn(\"w-full max-w-md rounded-xl border bg-card\", className)}\n    >\n      <CollapsibleTrigger className=\"flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-start text-sm transition-colors hover:bg-accent\">\n        <span className=\"flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={Globe02Icon} className=\"size-3.5\" />\n        </span>\n        <span className=\"font-medium\">Used {sources.length} sources</span>\n        <HugeiconsIcon\n          icon={ArrowDown01Icon}\n          className={cn(\n            \"ms-auto size-4 text-muted-foreground transition-transform\",\n            open && \"rotate-180\"\n          )}\n        />\n      </CollapsibleTrigger>\n      <CollapsibleContent>\n        <ul className=\"flex flex-col gap-1 px-2 pb-2\">\n          {sources.map((s) => (\n            <li key={s.url}>\n              <a\n                href={s.url}\n                target=\"_blank\"\n                rel=\"noreferrer\"\n                className=\"group flex items-center gap-2.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-accent\"\n              >\n                <span className=\"flex size-6 shrink-0 items-center justify-center rounded-md border bg-background text-[11px] font-semibold text-muted-foreground uppercase\">\n                  {hostname(s.url).charAt(0)}\n                </span>\n                <span className=\"flex min-w-0 flex-1 flex-col\">\n                  <span className=\"truncate text-sm leading-tight font-medium\">\n                    {s.title}\n                  </span>\n                  <span className=\"truncate text-xs text-muted-foreground\">\n                    {hostname(s.url)}\n                  </span>\n                </span>\n                <HugeiconsIcon\n                  icon={ArrowUpRight01Icon}\n                  className=\"size-3.5 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100\"\n                />\n              </a>\n            </li>\n          ))}\n        </ul>\n      </CollapsibleContent>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

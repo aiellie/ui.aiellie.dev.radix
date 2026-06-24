@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "title": "Sonner",
+  "description": "Toast notifications for copy, save, error, and promise-based async actions via Sonner.",
+  "dependencies": [
+    "sonner"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/sonner.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function SonnerExample() {\n  return (\n    <div className=\"grid w-full max-w-md grid-cols-2 gap-2\">\n      <Button\n        variant=\"outline\"\n        onClick={() => toast.success(\"Response copied to clipboard\")}\n      >\n        Copy response\n      </Button>\n      <Button\n        variant=\"outline\"\n        onClick={() => toast(\"Saved to memory\", { description: \"The assistant will remember this.\" })}\n      >\n        Save to memory\n      </Button>\n      <Button\n        variant=\"outline\"\n        onClick={() =>\n          toast.error(\"Rate limit reached\", {\n            description: \"Try again in 30 seconds.\",\n          })\n        }\n      >\n        Trigger error\n      </Button>\n      <Button\n        variant=\"outline\"\n        onClick={() =>\n          toast.promise(\n            new Promise((resolve) => setTimeout(resolve, 1800)),\n            {\n              loading: \"Generating image…\",\n              success: \"Image ready\",\n              error: \"Generation failed\",\n            }\n          )\n        }\n      >\n        Generate image\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "Horizontal and vertical dividers for chat date labels, context boundaries, and model stats.",
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/separator.tsx",
+      "content": "\"use client\"\n\nimport { Separator } from \"@/components/ui/separator\"\n\nexport default function SeparatorExample() {\n  return (\n    <div className=\"w-full max-w-md space-y-4\">\n      <div className=\"flex items-center gap-3 text-xs text-muted-foreground\">\n        <Separator className=\"flex-1\" />\n        <span className=\"shrink-0\">Today</span>\n        <Separator className=\"flex-1\" />\n      </div>\n\n      <div className=\"space-y-2\">\n        <div className=\"ms-auto w-fit rounded-2xl rounded-br-sm bg-primary px-3.5 py-2 text-sm text-primary-foreground\">\n          What changed in this PR?\n        </div>\n        <div className=\"w-fit rounded-2xl rounded-bl-sm bg-muted px-3.5 py-2 text-sm\">\n          It refactors the auth middleware and adds rate limiting.\n        </div>\n      </div>\n\n      <div className=\"flex items-center gap-3 text-xs text-muted-foreground\">\n        <Separator className=\"flex-1\" />\n        <span className=\"shrink-0\">Context window starts here</span>\n        <Separator className=\"flex-1\" />\n      </div>\n\n      <div className=\"flex h-5 items-center justify-center gap-3 text-xs text-muted-foreground\">\n        <span>GPT-4o</span>\n        <Separator orientation=\"vertical\" />\n        <span>2,048 tokens</span>\n        <Separator orientation=\"vertical\" />\n        <span>$0.004</span>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

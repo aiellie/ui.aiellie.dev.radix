@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select",
+  "title": "Native Select",
+  "description": "Native HTML select with optgroups for choosing a model tier on mobile-friendly forms.",
+  "registryDependencies": [
+    "native-select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/native-select.tsx",
+      "content": "\"use client\"\n\nimport {\n  NativeSelect,\n  NativeSelectOptGroup,\n  NativeSelectOption,\n} from \"@/components/ui/native-select\"\nimport { Label } from \"@/components/ui/label\"\n\nexport default function NativeSelectExample() {\n  return (\n    <div className=\"w-full max-w-xs space-y-2\">\n      <Label htmlFor=\"tier\">Model tier</Label>\n      <NativeSelect id=\"tier\" defaultValue=\"balanced\" className=\"w-full\">\n        <NativeSelectOptGroup label=\"Recommended\">\n          <NativeSelectOption value=\"balanced\">Balanced — GPT-4o</NativeSelectOption>\n          <NativeSelectOption value=\"fast\">Fast — GPT-4o mini</NativeSelectOption>\n        </NativeSelectOptGroup>\n        <NativeSelectOptGroup label=\"Advanced\">\n          <NativeSelectOption value=\"reasoning\">Reasoning — o3</NativeSelectOption>\n          <NativeSelectOption value=\"local\">Local — Llama 3.1 8B</NativeSelectOption>\n        </NativeSelectOptGroup>\n      </NativeSelect>\n      <p className=\"text-xs text-muted-foreground\">\n        A lightweight native control — ideal on mobile.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

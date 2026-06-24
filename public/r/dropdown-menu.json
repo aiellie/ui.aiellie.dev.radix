@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu",
+  "title": "Dropdown Menu",
+  "description": "Message options menu with copy, regenerate, nested model selection, and report.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/dropdown-menu.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  MoreHorizontalIcon,\n  Copy01Icon,\n  RefreshIcon,\n  Message02Icon,\n  AiBrain01Icon,\n  Alert02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\"\n\nexport default function DropdownMenuExample() {\n  const [model, setModel] = React.useState(\"opus\")\n\n  return (\n    <div className=\"flex items-center gap-2\">\n      <span className=\"text-sm text-muted-foreground\">Answered by Opus 4.8</span>\n      <DropdownMenu>\n        <DropdownMenuTrigger asChild>\n          <Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Message options\">\n            <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />\n          </Button>\n        </DropdownMenuTrigger>\n        <DropdownMenuContent align=\"end\" className=\"w-52\">\n          <DropdownMenuLabel>Message</DropdownMenuLabel>\n          <DropdownMenuItem>\n            <HugeiconsIcon icon={Copy01Icon} strokeWidth={2} />\n            Copy\n            <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <HugeiconsIcon icon={Message02Icon} strokeWidth={2} />\n            Quote reply\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <HugeiconsIcon icon={RefreshIcon} strokeWidth={2} />\n            Regenerate\n          </DropdownMenuItem>\n          <DropdownMenuSeparator />\n          <DropdownMenuSub>\n            <DropdownMenuSubTrigger>\n              <HugeiconsIcon icon={AiBrain01Icon} strokeWidth={2} />\n              Regenerate with\n            </DropdownMenuSubTrigger>\n            <DropdownMenuSubContent>\n              <DropdownMenuRadioGroup value={model} onValueChange={setModel}>\n                <DropdownMenuRadioItem value=\"opus\">Claude Opus 4.8</DropdownMenuRadioItem>\n                <DropdownMenuRadioItem value=\"sonnet\">Claude Sonnet 4.6</DropdownMenuRadioItem>\n                <DropdownMenuRadioItem value=\"gpt\">GPT-4o</DropdownMenuRadioItem>\n              </DropdownMenuRadioGroup>\n            </DropdownMenuSubContent>\n          </DropdownMenuSub>\n          <DropdownMenuSeparator />\n          <DropdownMenuItem className=\"text-destructive focus:text-destructive\">\n            <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} />\n            Report response\n          </DropdownMenuItem>\n        </DropdownMenuContent>\n      </DropdownMenu>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

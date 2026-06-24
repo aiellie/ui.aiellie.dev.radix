@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card",
+  "title": "Hover Card",
+  "description": "Inline citation superscript that previews source title, relevance score, and excerpt on hover.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "hover-card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/hover-card.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Globe02Icon } from \"@hugeicons/core-free-icons\"\n\nimport {\n  HoverCard,\n  HoverCardContent,\n  HoverCardTrigger,\n} from \"@/components/ui/hover-card\"\nimport { Badge } from \"@/components/ui/badge\"\n\nexport default function HoverCardExample() {\n  return (\n    <p className=\"max-w-md text-pretty text-sm leading-relaxed\">\n      Next.js 16 makes the App Router the default and ships Turbopack as the\n      stable bundler\n      <HoverCard>\n        <HoverCardTrigger asChild>\n          <sup>\n            <button className=\"ms-0.5 inline-flex size-4 cursor-pointer items-center justify-center rounded bg-primary/10 align-super text-[0.6rem] font-semibold text-primary hover:bg-primary/20\">\n              1\n            </button>\n          </sup>\n        </HoverCardTrigger>\n        <HoverCardContent className=\"w-80\">\n          <div className=\"flex items-start justify-between gap-2\">\n            <div className=\"flex items-center gap-1.5 text-xs text-muted-foreground\">\n              <HugeiconsIcon icon={Globe02Icon} strokeWidth={2} className=\"size-3.5\" />\n              nextjs.org\n            </div>\n            <Badge variant=\"secondary\">98% relevant</Badge>\n          </div>\n          <p className=\"mt-2 text-sm font-medium\">Next.js 16 — Release Blog</p>\n          <p className=\"mt-1 text-xs text-muted-foreground\">\n            “Turbopack is now stable for both development and production builds,\n            delivering faster cold starts and incremental compilation.”\n          </p>\n        </HoverCardContent>\n      </HoverCard>{\" \"}\n      for production builds — hover the citation to preview the source.\n    </p>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

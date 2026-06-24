@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "title": "Label",
+  "description": "Form labels paired with required agent name and masked API key inputs.",
+  "registryDependencies": [
+    "label",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/label.tsx",
+      "content": "\"use client\"\n\nimport { Label } from \"@/components/ui/label\"\nimport { Input } from \"@/components/ui/input\"\n\nexport default function LabelExample() {\n  return (\n    <div className=\"w-full max-w-sm space-y-4\">\n      <div className=\"space-y-2\">\n        <Label htmlFor=\"agent-name\">\n          Agent name\n          <span className=\"text-destructive\">*</span>\n        </Label>\n        <Input id=\"agent-name\" placeholder=\"Research assistant\" />\n      </div>\n      <div className=\"space-y-2\">\n        <Label htmlFor=\"api-key\" className=\"text-muted-foreground\">\n          Provider API key\n        </Label>\n        <Input\n          id=\"api-key\"\n          type=\"password\"\n          defaultValue=\"sk-aiellie-xxxxxxxx\"\n          className=\"font-mono\"\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

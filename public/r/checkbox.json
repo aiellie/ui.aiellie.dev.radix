@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "Multi-select checklist for enabling agent tools like web search and file analysis.",
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/checkbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Checkbox } from \"@/components/ui/checkbox\"\nimport { Label } from \"@/components/ui/label\"\n\nconst tools = [\n  { id: \"web\", label: \"Web search\", desc: \"Browse the live web for fresh facts.\", on: true },\n  { id: \"code\", label: \"Code interpreter\", desc: \"Run Python in a sandbox.\", on: true },\n  { id: \"image\", label: \"Image generation\", desc: \"Create images from prompts.\", on: false },\n  { id: \"files\", label: \"File analysis\", desc: \"Read uploaded documents.\", on: true },\n]\n\nexport default function CheckboxExample() {\n  const [state, setState] = React.useState<Record<string, boolean>>(\n    Object.fromEntries(tools.map((t) => [t.id, t.on]))\n  )\n\n  return (\n    <div className=\"w-full max-w-md space-y-3\">\n      <p className=\"text-sm font-medium\">Tools the agent may use</p>\n      <div className=\"space-y-3\">\n        {tools.map((t) => (\n          <div key={t.id} className=\"flex items-start gap-3\">\n            <Checkbox\n              id={t.id}\n              checked={state[t.id]}\n              onCheckedChange={(v) =>\n                setState((s) => ({ ...s, [t.id]: Boolean(v) }))\n              }\n              className=\"mt-0.5\"\n            />\n            <div className=\"grid gap-0.5 leading-snug\">\n              <Label htmlFor={t.id}>{t.label}</Label>\n              <span className=\"text-xs text-muted-foreground\">{t.desc}</span>\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

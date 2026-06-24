@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "Structured settings form with legends, horizontal switch fields, and a stop-sequence input.",
+  "registryDependencies": [
+    "field",
+    "input",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/field.tsx",
+      "content": "\"use client\"\n\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSeparator,\n  FieldSet,\n} from \"@/components/ui/field\"\nimport { Input } from \"@/components/ui/input\"\nimport { Switch } from \"@/components/ui/switch\"\n\nexport default function FieldExample() {\n  return (\n    <FieldSet className=\"w-full max-w-md\">\n      <FieldLegend>Assistant settings</FieldLegend>\n      <FieldGroup>\n        <Field orientation=\"horizontal\">\n          <FieldContent>\n            <FieldLabel htmlFor=\"stream\">Stream responses</FieldLabel>\n            <FieldDescription>Show tokens as they are generated.</FieldDescription>\n          </FieldContent>\n          <Switch id=\"stream\" defaultChecked />\n        </Field>\n        <FieldSeparator />\n        <Field orientation=\"horizontal\">\n          <FieldContent>\n            <FieldLabel htmlFor=\"memory\">Long-term memory</FieldLabel>\n            <FieldDescription>Let the assistant remember facts across chats.</FieldDescription>\n          </FieldContent>\n          <Switch id=\"memory\" />\n        </Field>\n        <FieldSeparator />\n        <Field>\n          <FieldLabel htmlFor=\"stop\">Stop sequence</FieldLabel>\n          <Input id=\"stop\" placeholder=\"e.g. \\n\\nUser:\" className=\"font-mono\" />\n          <FieldDescription>Generation halts when this string appears.</FieldDescription>\n        </Field>\n      </FieldGroup>\n    </FieldSet>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

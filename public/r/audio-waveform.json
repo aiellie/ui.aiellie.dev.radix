@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "audio-waveform",
+  "title": "Audio Waveform",
+  "description": "Waveform player with animated bars and seek-on-click.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/media/audio-waveform.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { PauseIcon, PlayIcon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Card, CardContent } from \"@/components/ui/card\"\n\nconst BAR_COUNT = 56\n\nfunction useBars(count: number) {\n  return React.useMemo(() => {\n    // Deterministic pseudo-random heights so SSR and client match.\n    return Array.from({ length: count }, (_, i) => {\n      const v = Math.sin(i * 0.5) * Math.cos(i * 0.13) * 0.5 + 0.5\n      return 0.25 + v * 0.75\n    })\n  }, [count])\n}\n\nexport function AudioWaveform({\n  duration = 168,\n  className,\n}: {\n  duration?: number\n  className?: string\n}) {\n  const bars = useBars(BAR_COUNT)\n  const [playing, setPlaying] = React.useState(false)\n  const [progress, setProgress] = React.useState(0.4)\n\n  React.useEffect(() => {\n    if (!playing) return\n    const id = setInterval(() => {\n      setProgress((p) => (p >= 1 ? 0 : p + 1 / duration))\n    }, 1000)\n    return () => clearInterval(id)\n  }, [playing, duration])\n\n  const played = Math.round(progress * BAR_COUNT)\n\n  return (\n    <Card className={cn(\"w-full max-w-md gap-0 rounded-2xl py-0 shadow-sm\", className)}>\n      <CardContent className=\"flex items-center gap-3 p-3\">\n        <Button\n          size=\"icon-lg\"\n          aria-label={playing ? \"Pause\" : \"Play\"}\n          onClick={() => setPlaying((p) => !p)}\n          className=\"shrink-0 rounded-full\"\n        >\n          <HugeiconsIcon icon={playing ? PauseIcon : PlayIcon} />\n        </Button>\n\n        <div\n          className=\"flex h-12 flex-1 items-center gap-[2px]\"\n          role=\"slider\"\n          aria-label=\"Seek\"\n          aria-valuenow={Math.round(progress * 100)}\n        >\n          {bars.map((h, i) => (\n            <button\n              key={i}\n              type=\"button\"\n              tabIndex={-1}\n              onClick={() => setProgress(i / BAR_COUNT)}\n              className={cn(\n                \"min-w-0 flex-1 rounded-full transition-colors\",\n                i <= played ? \"bg-primary\" : \"bg-muted-foreground/25\"\n              )}\n              style={{ height: `${h * 100}%` }}\n            />\n          ))}\n        </div>\n\n        <span className=\"shrink-0 font-mono text-[11px] text-muted-foreground tabular-nums\">\n          {Math.floor((duration * progress) / 60)}:\n          {Math.floor((duration * progress) % 60)\n            .toString()\n            .padStart(2, \"0\")}\n        </span>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

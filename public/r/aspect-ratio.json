@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "title": "Aspect Ratio",
+  "description": "Fixed 16:9 frame for an AI-generated image preview with overlay badge and prompt caption.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "aspect-ratio",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/aspect-ratio.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SparklesIcon } from \"@hugeicons/core-free-icons\"\n\nimport { AspectRatio } from \"@/components/ui/aspect-ratio\"\nimport { Badge } from \"@/components/ui/badge\"\n\nexport default function AspectRatioExample() {\n  return (\n    <div className=\"w-full max-w-md space-y-2\">\n      <AspectRatio\n        ratio={16 / 9}\n        className=\"overflow-hidden rounded-xl border bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500\"\n      >\n        <div className=\"relative size-full\">\n          <Badge className=\"absolute start-2 top-2 bg-black/40 text-white backdrop-blur-sm\">\n            <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} />\n            AI generated\n          </Badge>\n          <div className=\"absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3\">\n            <p className=\"text-sm text-white\">\n              “A neon koi swimming through soft clouds, 35mm film”\n            </p>\n          </div>\n        </div>\n      </AspectRatio>\n      <p className=\"text-xs text-muted-foreground\">\n        1024 × 576 · SDXL · seed 42 · held in a fixed 16:9 frame\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar",
+  "title": "Calendar",
+  "description": "Single-date calendar paired with an assistant suggestion to schedule a design review.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/calendar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SparklesIcon } from \"@hugeicons/core-free-icons\"\n\nimport { Calendar } from \"@/components/ui/calendar\"\n\nexport default function CalendarExample() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2026, 5, 18)\n  )\n\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"flex max-w-xs items-start gap-2 rounded-lg bg-primary/5 p-3 text-sm\">\n        <HugeiconsIcon\n          icon={SparklesIcon}\n          strokeWidth={2}\n          className=\"mt-0.5 size-4 shrink-0 text-primary\"\n        />\n        <p>\n          You&apos;re free Thursday afternoon — want me to book the design review\n          for <span className=\"font-medium\">Thu, Jun 18</span>?\n        </p>\n      </div>\n      <Calendar\n        mode=\"single\"\n        selected={date}\n        onSelect={setDate}\n        defaultMonth={date}\n        className=\"rounded-xl border shadow-sm\"\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

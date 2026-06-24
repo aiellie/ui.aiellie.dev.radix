@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "title": "Button",
+  "description": "Primary chat actions and secondary prompt shortcuts across multiple button variants and sizes.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/button.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { SentIcon, RefreshIcon, StopIcon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\n\nexport default function ButtonExample() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <div className=\"flex flex-wrap items-center justify-center gap-2\">\n        <Button>\n          <HugeiconsIcon icon={SentIcon} strokeWidth={2} className=\"rtl:-scale-x-100\" />\n          Send\n        </Button>\n        <Button variant=\"outline\">\n          <HugeiconsIcon icon={RefreshIcon} strokeWidth={2} />\n          Regenerate\n        </Button>\n        <Button variant=\"destructive\">\n          <HugeiconsIcon icon={StopIcon} strokeWidth={2} />\n          Stop\n        </Button>\n      </div>\n      <div className=\"flex flex-wrap items-center justify-center gap-2\">\n        <Button variant=\"secondary\" size=\"sm\">\n          Explain this\n        </Button>\n        <Button variant=\"ghost\" size=\"sm\">\n          Make shorter\n        </Button>\n        <Button variant=\"link\" size=\"sm\">\n          Try an example\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

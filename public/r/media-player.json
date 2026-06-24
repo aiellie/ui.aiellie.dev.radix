@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "media-player",
+  "title": "Media Player",
+  "description": "Compact audio/video transport with scrubber, time, and volume controls.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/media/media-player.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Backward01Icon,\n  Forward01Icon,\n  PauseIcon,\n  PlayIcon,\n  VolumeHighIcon,\n  VolumeOffIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Card, CardContent } from \"@/components/ui/card\"\nimport { Slider } from \"@/components/ui/slider\"\n\nfunction formatTime(seconds: number) {\n  const m = Math.floor(seconds / 60)\n  const s = Math.floor(seconds % 60)\n  return `${m}:${s.toString().padStart(2, \"0\")}`\n}\n\nexport function MediaPlayer({\n  title = \"Late Night Tape\",\n  subtitle = \"Aurora Sessions\",\n  duration = 225,\n  className,\n}: {\n  title?: string\n  subtitle?: string\n  duration?: number\n  className?: string\n}) {\n  const [playing, setPlaying] = React.useState(false)\n  const [progress, setProgress] = React.useState(72)\n  const [muted, setMuted] = React.useState(false)\n  const [volume, setVolume] = React.useState(70)\n\n  React.useEffect(() => {\n    if (!playing) return\n    const id = setInterval(() => {\n      setProgress((p) => (p >= duration ? 0 : p + 1))\n    }, 1000)\n    return () => clearInterval(id)\n  }, [playing, duration])\n\n  return (\n    <Card className={cn(\"w-full max-w-md gap-0 rounded-2xl py-0 shadow-sm\", className)}>\n      <CardContent className=\"flex flex-col gap-3 p-4\">\n        <div className=\"flex min-w-0 flex-col\">\n          <span className=\"truncate text-sm font-medium\">{title}</span>\n          <span className=\"truncate text-xs text-muted-foreground\">\n            {subtitle}\n          </span>\n        </div>\n\n        <div className=\"flex flex-col gap-1.5\">\n          <Slider\n            value={[progress]}\n            max={duration}\n            step={1}\n            onValueChange={([v]) => setProgress(v)}\n            aria-label=\"Seek\"\n          />\n          <div className=\"flex justify-between font-mono text-[11px] text-muted-foreground tabular-nums\">\n            <span>{formatTime(progress)}</span>\n            <span>-{formatTime(duration - progress)}</span>\n          </div>\n        </div>\n\n        <div className=\"flex items-center gap-2\">\n          <Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Previous\">\n            <HugeiconsIcon icon={Backward01Icon} />\n          </Button>\n          <Button\n            size=\"icon-lg\"\n            aria-label={playing ? \"Pause\" : \"Play\"}\n            onClick={() => setPlaying((p) => !p)}\n            className=\"rounded-full\"\n          >\n            <HugeiconsIcon icon={playing ? PauseIcon : PlayIcon} />\n          </Button>\n          <Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Next\">\n            <HugeiconsIcon icon={Forward01Icon} />\n          </Button>\n\n          <div className=\"ms-auto flex items-center gap-2\">\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label={muted ? \"Unmute\" : \"Mute\"}\n              onClick={() => setMuted((m) => !m)}\n            >\n              <HugeiconsIcon icon={muted ? VolumeOffIcon : VolumeHighIcon} />\n            </Button>\n            <Slider\n              value={[muted ? 0 : volume]}\n              max={100}\n              step={1}\n              onValueChange={([v]) => {\n                setVolume(v)\n                setMuted(v === 0)\n              }}\n              className=\"w-20\"\n              aria-label=\"Volume\"\n            />\n          </div>\n        </div>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

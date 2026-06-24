@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "title": "Drawer",
+  "description": "Bottom sheet prompt library listing saved prompts to insert into the composer.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "drawer"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/drawer.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Book01Icon, ArrowRight01Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Drawer,\n  DrawerClose,\n  DrawerContent,\n  DrawerDescription,\n  DrawerFooter,\n  DrawerHeader,\n  DrawerTitle,\n  DrawerTrigger,\n} from \"@/components/ui/drawer\"\n\nconst prompts = [\n  { title: \"Summarize this thread\", desc: \"Bullet points + action items\" },\n  { title: \"Rewrite more formally\", desc: \"Keep meaning, raise the register\" },\n  { title: \"Explain like I'm five\", desc: \"Simple words, one analogy\" },\n  { title: \"Find the bug\", desc: \"Review the pasted code for errors\" },\n]\n\nexport default function DrawerExample() {\n  return (\n    <Drawer>\n      <DrawerTrigger asChild>\n        <Button variant=\"outline\">\n          <HugeiconsIcon icon={Book01Icon} strokeWidth={2} />\n          Prompt library\n        </Button>\n      </DrawerTrigger>\n      <DrawerContent>\n        <div className=\"mx-auto w-full max-w-md\">\n          <DrawerHeader>\n            <DrawerTitle>Prompt library</DrawerTitle>\n            <DrawerDescription>\n              Tap a saved prompt to drop it into the composer.\n            </DrawerDescription>\n          </DrawerHeader>\n          <div className=\"grid gap-2 px-4\">\n            {prompts.map((p) => (\n              <button\n                key={p.title}\n                className=\"flex items-center gap-3 rounded-lg border p-3 text-start transition-colors hover:bg-accent\"\n              >\n                <div className=\"flex-1\">\n                  <div className=\"text-sm font-medium\">{p.title}</div>\n                  <div className=\"text-xs text-muted-foreground\">{p.desc}</div>\n                </div>\n                <HugeiconsIcon\n                  icon={ArrowRight01Icon}\n                  strokeWidth={2}\n                  className=\"size-4 text-muted-foreground rtl:rotate-180\"\n                />\n              </button>\n            ))}\n          </div>\n          <DrawerFooter>\n            <DrawerClose asChild>\n              <Button variant=\"outline\">Close</Button>\n            </DrawerClose>\n          </DrawerFooter>\n        </div>\n      </DrawerContent>\n    </Drawer>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

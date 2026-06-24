@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "title": "Shimmer",
+  "description": "Animated shimmer for loading text and skeleton lines.",
+  "files": [
+    {
+      "path": "registry/ai/shimmer.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n/**\n * Animated loading placeholder. Render shimmering text by passing children, or\n * a set of skeleton lines by passing the `lines` prop.\n */\nexport function Shimmer({\n  children = \"Generating response…\",\n  lines,\n  className,\n}: {\n  children?: React.ReactNode\n  lines?: number\n  className?: string\n}) {\n  return (\n    <>\n      <style>{\"@keyframes aiellie-shimmer{to{background-position:-200% 0}}\"}</style>\n      {typeof lines === \"number\" ? (\n        <div className={cn(\"flex w-full max-w-sm flex-col gap-2.5\", className)}>\n          {Array.from({ length: lines }).map((_, i) => (\n            <div\n              key={i}\n              className=\"h-3 rounded-full\"\n              style={{\n                width: i === lines - 1 ? \"60%\" : \"100%\",\n                backgroundImage:\n                  \"linear-gradient(100deg, var(--muted) 40%, var(--accent) 50%, var(--muted) 60%)\",\n                backgroundSize: \"200% 100%\",\n                animation: \"aiellie-shimmer 2s linear infinite\",\n                animationDelay: `${i * 0.15}s`,\n              }}\n            />\n          ))}\n        </div>\n      ) : (\n        <span\n          className={cn(\"inline-block text-sm font-medium\", className)}\n          style={{\n            backgroundImage:\n              \"linear-gradient(100deg, var(--muted-foreground) 35%, var(--foreground) 50%, var(--muted-foreground) 65%)\",\n            backgroundSize: \"200% 100%\",\n            WebkitBackgroundClip: \"text\",\n            backgroundClip: \"text\",\n            color: \"transparent\",\n            animation: \"aiellie-shimmer 2.2s linear infinite\",\n          }}\n        >\n          {children}\n        </span>\n      )}\n    </>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

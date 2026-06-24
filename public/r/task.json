@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "task",
+  "title": "Task",
+  "description": "Collapsible agent task showing the files and actions it touched.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/task.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport {\n  ArrowDown01Icon,\n  CheckmarkCircle02Icon,\n  FileCodeIcon,\n  FolderOpenIcon,\n  Loading03Icon,\n  Search01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/components/ui/collapsible\"\n\nexport interface TaskItem {\n  icon: IconSvgElement\n  label: string\n  code: string\n}\n\nconst DEFAULT_ITEMS: TaskItem[] = [\n  { icon: Search01Icon, label: \"Searched for \", code: \"useChat\" },\n  { icon: FolderOpenIcon, label: \"Opened \", code: \"registry/ai\" },\n  { icon: FileCodeIcon, label: \"Read \", code: \"prompt-input.tsx\" },\n  { icon: FileCodeIcon, label: \"Edited \", code: \"chat-message.tsx\" },\n]\n\nexport function Task({\n  title = \"Wiring up the chat composer\",\n  items = DEFAULT_ITEMS,\n  status = \"complete\",\n  defaultOpen = true,\n  className,\n}: {\n  title?: string\n  items?: TaskItem[]\n  status?: \"running\" | \"complete\"\n  defaultOpen?: boolean\n  className?: string\n}) {\n  const [open, setOpen] = React.useState(defaultOpen)\n\n  return (\n    <Collapsible\n      open={open}\n      onOpenChange={setOpen}\n      className={cn(\"w-full max-w-md rounded-xl border bg-card\", className)}\n    >\n      <CollapsibleTrigger className=\"flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-start text-sm transition-colors hover:bg-accent\">\n        <HugeiconsIcon\n          icon={status === \"running\" ? Loading03Icon : CheckmarkCircle02Icon}\n          className={cn(\n            \"size-4 shrink-0\",\n            status === \"running\"\n              ? \"animate-spin text-primary\"\n              : \"text-emerald-500\"\n          )}\n        />\n        <span className=\"min-w-0 truncate font-medium\">{title}</span>\n        <span className=\"shrink-0 text-xs text-muted-foreground\">\n          · {items.length} steps\n        </span>\n        <HugeiconsIcon\n          icon={ArrowDown01Icon}\n          className={cn(\n            \"ms-auto size-4 shrink-0 text-muted-foreground transition-transform\",\n            open && \"rotate-180\"\n          )}\n        />\n      </CollapsibleTrigger>\n      <CollapsibleContent>\n        <ul className=\"flex flex-col gap-2 px-3 pb-3 ps-4\">\n          {items.map((item, i) => (\n            <li\n              key={i}\n              className=\"relative flex items-center gap-2 ps-5 text-sm text-muted-foreground before:absolute before:start-[3px] before:top-1/2 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-border\"\n            >\n              <HugeiconsIcon icon={item.icon} className=\"size-3.5 shrink-0\" />\n              <span className=\"min-w-0 truncate\">\n                {item.label}\n                <code className=\"rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground\">\n                  {item.code}\n                </code>\n              </span>\n            </li>\n          ))}\n        </ul>\n      </CollapsibleContent>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

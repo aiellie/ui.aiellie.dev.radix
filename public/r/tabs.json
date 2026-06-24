@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Chat, code, and preview tabs for an assistant response with a code block in the code tab.",
+  "registryDependencies": [
+    "tabs",
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/tabs.tsx",
+      "content": "\"use client\"\n\nimport { CodeBlock } from \"@/components/ui/code/code-block\"\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/tabs\"\n\nexport default function TabsExample() {\n  return (\n    <Tabs defaultValue=\"chat\" className=\"w-full max-w-md\">\n      <TabsList className=\"w-full\">\n        <TabsTrigger value=\"chat\">Chat</TabsTrigger>\n        <TabsTrigger value=\"code\">Code</TabsTrigger>\n        <TabsTrigger value=\"preview\">Preview</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"chat\">\n        <div className=\"rounded-xl border bg-muted/40 p-4 text-sm\">\n          Sure — here&apos;s a button component that shows a loading spinner while\n          your request is in flight.\n        </div>\n      </TabsContent>\n      <TabsContent value=\"code\">\n        <CodeBlock\n          className=\"rounded-xl border\"\n          language=\"tsx\"\n          code={`export function SubmitButton() {\n  const [loading, setLoading] = useState(false)\n  return (\n    <Button disabled={loading}>\n      {loading && <Spinner />}\n      Ask AI\n    </Button>\n  )\n}`}\n        />\n      </TabsContent>\n      <TabsContent value=\"preview\">\n        <div className=\"flex items-center justify-center rounded-xl border bg-card p-8\">\n          <button className=\"inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground\">\n            Ask AI\n          </button>\n        </div>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

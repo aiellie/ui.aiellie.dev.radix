@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Editable system prompt textarea with approximate token count and save button.",
+  "registryDependencies": [
+    "textarea",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/textarea.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Textarea } from \"@/components/ui/textarea\"\nimport { Button } from \"@/components/ui/button\"\n\nexport default function TextareaExample() {\n  const [value, setValue] = React.useState(\n    \"You are a concise senior engineer. Answer with runnable code first, then a one-line explanation.\"\n  )\n  const tokens = Math.max(1, Math.round(value.trim().length / 4))\n\n  return (\n    <div className=\"w-full max-w-xl space-y-2\">\n      <label htmlFor=\"system-prompt\" className=\"text-sm font-medium\">\n        System prompt\n      </label>\n      <Textarea\n        id=\"system-prompt\"\n        value={value}\n        onChange={(e) => setValue(e.target.value)}\n        rows={5}\n        placeholder=\"Describe how the assistant should behave…\"\n        className=\"resize-none\"\n      />\n      <div className=\"flex items-center justify-between text-xs text-muted-foreground\">\n        <span>~{tokens.toLocaleString()} tokens</span>\n        <Button size=\"sm\" disabled={!value.trim()}>\n          Save prompt\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

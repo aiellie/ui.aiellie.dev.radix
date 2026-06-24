@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mic-selector",
+  "title": "Mic Selector",
+  "description": "Input device picker with a live microphone level meter.",
+  "dependencies": [
+    "@radix-ui/react-use-controllable-state",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "command",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/voice/mic-selector.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { MicIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  MicSelector as MicSelectorRoot,\n  MicSelectorContent,\n  MicSelectorEmpty,\n  MicSelectorInput,\n  MicSelectorItem,\n  MicSelectorLabel,\n  MicSelectorList,\n  MicSelectorTrigger,\n  MicSelectorValue,\n} from \"@/components/ai-elements/mic-selector\"\n\nexport function MicSelector({ className }: { className?: string }) {\n  const [level, setLevel] = React.useState(0)\n\n  React.useEffect(() => {\n    const id = setInterval(() => setLevel(Math.random()), 150)\n    return () => clearInterval(id)\n  }, [])\n\n  return (\n    <div className={cn(\"w-full max-w-xs\", className)}>\n      <MicSelectorRoot>\n        <MicSelectorTrigger\n          className=\"h-auto w-full justify-start gap-2.5 rounded-xl border bg-card px-3 py-2.5 text-start text-sm hover:bg-accent\"\n        >\n          <span className=\"flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n            <MicIcon className=\"size-4\" />\n          </span>\n          <span className=\"flex min-w-0 flex-1 flex-col\">\n            <span className=\"text-[10px] tracking-wide text-muted-foreground uppercase\">\n              Microphone\n            </span>\n            <MicSelectorValue className=\"truncate font-medium\" />\n          </span>\n        </MicSelectorTrigger>\n        <MicSelectorContent>\n          <MicSelectorInput />\n          <MicSelectorList>\n            {(devices) =>\n              devices.map((device) => (\n                <MicSelectorItem key={device.deviceId} value={device.deviceId}>\n                  <MicSelectorLabel device={device} />\n                </MicSelectorItem>\n              ))\n            }\n          </MicSelectorList>\n          <MicSelectorEmpty />\n        </MicSelectorContent>\n      </MicSelectorRoot>\n\n      <div className=\"mt-2 flex items-center gap-1.5 px-1\">\n        <MicIcon className=\"size-3.5 shrink-0 text-muted-foreground\" />\n        <div className=\"flex h-1.5 flex-1 items-center gap-0.5 overflow-hidden rounded-full bg-muted\">\n          {Array.from({ length: 16 }).map((_, i) => (\n            <span\n              key={i}\n              className={cn(\n                \"h-full flex-1 rounded-full transition-colors\",\n                i / 16 < level\n                  ? i > 12\n                    ? \"bg-red-500\"\n                    : i > 9\n                      ? \"bg-amber-500\"\n                      : \"bg-emerald-500\"\n                  : \"bg-transparent\"\n              )}\n            />\n          ))}\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

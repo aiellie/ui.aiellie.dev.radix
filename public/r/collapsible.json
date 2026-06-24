@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "title": "Collapsible",
+  "description": "Expandable reasoning trace showing step-by-step chain-of-thought before the final answer.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/collapsible.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { AiBrain01Icon, ArrowDown01Icon } from \"@hugeicons/core-free-icons\"\n\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/components/ui/collapsible\"\nimport { cn } from \"@/lib/utils\"\n\nexport default function CollapsibleExample() {\n  const [open, setOpen] = React.useState(false)\n\n  return (\n    <div className=\"w-full max-w-md space-y-3\">\n      <Collapsible\n        open={open}\n        onOpenChange={setOpen}\n        className=\"rounded-xl border bg-muted/30\"\n      >\n        <CollapsibleTrigger className=\"flex w-full items-center gap-2 px-3 py-2.5 text-sm font-medium\">\n          <HugeiconsIcon icon={AiBrain01Icon} strokeWidth={2} className=\"size-4 text-primary\" />\n          {open ? \"Hide reasoning\" : \"Show reasoning\"}\n          <span className=\"ms-auto text-xs font-normal text-muted-foreground\">\n            thought for 4s\n          </span>\n          <HugeiconsIcon\n            icon={ArrowDown01Icon}\n            strokeWidth={2}\n            className={cn(\"size-4 transition-transform\", open && \"rotate-180\")}\n          />\n        </CollapsibleTrigger>\n        <CollapsibleContent className=\"space-y-2 border-t px-3 py-3 text-sm text-muted-foreground\">\n          <p>1. The user wants the total after a 15% discount and 8% tax.</p>\n          <p>2. Apply discount: $80 × 0.85 = $68.00.</p>\n          <p>3. Apply tax: $68.00 × 1.08 = $73.44.</p>\n        </CollapsibleContent>\n      </Collapsible>\n      <p className=\"px-1 text-sm\">\n        The total comes to <span className=\"font-medium\">$73.44</span>.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

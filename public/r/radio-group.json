@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio Group",
+  "description": "Card-style radio options for choosing assistant response length.",
+  "registryDependencies": [
+    "radio-group",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/radio-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { RadioGroup, RadioGroupItem } from \"@/components/ui/radio-group\"\nimport { Label } from \"@/components/ui/label\"\n\nconst options = [\n  { value: \"concise\", label: \"Concise\", desc: \"A few sentences, straight to the point.\" },\n  { value: \"balanced\", label: \"Balanced\", desc: \"A clear answer with brief context.\" },\n  { value: \"detailed\", label: \"Detailed\", desc: \"Thorough, with examples and caveats.\" },\n]\n\nexport default function RadioGroupExample() {\n  const [value, setValue] = React.useState(\"balanced\")\n\n  return (\n    <div className=\"w-full max-w-md space-y-3\">\n      <p className=\"text-sm font-medium\">Response length</p>\n      <RadioGroup value={value} onValueChange={setValue} className=\"gap-2\">\n        {options.map((o) => (\n          <Label\n            key={o.value}\n            htmlFor={o.value}\n            className=\"flex items-start gap-3 rounded-lg border p-3 has-data-checked:border-primary/40 has-data-checked:bg-primary/5\"\n          >\n            <RadioGroupItem value={o.value} id={o.value} className=\"mt-0.5\" />\n            <div className=\"grid gap-0.5 leading-snug\">\n              <span className=\"text-sm font-medium\">{o.label}</span>\n              <span className=\"text-xs font-normal text-muted-foreground\">\n                {o.desc}\n              </span>\n            </div>\n          </Label>\n        ))}\n      </RadioGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

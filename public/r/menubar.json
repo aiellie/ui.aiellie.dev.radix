@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menubar",
+  "title": "Menubar",
+  "description": "Desktop-style menubar for chat, model selection with radio items, and view toggles.",
+  "registryDependencies": [
+    "menubar"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/menubar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  Menubar,\n  MenubarCheckboxItem,\n  MenubarContent,\n  MenubarItem,\n  MenubarMenu,\n  MenubarRadioGroup,\n  MenubarRadioItem,\n  MenubarSeparator,\n  MenubarShortcut,\n  MenubarTrigger,\n} from \"@/components/ui/menubar\"\n\nexport default function MenubarExample() {\n  const [model, setModel] = React.useState(\"opus\")\n  const [stream, setStream] = React.useState(true)\n\n  return (\n    <Menubar>\n      <MenubarMenu>\n        <MenubarTrigger>Chat</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>\n            New chat <MenubarShortcut>⌘N</MenubarShortcut>\n          </MenubarItem>\n          <MenubarItem>\n            Share… <MenubarShortcut>⌘S</MenubarShortcut>\n          </MenubarItem>\n          <MenubarSeparator />\n          <MenubarItem>Export transcript</MenubarItem>\n          <MenubarItem variant=\"destructive\">Clear conversation</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n      <MenubarMenu>\n        <MenubarTrigger>Model</MenubarTrigger>\n        <MenubarContent>\n          <MenubarRadioGroup value={model} onValueChange={setModel}>\n            <MenubarRadioItem value=\"opus\">Claude Opus 4.8</MenubarRadioItem>\n            <MenubarRadioItem value=\"sonnet\">Claude Sonnet 4.6</MenubarRadioItem>\n            <MenubarRadioItem value=\"haiku\">Claude Haiku 4.5</MenubarRadioItem>\n          </MenubarRadioGroup>\n          <MenubarSeparator />\n          <MenubarCheckboxItem checked={stream} onCheckedChange={setStream}>\n            Stream responses\n          </MenubarCheckboxItem>\n        </MenubarContent>\n      </MenubarMenu>\n      <MenubarMenu>\n        <MenubarTrigger>View</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>\n            Toggle sidebar <MenubarShortcut>⌘B</MenubarShortcut>\n          </MenubarItem>\n          <MenubarItem>Show token usage</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n    </Menubar>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

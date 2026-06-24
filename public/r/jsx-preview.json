@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "jsx-preview",
+  "title": "JSX Preview",
+  "description": "Preview / code toggle that renders a JSX snippet live.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/code/jsx-preview.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { CodeSquareIcon, EyeIcon } from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst DEFAULT_CODE = `export function Greeting() {\n  return (\n    <button className=\"rounded-lg bg-primary px-4 py-2 text-primary-foreground\">\n      Hello, world\n    </button>\n  )\n}`\n\nexport function JsxPreview({\n  code = DEFAULT_CODE,\n  children,\n  className,\n}: {\n  code?: string\n  children?: React.ReactNode\n  className?: string\n}) {\n  const [tab, setTab] = React.useState<\"preview\" | \"code\">(\"preview\")\n\n  return (\n    <div\n      className={cn(\n        \"w-full max-w-md overflow-hidden rounded-xl border bg-card\",\n        className\n      )}\n    >\n      <div className=\"flex items-center gap-1 border-b bg-muted/30 px-2 py-1.5\">\n        {([\"preview\", \"code\"] as const).map((t) => (\n          <button\n            key={t}\n            type=\"button\"\n            onClick={() => setTab(t)}\n            className={cn(\n              \"flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors\",\n              tab === t\n                ? \"bg-background text-foreground shadow-sm\"\n                : \"text-muted-foreground hover:text-foreground\"\n            )}\n          >\n            <HugeiconsIcon\n              icon={t === \"preview\" ? EyeIcon : CodeSquareIcon}\n              className=\"size-3.5\"\n            />\n            {t === \"preview\" ? \"Preview\" : \"Code\"}\n          </button>\n        ))}\n      </div>\n      {tab === \"preview\" ? (\n        <div className=\"flex min-h-36 items-center justify-center bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:16px_16px] p-6\">\n          {children ?? <DefaultPreview />}\n        </div>\n      ) : (\n        <pre\n          dir=\"ltr\"\n          className=\"overflow-x-auto p-4 font-mono text-xs leading-relaxed\"\n        >\n          {code}\n        </pre>\n      )}\n    </div>\n  )\n}\n\nfunction DefaultPreview() {\n  return (\n    <button className=\"rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5\">\n      Hello, world\n    </button>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

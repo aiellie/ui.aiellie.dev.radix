@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkpoint",
+  "title": "Checkpoint",
+  "description": "A labeled restore-point divider for rewinding a conversation.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/checkpoint.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowReloadHorizontalIcon,\n  Location01Icon,\n  Tick02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function Checkpoint({\n  label = \"Checkpoint\",\n  detail = \"Edited prompt-input.tsx\",\n  onRestore,\n  className,\n}: {\n  label?: string\n  detail?: string\n  onRestore?: () => void\n  className?: string\n}) {\n  const [restored, setRestored] = React.useState(false)\n\n  return (\n    <div className={cn(\"flex w-full items-center gap-3\", className)}>\n      <span className=\"h-px flex-1 bg-border\" />\n      <div className=\"flex items-center gap-2 rounded-full border bg-card px-2.5 py-1 shadow-sm\">\n        <span className=\"flex size-5 items-center justify-center rounded-full bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={Location01Icon} className=\"size-3\" />\n        </span>\n        <span className=\"text-xs font-medium\">{label}</span>\n        {detail ? (\n          <span className=\"hidden text-xs text-muted-foreground sm:inline\">\n            · {detail}\n          </span>\n        ) : null}\n        <button\n          type=\"button\"\n          onClick={() => {\n            setRestored(true)\n            onRestore?.()\n          }}\n          className={cn(\n            \"ms-1 flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium transition-colors\",\n            restored\n              ? \"text-muted-foreground\"\n              : \"text-primary hover:bg-primary/10\"\n          )}\n        >\n          <HugeiconsIcon\n            icon={restored ? Tick02Icon : ArrowReloadHorizontalIcon}\n            className=\"size-3\"\n          />\n          {restored ? \"Restored\" : \"Restore\"}\n        </button>\n      </div>\n      <span className=\"h-px flex-1 bg-border\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

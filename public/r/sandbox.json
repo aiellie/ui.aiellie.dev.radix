@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sandbox",
+  "title": "Sandbox",
+  "description": "Runnable code panel with a Run button and console output.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/code/sandbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  CodeCircleIcon,\n  Loading03Icon,\n  PlayIcon,\n  RefreshIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst DEFAULT_CODE = `const sum = (a, b) => a + b\nconsole.log(\"2 + 3 =\", sum(2, 3))\nconsole.log(\"done\")`\n\nconst DEFAULT_OUTPUT = [\"2 + 3 = 5\", \"done\"]\n\nexport function Sandbox({\n  code = DEFAULT_CODE,\n  output = DEFAULT_OUTPUT,\n  className,\n}: {\n  code?: string\n  output?: string[]\n  className?: string\n}) {\n  const [state, setState] = React.useState<\"idle\" | \"running\" | \"done\">(\"idle\")\n\n  const run = () => {\n    setState(\"running\")\n    setTimeout(() => setState(\"done\"), 900)\n  }\n\n  return (\n    <div\n      dir=\"ltr\"\n      className={cn(\n        \"w-full max-w-md overflow-hidden rounded-xl border bg-card\",\n        className\n      )}\n    >\n      <div className=\"flex items-center gap-2.5 border-b bg-muted/30 px-3 py-2\">\n        <span className=\"flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary\">\n          <HugeiconsIcon icon={CodeCircleIcon} className=\"size-3.5\" />\n        </span>\n        <span className=\"font-mono text-sm font-medium\">sandbox.js</span>\n        <button\n          type=\"button\"\n          onClick={run}\n          disabled={state === \"running\"}\n          className=\"ms-auto flex items-center gap-1.5 rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60\"\n        >\n          <HugeiconsIcon\n            icon={\n              state === \"running\"\n                ? Loading03Icon\n                : state === \"done\"\n                  ? RefreshIcon\n                  : PlayIcon\n            }\n            className={cn(\"size-3.5\", state === \"running\" && \"animate-spin\")}\n          />\n          {state === \"running\"\n            ? \"Running\"\n            : state === \"done\"\n              ? \"Run again\"\n              : \"Run\"}\n        </button>\n      </div>\n\n      <pre className=\"overflow-x-auto p-4 font-mono text-xs leading-relaxed\">\n        {code}\n      </pre>\n\n      <div className=\"border-t bg-muted/20\">\n        <div className=\"px-3 py-1.5 text-[10px] font-medium tracking-wide text-muted-foreground uppercase\">\n          Console\n        </div>\n        <div className=\"min-h-16 px-3 pb-3 font-mono text-xs leading-relaxed\">\n          {state === \"done\" ? (\n            output.map((line, i) => (\n              <div key={i} className=\"text-foreground\">\n                <span className=\"me-2 text-muted-foreground/50 select-none\">\n                  ›\n                </span>\n                {line}\n              </div>\n            ))\n          ) : state === \"running\" ? (\n            <span className=\"text-muted-foreground\">Running…</span>\n          ) : (\n            <span className=\"text-muted-foreground/60\">\n              Press Run to execute.\n            </span>\n          )}\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

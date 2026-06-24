@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "speech-input",
+  "title": "Speech Input",
+  "description": "Press-to-talk mic button with live speech recognition and transcript display.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/voice/speech-input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { SpeechInput as SpeechInputButton } from \"@/components/ai-elements/speech-input\"\nimport { cn } from \"@/lib/utils\"\n\nconst DEFAULT_PHRASE = \"Show me the revenue dashboard for last quarter\"\n\nexport function SpeechInput({\n  phrase = DEFAULT_PHRASE,\n  className,\n}: {\n  phrase?: string\n  className?: string\n}) {\n  const [text, setText] = React.useState(\"\")\n\n  const handleTranscriptionChange = React.useCallback((transcript: string) => {\n    setText((prev) => {\n      const next = prev ? `${prev} ${transcript}` : transcript\n      return next.trim()\n    })\n  }, [])\n\n  const handleAudioRecorded = React.useCallback(async () => {\n    await new Promise((resolve) => setTimeout(resolve, 900))\n    return phrase\n  }, [phrase])\n\n  return (\n    <div\n      className={cn(\n        \"flex w-full max-w-sm flex-col items-center gap-4 rounded-2xl border bg-card p-6\",\n        className\n      )}\n    >\n      <SpeechInputButton\n        aria-label=\"Start speech input\"\n        className=\"size-16 [&_svg]:size-7\"\n        onAudioRecorded={handleAudioRecorded}\n        onTranscriptionChange={handleTranscriptionChange}\n        size=\"icon-lg\"\n      />\n\n      <p className=\"text-sm font-medium\">Tap to speak</p>\n\n      <p className=\"min-h-10 text-center text-sm leading-relaxed text-muted-foreground\">\n        {text ? (\n          <>“{text}”</>\n        ) : (\n          <span className=\"text-muted-foreground/50\">\n            Your words will appear here.\n          </span>\n        )}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

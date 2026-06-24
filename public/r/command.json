@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command",
+  "title": "Command",
+  "description": "Command palette with AI actions, shortcuts, and recent chats grouped in a searchable menu.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/command.tsx",
+      "content": "\"use client\"\n\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  SparklesIcon,\n  Image01Icon,\n  CodeIcon,\n  Search01Icon,\n  Add01Icon,\n  Settings01Icon,\n  AiChat02Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from \"@/components/ui/command\"\n\nexport default function CommandExample() {\n  return (\n    <Command className=\"w-full max-w-md rounded-xl border shadow-md\">\n      <CommandInput placeholder=\"Ask AI or type a command…\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Ask AI\">\n          <CommandItem>\n            <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} />\n            Summarize the current page\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Image01Icon} strokeWidth={2} />\n            Generate an image…\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={CodeIcon} strokeWidth={2} />\n            Write code for…\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Actions\">\n          <CommandItem>\n            <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />\n            New chat\n            <CommandShortcut>⌘N</CommandShortcut>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />\n            Search chats\n            <CommandShortcut>⌘K</CommandShortcut>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />\n            Open settings\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Recent\">\n          <CommandItem>\n            <HugeiconsIcon icon={AiChat02Icon} strokeWidth={2} />\n            Onboarding email draft\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={AiChat02Icon} strokeWidth={2} />\n            SQL query optimization\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </Command>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
