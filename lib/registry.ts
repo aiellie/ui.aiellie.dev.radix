@@ -7,6 +7,7 @@ import {
   BubbleChatIcon,
   SentIcon,
   Loading03Icon,
+  Login03Icon,
   AiBrain01Icon,
   SparklesIcon,
   NeuralNetworkIcon,
@@ -75,7 +76,7 @@ import type { IconSvgElement } from "@hugeicons/react"
 
 import { uiItems } from "@/lib/ui-items"
 
-export type Category = "ai" | "media" | "code" | "voice" | "ui"
+export type Category = "ai" | "auth" | "media" | "code" | "voice" | "ui"
 
 /** Top-level collection the switcher toggles between. */
 export type Collection = "ui" | "components" | "blocks"
@@ -109,6 +110,12 @@ export const categories: {
     label: "AI Chat",
     description: "Building blocks for conversational AI interfaces.",
     icon: AiChat02Icon,
+  },
+  {
+    id: "auth",
+    label: "Authentication",
+    description: "Authentication components for user login and registration.",
+    icon: Login03Icon,
   },
   {
     id: "media",
