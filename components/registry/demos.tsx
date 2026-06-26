@@ -70,6 +70,17 @@ import { SpeechInput } from "@/registry/voice/speech-input"
 import { Transcription } from "@/registry/voice/transcription"
 import { VoiceSelector } from "@/registry/voice/voice-selector"
 
+// Auth
+import { LoginForm } from "@/registry/auth/login-form"
+import { ForgotPasswordForm } from "@/registry/auth/forgot-password-form"
+
+// Brand
+import { Orb } from "@/registry/brand/orb"
+import { Ellie } from "@/registry/brand/ellie"
+import { Logo } from "@/registry/brand/logo"
+import { ThemeSwitcher } from "@/registry/brand/theme-switcher"
+import { GithubButton } from "@/registry/brand/github-button"
+
 export const demos: Record<string, React.ReactNode> = {
   agent: <Agent />,
   artifact: <Artifact />,
@@ -184,4 +195,34 @@ export const demos: Record<string, React.ReactNode> = {
   "video-card": <VideoCard />,
   "voice-selector": <VoiceSelector />,
   "web-preview": <WebPreview />,
+
+  // Auth
+  "login-form": (
+    <div className="w-full max-w-3xl">
+      <LoginForm />
+    </div>
+  ),
+  "forgot-password-form": (
+    <div className="w-full max-w-sm">
+      <ForgotPasswordForm />
+    </div>
+  ),
+
+  // Brand
+  logo: <Logo size={40} />,
+  orb: (
+    <div className="flex items-center gap-10">
+      <Orb size={96} float />
+      <Orb size={96} glow />
+    </div>
+  ),
+  ellie: (
+    <div className="flex items-end gap-8">
+      <Ellie size={88} expression="happy" />
+      <Ellie size={88} expression="calm" />
+      <Ellie size={88} expression="wink" />
+    </div>
+  ),
+  "theme-switcher": <ThemeSwitcher />,
+  "github-button": <GithubButton />,
 }

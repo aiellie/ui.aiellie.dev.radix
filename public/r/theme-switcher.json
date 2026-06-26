@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-switcher",
+  "title": "Theme Switcher",
+  "description": "Ghost icon button that flips between light and dark with next-themes.",
+  "dependencies": [
+    "next-themes",
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/brand/theme-switcher.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { useTheme } from \"next-themes\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Moon02Icon, Sun03Icon } from \"@hugeicons/core-free-icons\"\n\nimport { Button } from \"@/components/ui/button\"\n\n/**\n * ThemeSwitcher — a single ghost icon button that flips between light and dark\n * using `next-themes`. Renders a sun in dark mode and a moon in light mode, and\n * stays placeholder-stable until mounted to avoid a hydration flash.\n */\nexport function ThemeSwitcher({\n  className,\n  ...props\n}: React.ComponentProps<typeof Button>) {\n  const { resolvedTheme, setTheme } = useTheme()\n  const [mounted, setMounted] = React.useState(false)\n\n  React.useEffect(() => setMounted(true), [])\n\n  const isDark = mounted && resolvedTheme === \"dark\"\n\n  return (\n    <Button\n      variant=\"ghost\"\n      size=\"icon\"\n      aria-label=\"Toggle theme\"\n      className={className}\n      onClick={() => setTheme(isDark ? \"light\" : \"dark\")}\n      {...props}\n    >\n      <HugeiconsIcon icon={isDark ? Sun03Icon : Moon02Icon} />\n    </Button>\n  )\n}\n\nexport default ThemeSwitcher\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

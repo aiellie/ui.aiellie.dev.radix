@@ -741,6 +741,120 @@
       ]
     },
     {
+      "name": "login-form",
+      "type": "registry:component",
+      "title": "Login Form",
+      "description": "Split-card login with email/password, social sign-in buttons, and a sign-up link.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/login-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "forgot-password-form",
+      "type": "registry:component",
+      "title": "Forgot Password Form",
+      "description": "Centered card that collects an email to send a password-reset link.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "orb",
+      "type": "registry:component",
+      "title": "Orb",
+      "description": "AIEllie's signature iridescent sphere \u2014 a pure-CSS gradient orb with an optional float.",
+      "files": [
+        {
+          "path": "registry/brand/orb.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ellie",
+      "type": "registry:component",
+      "title": "Ellie",
+      "description": "The orb turned mascot: a face on the iridescent sphere with calm, happy, and wink expressions.",
+      "registryDependencies": [
+        "orb"
+      ],
+      "files": [
+        {
+          "path": "registry/brand/ellie.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logo",
+      "type": "registry:component",
+      "title": "Logo",
+      "description": "The AIEllie brand lockup \u2014 the Ellie orb mark beside the wordmark and version.",
+      "registryDependencies": [
+        "ellie"
+      ],
+      "files": [
+        {
+          "path": "registry/brand/logo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "theme-switcher",
+      "type": "registry:component",
+      "title": "Theme Switcher",
+      "description": "Ghost icon button that flips between light and dark with next-themes.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "next-themes",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/brand/theme-switcher.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "github-button",
+      "type": "registry:component",
+      "title": "GitHub Button",
+      "description": "Tooltip-wrapped ghost icon button that links out to a GitHub repository.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/brand/github-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "agent",
       "type": "registry:component",
       "title": "Agent",

@@ -5,19 +5,16 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  SparklesIcon,
   DashboardSquare01Icon,
   BubbleChatIcon,
   StarIcon,
 } from "@hugeicons/core-free-icons"
-import { EllieCollectionSwitcher } from "@/components/brand/ellie-sidebar"
+import { EllieSidebarHeader } from "@/components/brand/ellie-sidebar"
 import { NavUser } from "@/components/nav-user"
 import {
   categories,
-  getCollection,
   getFeaturedItems,
   getItemsByCategory,
-  type Collection,
   type RegistryItem,
 } from "@/lib/registry"
 import {
@@ -69,20 +66,13 @@ export function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname()
-  const [collection, setCollection] = React.useState<Collection>("ui")
 
-  const featuredItems = getFeaturedItems().filter(
-    (item) => getCollection(item) === collection,
-  )
+  const featuredItems = getFeaturedItems()
 
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <EllieCollectionSwitcher
-          title="aiellie ui"
-          value={collection}
-          onValueChange={(value) => setCollection(value as Collection)}
-        />
+        <EllieSidebarHeader title="aiellie ui" />
       </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:overflow-auto">
@@ -134,9 +124,7 @@ export function AppSidebar({
         )}
 
         {categories.map((category) => {
-          const items = getItemsByCategory(category.id).filter(
-            (item) => getCollection(item) === collection,
-          )
+          const items = getItemsByCategory(category.id)
 
           if (items.length === 0) return null
 

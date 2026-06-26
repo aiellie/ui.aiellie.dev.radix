@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "orb",
+  "title": "Orb",
+  "description": "AIEllie's signature iridescent sphere — a pure-CSS gradient orb with an optional float.",
+  "files": [
+    {
+      "path": "registry/brand/orb.tsx",
+      "content": "import React from \"react\"\n\n/**\n * Orb — AIEllie's signature iridescent sphere. A pure-CSS rendition of the\n * product's WebGL orb: a pink→violet→indigo gradient with a glossy highlight\n * and an optional gentle float. Honors `prefers-reduced-motion`.\n */\n\nconst CSS = `\n@keyframes ae-orb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n.ae-orb{position:relative;display:inline-block;border-radius:9999px;flex-shrink:0;\n  background:\n    radial-gradient(circle at 70% 30%, oklch(1 0 0) 0%, oklch(1 0 0 / .6) 12%, transparent 32%),\n    radial-gradient(circle at 28% 72%, oklch(0.785 0.115 320 / .9) 0%, transparent 45%),\n    linear-gradient(135deg,\n      oklch(0.86 0.09 330) 0%,\n      oklch(0.80 0.12 300) 32%,\n      oklch(0.70 0.16 282) 60%,\n      oklch(0.585 0.233 277.117) 100%);\n  box-shadow:\n    inset -4px -6px 14px oklch(0.398 0.195 277.366 / .35),\n    inset 4px 5px 12px oklch(1 0 0 / .6);}\n.ae-orb[data-float=\"true\"]{animation:ae-orb-float 4s var(--ease-in-out,ease-in-out) infinite;}\n@media (prefers-reduced-motion:reduce){.ae-orb[data-float=\"true\"]{animation:none;}}\n`\n\nif (typeof document !== \"undefined\" && !document.getElementById(\"ae-orb-styles\")) {\n  const el = document.createElement(\"style\")\n  el.id = \"ae-orb-styles\"\n  el.textContent = CSS\n  document.head.appendChild(el)\n}\n\nexport interface OrbProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** Diameter in px. */\n  size?: number\n  /** Gentle 4s vertical float. */\n  float?: boolean\n  /** Apply the brand `--shadow-glow`. */\n  glow?: boolean\n}\n\nexport function Orb({\n  size = 32,\n  float = false,\n  glow = false,\n  className = \"\",\n  style,\n  ...props\n}: OrbProps) {\n  return (\n    <span\n      className={`ae-orb ${className}`.trim()}\n      data-float={float ? \"true\" : \"false\"}\n      style={{\n        width: size,\n        height: size,\n        boxShadow: glow ? \"var(--shadow-glow)\" : undefined,\n        ...style,\n      }}\n      role=\"img\"\n      aria-label=\"AIEllie orb\"\n      {...props}\n    />\n  )\n}\n\nexport default Orb\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

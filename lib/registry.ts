@@ -70,24 +70,32 @@ import {
   // media
   Image01Icon,
   ComponentIcon,
-  
+  // auth
+  SquareLockPasswordIcon,
+  // brand
+  PaintBoardIcon,
+  Atom01Icon,
+  Moon02Icon,
+  Github01Icon,
 } from "@hugeicons/core-free-icons"
 import type { IconSvgElement } from "@hugeicons/react"
 
 import { uiItems } from "@/lib/ui-items"
 
-export type Category = "ai" | "auth" | "media" | "code" | "voice" | "ui"
-
-/** Top-level collection the switcher toggles between. */
-export type Collection = "ui" | "components" | "blocks"
+export type Category =
+  | "ai"
+  | "auth"
+  | "media"
+  | "code"
+  | "voice"
+  | "ui"
+  | "brand"
 
 export type RegistryItem = {
   slug: string
   title: string
   description: string
   category: Category
-  /** Which switcher collection this item belongs to. Defaults to "components". */
-  collection?: Collection
   icon: IconSvgElement
   /** npm dependencies the component needs (beyond what the app already has). */
   dependencies?: string[]
@@ -140,6 +148,12 @@ export const categories: {
     label: "UI",
     description: "shadcn/ui primitives with AI-themed examples.",
     icon: ComponentIcon,
+  },
+  {
+    id: "brand",
+    label: "Brand",
+    description: "AIEllie's identity kit: the orb, mascot, logo lockup, and site-chrome buttons.",
+    icon: PaintBoardIcon,
   },
 ]
 
@@ -615,39 +629,83 @@ export const registry: RegistryItem[] = [
     category: "code",
     icon: BrowserIcon,
   },
+  // Auth
+  {
+    slug: "login-form",
+    title: "Login Form",
+    description:
+      "Split-card login with email/password, social sign-in buttons, and a sign-up link.",
+    category: "auth",
+    icon: Login03Icon,
+    registryDependencies: ["button", "card", "field", "input"],
+    isNew: true,
+  },
+  {
+    slug: "forgot-password-form",
+    title: "Forgot Password Form",
+    description:
+      "Centered card that collects an email to send a password-reset link.",
+    category: "auth",
+    icon: SquareLockPasswordIcon,
+    registryDependencies: ["button", "card", "field", "input"],
+    isNew: true,
+  },
+  // Brand
+  {
+    slug: "logo",
+    title: "Logo",
+    description:
+      "The AIEllie brand lockup — the Ellie orb mark beside the wordmark and version.",
+    category: "brand",
+    icon: SparklesIcon,
+    registryDependencies: ["ellie"],
+    isNew: true,
+  },
+  {
+    slug: "orb",
+    title: "Orb",
+    description:
+      "AIEllie's signature iridescent sphere — a pure-CSS gradient orb with an optional float.",
+    category: "brand",
+    icon: Atom01Icon,
+    isNew: true,
+  },
+  {
+    slug: "ellie",
+    title: "Ellie",
+    description:
+      "The orb turned mascot: a face on the iridescent sphere with calm, happy, and wink expressions.",
+    category: "brand",
+    icon: AiUserIcon,
+    registryDependencies: ["orb"],
+    isNew: true,
+  },
+  {
+    slug: "theme-switcher",
+    title: "Theme Switcher",
+    description:
+      "Ghost icon button that flips between light and dark with next-themes.",
+    category: "brand",
+    icon: Moon02Icon,
+    registryDependencies: ["button"],
+    dependencies: [
+      "next-themes",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "github-button",
+    title: "GitHub Button",
+    description:
+      "Tooltip-wrapped ghost icon button that links out to a GitHub repository.",
+    category: "brand",
+    icon: Github01Icon,
+    registryDependencies: ["button", "tooltip"],
+    isNew: true,
+  },
   ...uiItems,
-]
-
-/**
- * Slugs that are small, atomic primitives (as opposed to fully composed
- * surfaces). These land in the "Components" collection; every other non-UI
- * item defaults to "Blocks".
- */
-const componentSlugs = new Set<string>([
-
-])
-
-
-/**
- * The collection an item belongs to. An explicit `collection` on the item
- * always wins; otherwise it is derived: shadcn/ui primitives (category "ui")
- * are "ui", a curated set of atomic pieces are "components", and everything
- * else is a composed "block".
- */
-export function getCollection(item: RegistryItem): Collection {
-  if (item.collection) return item.collection
-  if (item.category === "ui") return "ui"
-  if (componentSlugs.has(item.slug)) return "components"
-  return "blocks"
-}
-
-export const collections: {
-  id: Collection
-  label: string
-}[] = [
-  { id: "ui", label: "UI" },
-  { id: "components", label: "Components" },
-  { id: "blocks", label: "Blocks" },
 ]
 
 export function getItem(slug: string): RegistryItem | undefined {
@@ -656,10 +714,6 @@ export function getItem(slug: string): RegistryItem | undefined {
 
 export function getItemsByCategory(category: Category): RegistryItem[] {
   return registry.filter((item) => item.category === category)
-}
-
-export function getItemsByCollection(collection: Collection): RegistryItem[] {
-  return registry.filter((item) => getCollection(item) === collection)
 }
 
 export function getFeaturedItems(): RegistryItem[] {
