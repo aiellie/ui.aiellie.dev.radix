@@ -73,6 +73,10 @@ import { VoiceSelector } from "@/registry/voice/voice-selector"
 // Auth
 import { LoginForm } from "@/registry/auth/login-form"
 import { ForgotPasswordForm } from "@/registry/auth/forgot-password-form"
+import { SignupForm } from "@/registry/auth/signup-form"
+import { MagicLinkForm } from "@/registry/auth/magic-link-form"
+import { ResetPasswordForm } from "@/registry/auth/reset-password-form"
+import { OtpForm } from "@/registry/auth/otp-form"
 
 // Brand
 import { Orb } from "@/registry/brand/orb"
@@ -205,6 +209,26 @@ export const demos: Record<string, React.ReactNode> = {
   "forgot-password-form": (
     <div className="w-full max-w-sm">
       <ForgotPasswordForm />
+    </div>
+  ),
+  "signup-form": (
+    <div className="w-full max-w-3xl">
+      <SignupForm />
+    </div>
+  ),
+  "magic-link-form": (
+    <div className="w-full max-w-sm">
+      <MagicLinkForm />
+    </div>
+  ),
+  "reset-password-form": (
+    <div className="w-full max-w-sm">
+      <ResetPasswordForm />
+    </div>
+  ),
+  "otp-form": (
+    <div className="w-full max-w-sm">
+      <OtpForm />
     </div>
   ),
 

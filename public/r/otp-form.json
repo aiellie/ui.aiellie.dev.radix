@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-form",
+  "title": "OTP Form",
+  "description": "Verification card with a grouped six-digit one-time-code input and resend link.",
+  "registryDependencies": [
+    "button",
+    "card",
+    "field",
+    "input-otp"
+  ],
+  "files": [
+    {
+      "path": "registry/auth/otp-form.tsx",
+      "content": "\"use client\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport { Field, FieldDescription, FieldGroup } from \"@/components/ui/field\"\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\"\n\nexport function OtpForm({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div className={cn(\"flex flex-col gap-6\", className)} {...props}>\n      <Card>\n        <CardHeader className=\"text-center\">\n          <CardTitle className=\"text-xl\">Enter verification code</CardTitle>\n          <CardDescription>\n            We sent a 6-digit code to your email. Enter it below to continue.\n          </CardDescription>\n        </CardHeader>\n        <CardContent>\n          <form>\n            <FieldGroup>\n              <Field className=\"items-center\">\n                <InputOTP maxLength={6} id=\"otp\" containerClassName=\"gap-3\">\n                  <InputOTPGroup>\n                    <InputOTPSlot index={0} />\n                    <InputOTPSlot index={1} />\n                    <InputOTPSlot index={2} />\n                  </InputOTPGroup>\n                  <InputOTPSeparator />\n                  <InputOTPGroup>\n                    <InputOTPSlot index={3} />\n                    <InputOTPSlot index={4} />\n                    <InputOTPSlot index={5} />\n                  </InputOTPGroup>\n                </InputOTP>\n              </Field>\n              <Field>\n                <Button type=\"submit\">Verify</Button>\n              </Field>\n              <FieldDescription className=\"text-center\">\n                Didn&apos;t receive a code? <a href=\"#\">Resend</a>\n              </FieldDescription>\n            </FieldGroup>\n          </form>\n        </CardContent>\n      </Card>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

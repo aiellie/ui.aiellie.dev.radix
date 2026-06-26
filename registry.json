@@ -777,6 +777,90 @@
       ]
     },
     {
+      "name": "signup-form",
+      "type": "registry:component",
+      "title": "Signup Form",
+      "description": "Split-card account signup with email, password + confirm, social buttons, and terms/privacy dialogs.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input",
+        "dialog",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/signup-form.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/privacy-policy-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/privacy-policy-dialog.tsx"
+        },
+        {
+          "path": "components/terms-of-service-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/terms-of-service-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magic-link-form",
+      "type": "registry:component",
+      "title": "Magic Link Form",
+      "description": "Passwordless sign-in card that emails a magic link, with Google and GitHub options.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/magic-link-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "reset-password-form",
+      "type": "registry:component",
+      "title": "Reset Password Form",
+      "description": "Centered card to choose and confirm a new password after a reset request.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/reset-password-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "otp-form",
+      "type": "registry:component",
+      "title": "OTP Form",
+      "description": "Verification card with a grouped six-digit one-time-code input and resend link.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "field",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/auth/otp-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "orb",
       "type": "registry:component",
       "title": "Orb",

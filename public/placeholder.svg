@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" fill="none" role="img" aria-label="Placeholder">
+  <defs>
+    <linearGradient id="ae-ph-bg" x1="0" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0c8e6"/>
+      <stop offset="0.32" stop-color="#cdb4ee"/>
+      <stop offset="0.62" stop-color="#a78bda"/>
+      <stop offset="1" stop-color="#6d4fd0"/>
+    </linearGradient>
+    <radialGradient id="ae-ph-glow" cx="0.7" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.25" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ae-ph-orb" cx="0.32" cy="0.7" r="0.55">
+      <stop offset="0" stop-color="#ffd9f2" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffd9f2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#ae-ph-bg)"/>
+  <rect width="800" height="1000" fill="url(#ae-ph-orb)"/>
+  <rect width="800" height="1000" fill="url(#ae-ph-glow)"/>
+  <circle cx="400" cy="500" r="150" fill="#ffffff" fill-opacity="0.10"/>
+  <circle cx="400" cy="500" r="150" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="448" cy="452" r="34" fill="#ffffff" fill-opacity="0.55"/>
+</svg>

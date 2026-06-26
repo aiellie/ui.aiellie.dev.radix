@@ -72,6 +72,9 @@ import {
   ComponentIcon,
   // auth
   SquareLockPasswordIcon,
+  UserAdd01Icon,
+  PinCodeIcon,
+  MagicWand01Icon,
   // brand
   PaintBoardIcon,
   Atom01Icon,
@@ -648,6 +651,53 @@ export const registry: RegistryItem[] = [
     category: "auth",
     icon: SquareLockPasswordIcon,
     registryDependencies: ["button", "card", "field", "input"],
+    isNew: true,
+  },
+  {
+    slug: "signup-form",
+    title: "Signup Form",
+    description:
+      "Split-card account signup with email, password + confirm, social buttons, and terms/privacy dialogs.",
+    category: "auth",
+    icon: UserAdd01Icon,
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input",
+      "dialog",
+      "scroll-area",
+    ],
+    isNew: true,
+  },
+  {
+    slug: "magic-link-form",
+    title: "Magic Link Form",
+    description:
+      "Passwordless sign-in card that emails a magic link, with Google and GitHub options.",
+    category: "auth",
+    icon: MagicWand01Icon,
+    registryDependencies: ["button", "card", "field", "input"],
+    isNew: true,
+  },
+  {
+    slug: "reset-password-form",
+    title: "Reset Password Form",
+    description:
+      "Centered card to choose and confirm a new password after a reset request.",
+    category: "auth",
+    icon: Key01Icon,
+    registryDependencies: ["button", "card", "field", "input"],
+    isNew: true,
+  },
+  {
+    slug: "otp-form",
+    title: "OTP Form",
+    description:
+      "Verification card with a grouped six-digit one-time-code input and resend link.",
+    category: "auth",
+    icon: PinCodeIcon,
+    registryDependencies: ["button", "card", "field", "input-otp"],
     isNew: true,
   },
   // Brand
