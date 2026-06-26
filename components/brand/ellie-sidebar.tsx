@@ -56,20 +56,54 @@ export function EllieSidebarHeader({
   )
 }
 
+/** A collection the Ellie switcher can jump between. */
+export type EllieCollection = {
+  /** Stable id / value. */
+  value: string
+  /** Display label, e.g. "UI". */
+  label: string
+}
+
+export const DEFAULT_ELLIE_COLLECTIONS: EllieCollection[] = [
+  { value: "ui", label: "UI" },
+  { value: "components", label: "Components" },
+  { value: "blocks", label: "Blocks" },
+]
+
 /**
- * EllieVersionSwitcher — the AIEllie brand as a version-switcher dropdown,
- * a drop-in replacement for the shadcn `VersionSwitcher`. Same structure and
+ * EllieCollectionSwitcher — the AIEllie brand as a collection-switcher
+ * dropdown, modeled on the shadcn `VersionSwitcher`. Same structure and
  * behaviour; the GalleryVerticalEnd icon tile is swapped for Ellie and the
- * title reads "AIEllie UI".
+ * options are the registry collections (UI, Components, Blocks).
+ *
+ * Controlled (`value` + `onValueChange`) or uncontrolled (`defaultValue`).
+ * Switching only updates the selected collection — it never changes the URL.
  */
-export function EllieVersionSwitcher({
-  versions,
-  defaultVersion,
+export function EllieCollectionSwitcher({
+  collections = DEFAULT_ELLIE_COLLECTIONS,
+  value,
+  defaultValue,
+  onValueChange,
+  title = "AIEllie UI",
 }: {
-  versions: string[]
-  defaultVersion: string
+  collections?: EllieCollection[]
+  value?: string
+  defaultValue?: string
+  onValueChange?: (value: string) => void
+  title?: string
 }) {
-  const [selectedVersion, setSelectedVersion] = React.useState(defaultVersion)
+  const [internalValue, setInternalValue] = React.useState(
+    defaultValue ?? collections[0]?.value,
+  )
+
+  const selectedValue = value ?? internalValue
+  const selected =
+    collections.find((c) => c.value === selectedValue) ?? collections[0]
+
+  const handleSelect = (next: string) => {
+    if (value === undefined) setInternalValue(next)
+    onValueChange?.(next)
+  }
 
   return (
     <SidebarMenu>
@@ -84,8 +118,8 @@ export function EllieVersionSwitcher({
                 <Ellie size={32} expression="calm" bob={false} blink={false} />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold tracking-tight">AIEllie UI</span>
-                <span>v{selectedVersion}</span>
+                <span className="font-semibold tracking-tight">{title}</span>
+                <span className="text-muted-foreground">{selected?.label}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -94,13 +128,15 @@ export function EllieVersionSwitcher({
             className="w-(--radix-dropdown-menu-trigger-width)"
             align="start"
           >
-            {versions.map((version) => (
+            {collections.map((collection) => (
               <DropdownMenuItem
-                key={version}
-                onSelect={() => setSelectedVersion(version)}
+                key={collection.value}
+                onSelect={() => handleSelect(collection.value)}
               >
-                v{version}{" "}
-                {version === selectedVersion && <Check className="ml-auto" />}
+                {collection.label}
+                {collection.value === selectedValue && (
+                  <Check className="ml-auto" />
+                )}
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>

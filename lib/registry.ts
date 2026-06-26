@@ -77,11 +77,16 @@ import { uiItems } from "@/lib/ui-items"
 
 export type Category = "ai" | "media" | "code" | "voice" | "ui"
 
+/** Top-level collection the switcher toggles between. */
+export type Collection = "ui" | "components" | "blocks"
+
 export type RegistryItem = {
   slug: string
   title: string
   description: string
   category: Category
+  /** Which switcher collection this item belongs to. Defaults to "components". */
+  collection?: Collection
   icon: IconSvgElement
   /** npm dependencies the component needs (beyond what the app already has). */
   dependencies?: string[]
@@ -606,12 +611,48 @@ export const registry: RegistryItem[] = [
   ...uiItems,
 ]
 
+/**
+ * Slugs that are small, atomic primitives (as opposed to fully composed
+ * surfaces). These land in the "Components" collection; every other non-UI
+ * item defaults to "Blocks".
+ */
+const componentSlugs = new Set<string>([
+
+])
+
+
+/**
+ * The collection an item belongs to. An explicit `collection` on the item
+ * always wins; otherwise it is derived: shadcn/ui primitives (category "ui")
+ * are "ui", a curated set of atomic pieces are "components", and everything
+ * else is a composed "block".
+ */
+export function getCollection(item: RegistryItem): Collection {
+  if (item.collection) return item.collection
+  if (item.category === "ui") return "ui"
+  if (componentSlugs.has(item.slug)) return "components"
+  return "blocks"
+}
+
+export const collections: {
+  id: Collection
+  label: string
+}[] = [
+  { id: "ui", label: "UI" },
+  { id: "components", label: "Components" },
+  { id: "blocks", label: "Blocks" },
+]
+
 export function getItem(slug: string): RegistryItem | undefined {
   return registry.find((item) => item.slug === slug)
 }
 
 export function getItemsByCategory(category: Category): RegistryItem[] {
   return registry.filter((item) => item.category === category)
+}
+
+export function getItemsByCollection(collection: Collection): RegistryItem[] {
+  return registry.filter((item) => getCollection(item) === collection)
 }
 
 export function getFeaturedItems(): RegistryItem[] {

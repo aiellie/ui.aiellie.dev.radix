@@ -10,12 +10,14 @@ import {
   BubbleChatIcon,
   StarIcon,
 } from "@hugeicons/core-free-icons"
-import { EllieSidebarHeader } from "@/components/brand/ellie-sidebar"
+import { EllieCollectionSwitcher } from "@/components/brand/ellie-sidebar"
 import { NavUser } from "@/components/nav-user"
 import {
   categories,
+  getCollection,
   getFeaturedItems,
   getItemsByCategory,
+  type Collection,
   type RegistryItem,
 } from "@/lib/registry"
 import {
@@ -67,21 +69,20 @@ export function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname()
-  const featuredItems = getFeaturedItems()
+  const [collection, setCollection] = React.useState<Collection>("ui")
+
+  const featuredItems = getFeaturedItems().filter(
+    (item) => getCollection(item) === collection,
+  )
 
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <EllieSidebarHeader
-              title="aiellie ui"
-              subtitle="component registry"
-              expression="calm"
-              href="/"
-            />
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <EllieCollectionSwitcher
+          title="aiellie ui"
+          value={collection}
+          onValueChange={(value) => setCollection(value as Collection)}
+        />
       </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:overflow-auto">
@@ -132,21 +133,29 @@ export function AppSidebar({
           </SidebarGroup>
         )}
 
-        {categories.map((category) => (
-          <SidebarGroup key={category.id}>
-            <SidebarGroupLabel className="gap-1.5">
-              <HugeiconsIcon icon={category.icon} className="size-3.5" />
-              {category.label}
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {getItemsByCategory(category.id).map((item) => (
-                  <RegistryNavItem key={item.slug} item={item} pathname={pathname} />
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
+        {categories.map((category) => {
+          const items = getItemsByCategory(category.id).filter(
+            (item) => getCollection(item) === collection,
+          )
+
+          if (items.length === 0) return null
+
+          return (
+            <SidebarGroup key={category.id}>
+              <SidebarGroupLabel className="gap-1.5">
+                <HugeiconsIcon icon={category.icon} className="size-3.5" />
+                {category.label}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {items.map((item) => (
+                    <RegistryNavItem key={item.slug} item={item} pathname={pathname} />
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          )
+        })}
       </SidebarContent>
 
       <SidebarFooter>
