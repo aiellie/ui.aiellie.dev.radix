@@ -253,10 +253,7 @@ function AssistantTurn({
     <div className="flex w-full gap-3">
       <AssistantAvatar />
       <div className="flex min-w-0 flex-1 flex-col gap-3">
-        <div className="flex items-center gap-2 px-0.5 text-xs text-muted-foreground">
-          <span className="font-medium text-foreground">Assistant</span>
-          {turn.time ? <span>{turn.time}</span> : null}
-        </div>
+
 
         {turn.reasoning ? (
           <ReasoningPanel
