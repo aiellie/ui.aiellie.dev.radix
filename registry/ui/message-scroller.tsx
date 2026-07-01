@@ -1,6 +1,6 @@
 "use client"
 
-import { useChat } from "@ai-sdk/react"
+import { useChat } from "@/hooks/use-chat"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowUp01Icon,
