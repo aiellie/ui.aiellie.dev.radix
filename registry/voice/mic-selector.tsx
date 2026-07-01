@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { MicIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Mic01Icon } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
 import {
@@ -31,7 +32,7 @@ export function MicSelector({ className }: { className?: string }) {
           className="h-auto w-full justify-start gap-2.5 rounded-xl border bg-card px-3 py-2.5 text-start text-sm hover:bg-accent"
         >
           <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <MicIcon className="size-4" />
+            <HugeiconsIcon icon={Mic01Icon} className="size-4" />
           </span>
           <span className="flex min-w-0 flex-1 flex-col">
             <span className="text-[10px] tracking-wide text-muted-foreground uppercase">
@@ -56,7 +57,7 @@ export function MicSelector({ className }: { className?: string }) {
       </MicSelectorRoot>
 
       <div className="mt-2 flex items-center gap-1.5 px-1">
-        <MicIcon className="size-3.5 shrink-0 text-muted-foreground" />
+        <HugeiconsIcon icon={Mic01Icon} className="size-3.5 shrink-0 text-muted-foreground" />
         <div className="flex h-1.5 flex-1 items-center gap-0.5 overflow-hidden rounded-full bg-muted">
           {Array.from({ length: 16 }).map((_, i) => (
             <span

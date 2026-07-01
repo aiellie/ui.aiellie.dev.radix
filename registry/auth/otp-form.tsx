@@ -1,4 +1,5 @@
-import { RefreshCwIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { RefreshIcon } from "@hugeicons/core-free-icons"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -38,7 +39,7 @@ export function OtpForm() {
               Verification code
             </FieldLabel>
             <Button variant="outline" size="xs">
-              <RefreshCwIcon />
+              <HugeiconsIcon icon={RefreshIcon} />
               Resend Code
             </Button>
           </div>

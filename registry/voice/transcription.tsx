@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { CaptionsIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { CaptionsIcon } from "@hugeicons/core-free-icons"
 
 import {
   Transcription as TranscriptionRoot,
@@ -103,7 +104,7 @@ export function Transcription({
     <div className={cn("w-full max-w-md rounded-xl border bg-card", className)}>
       <div className="flex items-center gap-2.5 border-b px-4 py-3">
         <span className="flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary">
-          <CaptionsIcon className="size-3.5" />
+          <HugeiconsIcon icon={CaptionsIcon} className="size-3.5" />
         </span>
         <span className="text-sm font-medium">Transcript</span>
         <span className="ms-auto flex items-center gap-1.5 text-xs text-muted-foreground">

@@ -2,7 +2,13 @@
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { ArrowRightIcon, MinusIcon, PackageIcon, PlusIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ArrowRight01Icon,
+  MinusSignIcon,
+  PackageOpenIcon,
+  PlusSignIcon,
+} from "@hugeicons/core-free-icons";
 import type { HTMLAttributes } from "react";
 import { createContext, useContext, useMemo } from "react";
 
@@ -45,7 +51,10 @@ export const PackageInfoName = ({
 
   return (
     <div className={cn("flex items-center gap-2", className)} {...props}>
-      <PackageIcon className="size-4 text-muted-foreground" />
+      <HugeiconsIcon
+        icon={PackageOpenIcon}
+        className="size-4 text-muted-foreground"
+      />
       <span className="font-medium font-mono text-sm">{children ?? name}</span>
     </div>
   );
@@ -61,11 +70,11 @@ const changeTypeStyles: Record<ChangeType, string> = {
 };
 
 const changeTypeIcons: Record<ChangeType, React.ReactNode> = {
-  added: <PlusIcon className="size-3" />,
-  major: <ArrowRightIcon className="size-3" />,
-  minor: <ArrowRightIcon className="size-3" />,
-  patch: <ArrowRightIcon className="size-3" />,
-  removed: <MinusIcon className="size-3" />,
+  added: <HugeiconsIcon icon={PlusSignIcon} className="size-3" />,
+  major: <HugeiconsIcon icon={ArrowRight01Icon} className="size-3" />,
+  minor: <HugeiconsIcon icon={ArrowRight01Icon} className="size-3" />,
+  patch: <HugeiconsIcon icon={ArrowRight01Icon} className="size-3" />,
+  removed: <HugeiconsIcon icon={MinusSignIcon} className="size-3" />,
 };
 
 export type PackageInfoChangeTypeProps = HTMLAttributes<HTMLDivElement>;
@@ -122,7 +131,7 @@ export const PackageInfoVersion = ({
         <>
           {currentVersion && <span>{currentVersion}</span>}
           {currentVersion && newVersion && (
-            <ArrowRightIcon className="size-3" />
+            <HugeiconsIcon icon={ArrowRight01Icon} className="size-3" />
           )}
           {newVersion && (
             <span className="font-medium text-foreground">{newVersion}</span>

@@ -15,7 +15,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { ChevronsUpDownIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { UnfoldMoreIcon } from "@hugeicons/core-free-icons";
 import type { ComponentProps, ReactNode } from "react";
 import {
   createContext,
@@ -238,9 +239,9 @@ export const MicSelectorTrigger = ({
     <PopoverTrigger asChild>
       <Button variant="outline" {...props} ref={ref}>
         {children}
-        <ChevronsUpDownIcon
-          className="shrink-0 text-muted-foreground"
-          size={16}
+        <HugeiconsIcon
+          icon={UnfoldMoreIcon}
+          className="size-4 shrink-0 text-muted-foreground"
         />
       </Button>
     </PopoverTrigger>

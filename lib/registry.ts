@@ -712,25 +712,6 @@ export const registry: RegistryItem[] = [
     isNew: true,
   },
   {
-    slug: "orb",
-    title: "Orb",
-    description:
-      "AIEllie's signature iridescent sphere — a pure-CSS gradient orb with an optional float.",
-    category: "brand",
-    icon: Atom01Icon,
-    isNew: true,
-  },
-  {
-    slug: "ellie",
-    title: "Ellie",
-    description:
-      "The orb turned mascot: a face on the iridescent sphere with calm, happy, and wink expressions.",
-    category: "brand",
-    icon: AiUserIcon,
-    registryDependencies: ["orb"],
-    isNew: true,
-  },
-  {
     slug: "theme-switcher",
     title: "Theme Switcher",
     description:

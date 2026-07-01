@@ -11,7 +11,8 @@ import { cjk } from "@streamdown/cjk";
 import { code } from "@streamdown/code";
 import { math } from "@streamdown/math";
 import { mermaid } from "@streamdown/mermaid";
-import { BrainIcon, ChevronDownIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, NeuralNetworkIcon } from "@hugeicons/core-free-icons";
 import type { ComponentProps, ReactNode } from "react";
 import {
   createContext,
@@ -183,9 +184,10 @@ export const ReasoningTrigger = memo(
       >
         {children ?? (
           <>
-            <BrainIcon className="size-4" />
+            <HugeiconsIcon icon={NeuralNetworkIcon} className="size-4" />
             {getThinkingMessage(isStreaming, duration)}
-            <ChevronDownIcon
+            <HugeiconsIcon
+              icon={ArrowDown01Icon}
               className={cn(
                 "size-4 transition-transform",
                 isOpen ? "rotate-180" : "rotate-0"

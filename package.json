@@ -13,6 +13,7 @@
     "registry:build": "shadcn build"
   },
   "dependencies": {
+    "@ai-sdk/react": "4.0.0-canary.162",
     "@base-ui/react": "^1.5.0",
     "@hugeicons/core-free-icons": "^4.2.0",
     "@hugeicons/react": "^1.1.7",
@@ -32,7 +33,6 @@
     "date-fns": "^4.4.0",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
-    "lucide-react": "^1.21.0",
     "media-chrome": "^4.19.2",
     "motion": "^12.41.0",
     "nanoid": "^5.1.15",

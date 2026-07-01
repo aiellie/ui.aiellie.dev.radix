@@ -8,8 +8,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
-import { BrainIcon, ChevronDownIcon, DotIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import type { IconSvgElement } from "@hugeicons/react";
+import {
+  ArrowDown01Icon,
+  Brain02Icon,
+  DotIcon,
+} from "@hugeicons/core-free-icons";
 import type { ComponentProps, ReactNode } from "react";
 import { createContext, memo, useContext, useMemo } from "react";
 
@@ -85,11 +90,12 @@ export const ChainOfThoughtHeader = memo(
           )}
           {...props}
         >
-          <BrainIcon className="size-4" />
+          <HugeiconsIcon icon={Brain02Icon} className="size-4" />
           <span className="flex-1 text-start">
             {children ?? "Chain of Thought"}
           </span>
-          <ChevronDownIcon
+          <HugeiconsIcon
+            icon={ArrowDown01Icon}
             className={cn(
               "size-4 transition-transform",
               isOpen ? "rotate-180" : "rotate-0"
@@ -102,7 +108,7 @@ export const ChainOfThoughtHeader = memo(
 );
 
 export type ChainOfThoughtStepProps = ComponentProps<"div"> & {
-  icon?: LucideIcon;
+  icon?: IconSvgElement;
   label: ReactNode;
   description?: ReactNode;
   status?: "complete" | "active" | "pending";
@@ -117,7 +123,7 @@ const stepStatusStyles = {
 export const ChainOfThoughtStep = memo(
   ({
     className,
-    icon: Icon = DotIcon,
+    icon: iconProp = DotIcon,
     label,
     description,
     status = "complete",
@@ -134,7 +140,7 @@ export const ChainOfThoughtStep = memo(
       {...props}
     >
       <div className="relative mt-0.5">
-        <Icon className="size-4" />
+        <HugeiconsIcon icon={iconProp} className="size-4" />
         <div className="absolute top-7 bottom-0 start-1/2 -mx-px w-px bg-border" />
       </div>
       <div className="flex-1 space-y-2 overflow-hidden">

@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import type { UIMessage } from "ai";
-import { ArrowDownIcon, DownloadIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, Download04Icon } from "@hugeicons/core-free-icons";
 import type { ComponentProps } from "react";
 import { useCallback } from "react";
 import { StickToBottom, useStickToBottomContext } from "use-stick-to-bottom";
@@ -103,7 +104,7 @@ export const ConversationScrollButton = ({
         variant="outline"
         {...props}
       >
-        <ArrowDownIcon className="size-4" />
+        <HugeiconsIcon icon={ArrowDown01Icon} className="size-4" />
       </Button>
     )
   );
@@ -171,7 +172,7 @@ export const ConversationDownload = ({
       variant="outline"
       {...props}
     >
-      {children ?? <DownloadIcon className="size-4" />}
+      {children ?? <HugeiconsIcon icon={Download04Icon} className="size-4" />}
     </Button>
   );
 };

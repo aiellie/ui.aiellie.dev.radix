@@ -1,6 +1,6 @@
 "use client"
 
-import { Ellie, type EllieExpression } from "./ellie"
+import { LogoIcon, LogoWordmark } from "@/registry/brand/logo"
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -9,36 +9,31 @@ import {
 
 /**
  * EllieSidebarHeader — the AIEllie brand lockup sized for a shadcn sidebar
- * header. Ellie (the orb character) takes the `size-8` icon-tile slot, the
- * wordmark + subtitle sit in the leading-none label stack. Collapses cleanly:
- * when the sidebar is icon-only, just Ellie remains.
+ * header. LogoIcon takes the `size-8` icon-tile slot, the wordmark + optional
+ * subtitle sit in the leading-none label stack. Collapses cleanly: when the
+ * sidebar is icon-only, just the logo icon remains.
  *
  * Drop it at the top of your <SidebarHeader>, exactly where a VersionSwitcher
  * or team-switcher would go.
  */
 export function EllieSidebarHeader({
-  title = "AIEllie UI",
   subtitle = "v1.0.1",
-  expression = "calm",
   href = "/",
 }: {
-  title?: string
   subtitle?: string
-  expression?: EllieExpression
   href?: string
-}) {
+} = {}) {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton size="lg" asChild>
-          <a href={href}>
-            <div className="flex aspect-square size-8 items-center justify-center">
-              {/* the orb is its own shape — no tile background behind it */}
-              <Ellie size={32} expression={expression} bob={false} blink={false} />
-            </div>
+          <a href={href} className="group">
+            <LogoIcon role="img" aria-label="Brand logo" />
             <div className="flex flex-col gap-0.5 leading-none">
-              <span className="font-semibold tracking-tight">{title}</span>
-              <span className="text-muted-foreground">{subtitle}</span>
+              <LogoWordmark className="text-[1.05rem] font-semibold" />
+              {subtitle ? (
+                <span className="text-muted-foreground">{subtitle}</span>
+              ) : null}
             </div>
           </a>
         </SidebarMenuButton>

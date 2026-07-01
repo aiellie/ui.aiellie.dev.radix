@@ -6,12 +6,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  ChevronRightIcon,
-  FileIcon,
-  FolderIcon,
+  ArrowRight01Icon,
+  File01Icon,
+  Folder01Icon,
   FolderOpenIcon,
-} from "lucide-react";
+} from "@hugeicons/core-free-icons";
 import type { HTMLAttributes, ReactNode } from "react";
 import {
   createContext,
@@ -180,7 +181,8 @@ export const FileTreeFolder = ({
                 className="flex shrink-0 cursor-pointer items-center border-none bg-transparent p-0"
                 type="button"
               >
-                <ChevronRightIcon
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
                   className={cn(
                     "size-4 shrink-0 text-muted-foreground transition-transform",
                     isExpanded && "rotate-90"
@@ -195,9 +197,15 @@ export const FileTreeFolder = ({
             >
               <FileTreeIcon>
                 {isExpanded ? (
-                  <FolderOpenIcon className="size-4 text-blue-500" />
+                  <HugeiconsIcon
+                    icon={FolderOpenIcon}
+                    className="size-4 text-blue-500"
+                  />
                 ) : (
-                  <FolderIcon className="size-4 text-blue-500" />
+                  <HugeiconsIcon
+                    icon={Folder01Icon}
+                    className="size-4 text-blue-500"
+                  />
                 )}
               </FileTreeIcon>
               <FileTreeName>{name}</FileTreeName>
@@ -273,7 +281,12 @@ export const FileTreeFile = ({
             {/* Spacer for alignment */}
             <span className="size-4 shrink-0" />
             <FileTreeIcon>
-              {icon ?? <FileIcon className="size-4 text-muted-foreground" />}
+              {icon ?? (
+                <HugeiconsIcon
+                  icon={File01Icon}
+                  className="size-4 text-muted-foreground"
+                />
+              )}
             </FileTreeIcon>
             <FileTreeName>{name}</FileTreeName>
           </>

@@ -3,7 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Ansi from "ansi-to-react";
-import { CheckIcon, CopyIcon, TerminalIcon, Trash2Icon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Copy01Icon,
+  Delete02Icon,
+  TerminalIcon,
+  Tick02Icon,
+} from "@hugeicons/core-free-icons";
 import type { ComponentProps, HTMLAttributes } from "react";
 import {
   createContext,
@@ -57,7 +63,7 @@ export const TerminalTitle = ({
     className={cn("flex items-center gap-2 text-sm text-zinc-400", className)}
     {...props}
   >
-    <TerminalIcon className="size-4" />
+    <HugeiconsIcon icon={TerminalIcon} className="size-4" />
     {children ?? "Terminal"}
   </div>
 );
@@ -138,7 +144,7 @@ export const TerminalCopyButton = ({
     []
   );
 
-  const Icon = isCopied ? CheckIcon : CopyIcon;
+  const icon = isCopied ? Tick02Icon : Copy01Icon;
 
   return (
     <Button
@@ -151,7 +157,7 @@ export const TerminalCopyButton = ({
       variant="ghost"
       {...props}
     >
-      {children ?? <Icon size={14} />}
+      {children ?? <HugeiconsIcon icon={icon} className="size-3.5" />}
     </Button>
   );
 };
@@ -180,7 +186,7 @@ export const TerminalClearButton = ({
       variant="ghost"
       {...props}
     >
-      {children ?? <Trash2Icon size={14} />}
+      {children ?? <HugeiconsIcon icon={Delete02Icon} className="size-3.5" />}
     </Button>
   );
 };

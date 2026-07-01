@@ -5,7 +5,8 @@
   "description": "Searchable voice picker with gender, accent labels, and sample preview.",
   "dependencies": [
     "@radix-ui/react-use-controllable-state",
-    "lucide-react"
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
   ],
   "registryDependencies": [
     "button",

@@ -8,15 +8,17 @@ import {
 } from "@/components/ui/hover-card";
 import { cn } from "@/lib/utils";
 import type { FileUIPart, SourceDocumentUIPart } from "ai";
+import { HugeiconsIcon } from "@hugeicons/react";
+import type { IconSvgElement } from "@hugeicons/react";
 import {
-  FileTextIcon,
-  GlobeIcon,
-  ImageIcon,
-  Music2Icon,
-  PaperclipIcon,
-  VideoIcon,
-  XIcon,
-} from "lucide-react";
+  Attachment01Icon,
+  Cancel01Icon,
+  File01Icon,
+  Globe02Icon,
+  Image01Icon,
+  MusicNote03Icon,
+  VideoReplayIcon,
+} from "@hugeicons/core-free-icons";
 import type { ComponentProps, HTMLAttributes, ReactNode } from "react";
 import { createContext, useCallback, useContext, useMemo } from "react";
 
@@ -38,13 +40,13 @@ export type AttachmentMediaCategory =
 
 export type AttachmentVariant = "grid" | "inline" | "list";
 
-const mediaCategoryIcons: Record<AttachmentMediaCategory, typeof ImageIcon> = {
-  audio: Music2Icon,
-  document: FileTextIcon,
-  image: ImageIcon,
-  source: GlobeIcon,
-  unknown: PaperclipIcon,
-  video: VideoIcon,
+const mediaCategoryIcons: Record<AttachmentMediaCategory, IconSvgElement> = {
+  audio: MusicNote03Icon,
+  document: File01Icon,
+  image: Image01Icon,
+  source: Globe02Icon,
+  unknown: Attachment01Icon,
+  video: VideoReplayIcon,
 };
 
 // ============================================================================
@@ -242,8 +244,8 @@ export const AttachmentPreview = ({
 
   const iconSize = variant === "inline" ? "size-3" : "size-4";
 
-  const renderIcon = (Icon: typeof ImageIcon) => (
-    <Icon className={cn(iconSize, "text-muted-foreground")} />
+  const renderIcon = (icon: IconSvgElement) => (
+    <HugeiconsIcon icon={icon} className={cn(iconSize, "text-muted-foreground")} />
   );
 
   const renderContent = () => {
@@ -255,8 +257,8 @@ export const AttachmentPreview = ({
       return <video className="size-full object-cover" muted src={data.url} />;
     }
 
-    const Icon = mediaCategoryIcons[mediaCategory];
-    return fallbackIcon ?? renderIcon(Icon);
+    const icon = mediaCategoryIcons[mediaCategory];
+    return fallbackIcon ?? renderIcon(icon);
   };
 
   return (
@@ -359,7 +361,7 @@ export const AttachmentRemove = ({
       variant="ghost"
       {...props}
     >
-      {children ?? <XIcon />}
+      {children ?? <HugeiconsIcon icon={Cancel01Icon} />}
       <span className="sr-only">{label}</span>
     </Button>
   );

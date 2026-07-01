@@ -5,7 +5,8 @@
   "description": "Scrollable message thread with a floating scroll-to-bottom button.",
   "dependencies": [
     "use-stick-to-bottom",
-    "lucide-react"
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
   ],
   "registryDependencies": [
     "button",

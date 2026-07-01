@@ -1,15 +1,16 @@
 "use client"
 
 import { memo, useCallback, useState } from "react"
-import type { LucideIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import type { IconSvgElement } from "@hugeicons/react"
 import {
-  BrainIcon,
+  Brain02Icon,
   CircleIcon,
   EyeClosedIcon,
-  MegaphoneIcon,
-  MicIcon,
-  Volume2Icon,
-} from "lucide-react"
+  Megaphone01Icon,
+  Mic01Icon,
+  VolumeHighIcon,
+} from "@hugeicons/core-free-icons"
 
 import {
   Persona as PersonaVisual,
@@ -36,13 +37,13 @@ type PersonaVariant =
 
 const states: {
   state: PersonaState
-  icon: LucideIcon
+  icon: IconSvgElement
   label: string
 }[] = [
   { icon: CircleIcon, label: "Idle", state: "idle" },
-  { icon: MicIcon, label: "Listening", state: "listening" },
-  { icon: BrainIcon, label: "Thinking", state: "thinking" },
-  { icon: MegaphoneIcon, label: "Speaking", state: "speaking" },
+  { icon: Mic01Icon, label: "Listening", state: "listening" },
+  { icon: Brain02Icon, label: "Thinking", state: "thinking" },
+  { icon: Megaphone01Icon, label: "Speaking", state: "speaking" },
   { icon: EyeClosedIcon, label: "Asleep", state: "asleep" },
 ]
 
@@ -68,7 +69,7 @@ const StateButton = memo(
             size="icon-sm"
             variant={currentState === state.state ? "default" : "outline"}
           >
-            <state.icon className="size-4" />
+            <HugeiconsIcon icon={state.icon} className="size-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>{state.label}</TooltipContent>
@@ -115,7 +116,10 @@ export function Persona({
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="flex items-center gap-2">
             <h3 className="truncate text-base font-semibold">{name}</h3>
-            <Volume2Icon className="size-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={VolumeHighIcon}
+              className="size-4 text-muted-foreground"
+            />
           </div>
           <p className="truncate text-xs font-medium text-primary">{role}</p>
         </div>

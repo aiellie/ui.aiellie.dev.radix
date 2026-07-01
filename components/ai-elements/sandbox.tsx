@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import type { ToolUIPart } from "ai";
-import { ChevronDownIcon, Code } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, CodeIcon } from "@hugeicons/core-free-icons";
 import type { ComponentProps } from "react";
 
 import { getStatusBadge } from "./tool";
@@ -51,11 +52,14 @@ export const SandboxHeader = ({
     {...props}
   >
     <div className="flex items-center gap-2">
-      <Code className="size-4 text-muted-foreground" />
+      <HugeiconsIcon icon={CodeIcon} className="size-4 text-muted-foreground" />
       <span className="font-medium text-sm">{title}</span>
       {getStatusBadge(state)}
     </div>
-    <ChevronDownIcon className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+    <HugeiconsIcon
+      icon={ArrowDown01Icon}
+      className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180"
+    />
   </CollapsibleTrigger>
 );
 

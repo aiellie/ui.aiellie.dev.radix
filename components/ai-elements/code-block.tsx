@@ -9,7 +9,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import type { ComponentProps, CSSProperties, HTMLAttributes } from "react";
 import {
   createContext,
@@ -495,7 +496,7 @@ export const CodeBlockCopyButton = ({
     []
   );
 
-  const Icon = isCopied ? CheckIcon : CopyIcon;
+  const icon = isCopied ? Tick02Icon : Copy01Icon;
 
   return (
     <Button
@@ -505,7 +506,7 @@ export const CodeBlockCopyButton = ({
       variant="ghost"
       {...props}
     >
-      {children ?? <Icon size={14} />}
+      {children ?? <HugeiconsIcon icon={icon} className="size-3.5" />}
     </Button>
   );
 };

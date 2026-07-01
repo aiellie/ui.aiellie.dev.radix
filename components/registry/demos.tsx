@@ -79,8 +79,7 @@ import { ResetPasswordForm } from "@/registry/auth/reset-password-form"
 import { OtpForm } from "@/registry/auth/otp-form"
 
 // Brand
-import { Orb } from "@/registry/brand/orb"
-import { Ellie } from "@/registry/brand/ellie"
+
 import { Logo } from "@/registry/brand/logo"
 import { ThemeSwitcher } from "@/registry/brand/theme-switcher"
 import { GithubButton } from "@/registry/brand/github-button"
@@ -233,20 +232,7 @@ export const demos: Record<string, React.ReactNode> = {
   ),
 
   // Brand
-  logo: <Logo size={40} />,
-  orb: (
-    <div className="flex items-center gap-10">
-      <Orb size={96} float />
-      <Orb size={96} glow />
-    </div>
-  ),
-  ellie: (
-    <div className="flex items-end gap-8">
-      <Ellie size={88} expression="happy" />
-      <Ellie size={88} expression="calm" />
-      <Ellie size={88} expression="wink" />
-    </div>
-  ),
+  logo: <Logo />,
   "theme-switcher": <ThemeSwitcher />,
   "github-button": <GithubButton />,
 }

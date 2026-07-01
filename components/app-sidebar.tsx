@@ -9,7 +9,7 @@ import {
   BubbleChatIcon,
   StarIcon,
 } from "@hugeicons/core-free-icons"
-import { EllieSidebarHeader } from "@/components/brand/ellie-sidebar"
+import { Logo } from "@/registry/brand/logo"
 import { NavUser } from "@/components/nav-user"
 import {
   categories,
@@ -72,7 +72,7 @@ export function AppSidebar({
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <EllieSidebarHeader title="aiellie ui" />
+        <Logo />
       </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:overflow-auto">

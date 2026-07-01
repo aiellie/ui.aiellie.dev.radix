@@ -4,7 +4,8 @@
   "title": "Speech Input",
   "description": "Press-to-talk mic button with live speech recognition and transcript display.",
   "dependencies": [
-    "lucide-react"
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
   ],
   "registryDependencies": [
     "button"

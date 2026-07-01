@@ -8,14 +8,15 @@ import {
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import type { DynamicToolUIPart, ToolUIPart } from "ai";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  CheckCircleIcon,
-  ChevronDownIcon,
+  ArrowDown01Icon,
+  CancelCircleIcon,
+  CheckmarkCircle02Icon,
   CircleIcon,
-  ClockIcon,
-  WrenchIcon,
-  XCircleIcon,
-} from "lucide-react";
+  Loading03Icon,
+  Wrench01Icon,
+} from "@hugeicons/core-free-icons";
 import type { ComponentProps, ReactNode } from "react";
 import { isValidElement } from "react";
 
@@ -55,13 +56,28 @@ const statusLabels: Record<ToolPart["state"], string> = {
 };
 
 const statusIcons: Record<ToolPart["state"], ReactNode> = {
-  "approval-requested": <ClockIcon className="size-4 text-yellow-600" />,
-  "approval-responded": <CheckCircleIcon className="size-4 text-blue-600" />,
-  "input-available": <ClockIcon className="size-4 animate-pulse" />,
-  "input-streaming": <CircleIcon className="size-4" />,
-  "output-available": <CheckCircleIcon className="size-4 text-green-600" />,
-  "output-denied": <XCircleIcon className="size-4 text-orange-600" />,
-  "output-error": <XCircleIcon className="size-4 text-red-600" />,
+  "approval-requested": (
+    <HugeiconsIcon icon={Loading03Icon} className="size-4 text-yellow-600" />
+  ),
+  "approval-responded": (
+    <HugeiconsIcon icon={CheckmarkCircle02Icon} className="size-4 text-blue-600" />
+  ),
+  "input-available": (
+    <HugeiconsIcon
+      icon={Loading03Icon}
+      className="size-4 animate-pulse"
+    />
+  ),
+  "input-streaming": <HugeiconsIcon icon={CircleIcon} className="size-4" />,
+  "output-available": (
+    <HugeiconsIcon icon={CheckmarkCircle02Icon} className="size-4 text-green-600" />
+  ),
+  "output-denied": (
+    <HugeiconsIcon icon={CancelCircleIcon} className="size-4 text-orange-600" />
+  ),
+  "output-error": (
+    <HugeiconsIcon icon={CancelCircleIcon} className="size-4 text-red-600" />
+  ),
 };
 
 export const getStatusBadge = (status: ToolPart["state"]) => (
@@ -91,11 +107,14 @@ export const ToolHeader = ({
       {...props}
     >
       <div className="flex items-center gap-2">
-        <WrenchIcon className="size-4 text-muted-foreground" />
+        <HugeiconsIcon icon={Wrench01Icon} className="size-4 text-muted-foreground" />
         <span className="font-medium text-sm">{title ?? derivedName}</span>
         {getStatusBadge(state)}
       </div>
-      <ChevronDownIcon className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+      <HugeiconsIcon
+        icon={ArrowDown01Icon}
+        className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180"
+      />
     </CollapsibleTrigger>
   );
 };

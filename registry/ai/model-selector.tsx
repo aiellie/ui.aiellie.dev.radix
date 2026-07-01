@@ -1,7 +1,8 @@
 "use client"
 
 import { memo, useCallback, useMemo, useState } from "react"
-import { CheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Tick02Icon } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -311,7 +312,7 @@ const ModelItem = memo(({ model, selectedModel, onSelect }: ModelItemProps) => {
         ))}
       </ModelSelectorLogoGroup>
       {selectedModel === model.id ? (
-        <CheckIcon className="ml-auto size-4" />
+        <HugeiconsIcon icon={Tick02Icon} className="ml-auto size-4" />
       ) : (
         <div className="ml-auto size-4" />
       )}
