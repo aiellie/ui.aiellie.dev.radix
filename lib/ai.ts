@@ -1,11 +1,10 @@
 import type {
   ChatTransport,
-  CustomContentUIPart,
   DataUIPart,
   DynamicToolUIPart,
   FileUIPart,
   InferUIMessageChunk,
-  ReasoningFileUIPart,
+  ProviderMetadata,
   ReasoningUIPart,
   SourceDocumentUIPart,
   SourceUrlUIPart,
@@ -17,6 +16,28 @@ import type {
   UIMessagePart,
   UITools,
 } from "ai"
+
+type CustomContentUIPart = {
+  type: "custom"
+  kind: string
+  providerMetadata?: ProviderMetadata
+}
+
+type ReasoningFileUIPart = {
+  type: "reasoning-file"
+  mediaType: string
+  url: string
+  filename?: string
+  providerMetadata?: ProviderMetadata
+}
+
+type ExtendedUIMessagePart<
+  DATA_PARTS extends UIDataTypes,
+  TOOLS extends UITools,
+> =
+  | UIMessagePart<DATA_PARTS, TOOLS>
+  | CustomContentUIPart
+  | ReasoningFileUIPart
 
 type JsonRecord = Record<string, unknown>
 
@@ -458,11 +479,13 @@ function materializeEvents<
     }
 
     if (event.kind === "reasoning-file") {
-      parts.push(event.part as UIMessagePart<DATA_PARTS, TOOLS>)
+      parts.push(
+        event.part as unknown as UIMessagePart<DATA_PARTS, TOOLS>
+      )
     }
 
     if (event.kind === "custom") {
-      parts.push(event.part as UIMessagePart<DATA_PARTS, TOOLS>)
+      parts.push(event.part as unknown as UIMessagePart<DATA_PARTS, TOOLS>)
     }
 
     if (event.kind === "step-start") {
@@ -575,7 +598,7 @@ export function createAiMessageFaker<
 
     custom(
       kind: CustomContentUIPart["kind"] = "test.output",
-      options: Pick<CustomContentUIPart, "providerMetadata"> = {}
+      options: Partial<Pick<CustomContentUIPart, "providerMetadata">> = {}
     ): CustomContentUIPart {
       return {
         type: "custom",
@@ -690,7 +713,7 @@ export function createAiMessageFaker<
 
   function message(
     role: UIMessage<METADATA, DATA_PARTS, TOOLS>["role"],
-    messageParts: Array<UIMessagePart<DATA_PARTS, TOOLS>>,
+    messageParts: Array<ExtendedUIMessagePart<DATA_PARTS, TOOLS>>,
     overrides: Partial<UIMessage<METADATA, DATA_PARTS, TOOLS>> = {}
   ): UIMessage<METADATA, DATA_PARTS, TOOLS> {
     return {
@@ -736,7 +759,7 @@ export function createAiMessageFaker<
     role: UIMessage<METADATA, DATA_PARTS, TOOLS>["role"] = "assistant",
     overrides: Partial<UIMessage<METADATA, DATA_PARTS, TOOLS>> = {}
   ) {
-    const messageParts: Array<UIMessagePart<DATA_PARTS, TOOLS>> = []
+    const messageParts: Array<ExtendedUIMessagePart<DATA_PARTS, TOOLS>> = []
 
     const api = {
       text(text?: string, options?: Pick<TextUIPart, "state">) {
@@ -1018,7 +1041,7 @@ export function createAiMessageFaker<
   }
 
   function eventsFromParts(
-    messageParts: Array<UIMessagePart<DATA_PARTS, TOOLS>>
+    messageParts: Array<ExtendedUIMessagePart<DATA_PARTS, TOOLS>>
   ) {
     const events: ChatWriterEvent<DATA_PARTS, TOOLS>[] = []
 
@@ -1408,7 +1431,7 @@ export function createAiMessageFaker<
 
             if (event.kind === "reasoning-file") {
               controller.enqueue(
-                event.part as InferUIMessageChunk<
+                event.part as unknown as InferUIMessageChunk<
                   UIMessage<METADATA, DATA_PARTS, TOOLS>
                 >
               )
@@ -1416,7 +1439,7 @@ export function createAiMessageFaker<
 
             if (event.kind === "custom") {
               controller.enqueue(
-                event.part as InferUIMessageChunk<
+                event.part as unknown as InferUIMessageChunk<
                   UIMessage<METADATA, DATA_PARTS, TOOLS>
                 >
               )
