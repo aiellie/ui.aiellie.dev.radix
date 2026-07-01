@@ -76,37 +76,6 @@ export function AppSidebar({
       </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:overflow-auto">
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === "/"}
-                  tooltip="Browse all"
-                >
-                  <Link href="/">
-                    <HugeiconsIcon icon={DashboardSquare01Icon} />
-                    <span>Browse all</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === "/chat"}
-                  tooltip="Chat block"
-                >
-                  <Link href="/chat">
-                    <HugeiconsIcon icon={BubbleChatIcon} />
-                    <span>Chat block</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
         {featuredItems.length > 0 && (
           <SidebarGroup>
             <SidebarGroupLabel className="gap-1.5">

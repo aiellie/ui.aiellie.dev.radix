@@ -1,15 +1,19 @@
-"use client"
+import { RefreshCwIcon } from "lucide-react"
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Field, FieldDescription, FieldGroup } from "@/components/ui/field"
+import {
+  Field,
+  FieldDescription,
+  FieldLabel,
+} from "@/components/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
@@ -17,47 +21,61 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-export function OtpForm({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export function OtpForm() {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Enter verification code</CardTitle>
-          <CardDescription>
-            We sent a 6-digit code to your email. Enter it below to continue.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <FieldGroup>
-              <Field className="items-center">
-                <InputOTP maxLength={6} id="otp" containerClassName="gap-3">
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} />
-                    <InputOTPSlot index={1} />
-                    <InputOTPSlot index={2} />
-                  </InputOTPGroup>
-                  <InputOTPSeparator />
-                  <InputOTPGroup>
-                    <InputOTPSlot index={3} />
-                    <InputOTPSlot index={4} />
-                    <InputOTPSlot index={5} />
-                  </InputOTPGroup>
-                </InputOTP>
-              </Field>
-              <Field>
-                <Button type="submit">Verify</Button>
-              </Field>
-              <FieldDescription className="text-center">
-                Didn&apos;t receive a code? <a href="#">Resend</a>
-              </FieldDescription>
-            </FieldGroup>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+    <Card className="mx-auto max-w-md">
+      <CardHeader>
+        <CardTitle>Verify your login</CardTitle>
+        <CardDescription>
+          Enter the verification code we sent to your email address:{" "}
+          <span className="font-medium">m@example.com</span>.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Field>
+          <div className="flex items-center justify-between">
+            <FieldLabel htmlFor="otp-verification">
+              Verification code
+            </FieldLabel>
+            <Button variant="outline" size="xs">
+              <RefreshCwIcon />
+              Resend Code
+            </Button>
+          </div>
+          <InputOTP maxLength={6} id="otp-verification" required>
+            <InputOTPGroup className="*:data-[slot=input-otp-slot]:h-12 *:data-[slot=input-otp-slot]:w-11 *:data-[slot=input-otp-slot]:text-xl">
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+            </InputOTPGroup>
+            <InputOTPSeparator className="mx-2" />
+            <InputOTPGroup className="*:data-[slot=input-otp-slot]:h-12 *:data-[slot=input-otp-slot]:w-11 *:data-[slot=input-otp-slot]:text-xl">
+              <InputOTPSlot index={3} />
+              <InputOTPSlot index={4} />
+              <InputOTPSlot index={5} />
+            </InputOTPGroup>
+          </InputOTP>
+          <FieldDescription>
+            <a href="#">I no longer have access to this email address.</a>
+          </FieldDescription>
+        </Field>
+      </CardContent>
+      <CardFooter>
+        <Field>
+          <Button type="submit" className="w-full">
+            Verify
+          </Button>
+          <div className="text-sm text-muted-foreground">
+            Having trouble signing in?{" "}
+            <a
+              href="#"
+              className="underline underline-offset-4 transition-colors hover:text-primary"
+            >
+              Contact support
+            </a>
+          </div>
+        </Field>
+      </CardFooter>
+    </Card>
   )
 }

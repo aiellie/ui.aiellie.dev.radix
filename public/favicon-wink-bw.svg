@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="orb" cx="36%" cy="30%" r="74%">
+      <stop offset="0%" stop-color="#ffffff"></stop>
+      <stop offset="34%" stop-color="#e4e4e7"></stop>
+      <stop offset="70%" stop-color="#a1a1aa"></stop>
+      <stop offset="100%" stop-color="#52525b"></stop>
+    </radialGradient>
+    <radialGradient id="shade" cx="30%" cy="82%" r="58%">
+      <stop offset="54%" stop-color="#18181b" stop-opacity="0"></stop>
+      <stop offset="100%" stop-color="#18181b" stop-opacity="0.45"></stop>
+    </radialGradient>
+    <radialGradient id="spec" cx="68%" cy="22%" r="26%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"></stop>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#orb)"></circle>
+  <circle cx="50" cy="50" r="48" fill="url(#shade)"></circle>
+  <circle cx="50" cy="50" r="48" fill="url(#spec)"></circle>
+  <ellipse cx="40" cy="53" rx="5" ry="6.4" fill="#18181b"></ellipse>
+  <circle cx="38.1" cy="50" r="1.6" fill="#ffffff" fill-opacity="0.92"></circle>
+  <path d="M53 54 Q60 49 67 54" fill="none" stroke="#18181b" stroke-width="4" stroke-linecap="round"></path>
+</svg>
