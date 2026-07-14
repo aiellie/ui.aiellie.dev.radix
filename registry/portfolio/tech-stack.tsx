@@ -8,6 +8,8 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Group = {
   label: string
@@ -46,15 +48,16 @@ export function TechStack({
   className?: string
 }) {
   return (
-    <div
-      className={cn("w-full max-w-lg rounded-2xl border bg-card p-6", className)}
+    <Card
+      className={cn("w-full max-w-lg [--card-spacing:--spacing(6)]", className)}
     >
-      <div className="flex items-center gap-2">
-        <HugeiconsIcon icon={Layers01Icon} className="size-5 text-primary" />
-        <h2 className="font-semibold tracking-tight">Tech stack</h2>
-      </div>
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 font-semibold tracking-tight">
+          <HugeiconsIcon icon={Layers01Icon} className="size-5 text-primary" />
+          Tech stack
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="grid gap-4 sm:grid-cols-2">
         {groups.map((group) => (
           <div key={group.label} className="rounded-xl border bg-muted/30 p-4">
             <div className="flex items-center gap-2 text-sm font-medium">
@@ -66,17 +69,18 @@ export function TechStack({
             </div>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {group.items.map((item) => (
-                <span
+                <Badge
                   key={item}
-                  className="rounded-md border bg-background px-2 py-0.5 font-mono text-[11px] text-foreground"
+                  variant="outline"
+                  className="bg-background font-mono text-[11px]"
                 >
                   {item}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

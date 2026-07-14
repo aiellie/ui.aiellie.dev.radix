@@ -1,10 +1,15 @@
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowUpRight01Icon,
-  Clock01Icon,
-} from "@hugeicons/core-free-icons"
+import { ArrowUpRight01Icon, Clock01Icon } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export function BlogPostCard({
   title = "Building a type-safe design system with CVA",
@@ -26,36 +31,33 @@ export function BlogPostCard({
   className?: string
 }) {
   return (
-    <a
-      href={href}
-      className={cn(
-        "group flex w-full max-w-sm flex-col overflow-hidden rounded-2xl border bg-card transition-shadow hover:shadow-lg",
-        className
-      )}
-    >
-      <div
-        className={cn(
-          "relative flex h-32 items-center justify-center bg-gradient-to-br",
-          accent
-        )}
-      >
+    <a href={href} className={cn("group block w-full max-w-sm", className)}>
+      <Card className="pt-0 transition-shadow group-hover:shadow-lg">
         <div
-          aria-hidden
-          className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:16px_16px]"
-        />
-        <span className="absolute top-3 left-3 rounded-full bg-black/25 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
-          {tag}
-        </span>
-      </div>
+          className={cn(
+            "relative flex h-32 items-center justify-center bg-gradient-to-br",
+            accent
+          )}
+        >
+          <div
+            aria-hidden
+            className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:16px_16px]"
+          />
+          <Badge className="absolute top-3 left-3 border-white/10 bg-black/25 text-white backdrop-blur">
+            {tag}
+          </Badge>
+        </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-semibold leading-snug tracking-tight transition-colors group-hover:text-primary">
-          {title}
-        </h3>
-        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-          {excerpt}
-        </p>
-        <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+        <CardHeader>
+          <CardTitle className="leading-snug font-semibold tracking-tight transition-colors group-hover:text-primary">
+            {title}
+          </CardTitle>
+          <CardDescription className="line-clamp-2 leading-relaxed">
+            {excerpt}
+          </CardDescription>
+        </CardHeader>
+
+        <CardFooter className="gap-3 border-t-0 bg-transparent pt-0 text-xs text-muted-foreground">
           <span>{date}</span>
           <span className="flex items-center gap-1">
             <HugeiconsIcon icon={Clock01Icon} className="size-3.5" />
@@ -65,8 +67,8 @@ export function BlogPostCard({
             icon={ArrowUpRight01Icon}
             className="ms-auto size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
-        </div>
-      </div>
+        </CardFooter>
+      </Card>
     </a>
   )
 }

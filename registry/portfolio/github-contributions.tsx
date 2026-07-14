@@ -2,6 +2,15 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Github01Icon } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
 // Deterministic pseudo-random so the grid is stable between renders.
 function seeded(i: number) {
@@ -34,43 +43,44 @@ export function GithubContributions({
   })
 
   return (
-    <div
-      className={cn(
-        "w-full max-w-2xl rounded-2xl border bg-card p-6",
-        className
-      )}
+    <Card
+      className={cn("w-full max-w-2xl [--card-spacing:--spacing(6)]", className)}
     >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <HugeiconsIcon icon={Github01Icon} className="size-5" />
-          <span className="text-sm font-medium">@{username}</span>
-        </div>
-        <span className="text-xs text-muted-foreground">
-          {total.toLocaleString()} contributions this year
-        </span>
-      </div>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-sm font-medium">
+          <HugeiconsIcon icon={Github01Icon} className="size-5" />@{username}
+        </CardTitle>
+        <CardAction>
+          <Badge variant="secondary" className="font-normal">
+            {total.toLocaleString()} contributions this year
+          </Badge>
+        </CardAction>
+      </CardHeader>
 
-      <div className="mt-4 overflow-x-auto">
-        <div
-          className="grid w-max grid-flow-col gap-1"
-          style={{ gridTemplateRows: "repeat(7, minmax(0, 1fr))" }}
-        >
-          {days.map((level, i) => (
-            <span
-              key={i}
-              className={cn("size-2.5 rounded-[3px]", levelClass[level])}
-            />
+      <CardContent>
+        <ScrollArea className="w-full">
+          <div
+            className="grid w-max grid-flow-col gap-1 pb-1"
+            style={{ gridTemplateRows: "repeat(7, minmax(0, 1fr))" }}
+          >
+            {days.map((level, i) => (
+              <span
+                key={i}
+                className={cn("size-2.5 rounded-[3px]", levelClass[level])}
+              />
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+
+        <div className="mt-4 flex items-center justify-end gap-1.5 text-[11px] text-muted-foreground">
+          Less
+          {levelClass.map((c, i) => (
+            <span key={i} className={cn("size-2.5 rounded-[3px]", c)} />
           ))}
+          More
         </div>
-      </div>
-
-      <div className="mt-4 flex items-center justify-end gap-1.5 text-[11px] text-muted-foreground">
-        Less
-        {levelClass.map((c, i) => (
-          <span key={i} className={cn("size-2.5 rounded-[3px]", c)} />
-        ))}
-        More
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

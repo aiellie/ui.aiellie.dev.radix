@@ -9,6 +9,12 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 type Social = {
   label: string
@@ -35,17 +41,21 @@ export function SocialLinks({
   return (
     <div className={cn("flex flex-wrap items-center gap-2", className)}>
       {links.map((link) => (
-        <a
-          key={link.label}
-          href={link.href}
-          aria-label={link.label}
-          className="group flex size-10 items-center justify-center rounded-xl border bg-card text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
-        >
-          <HugeiconsIcon
-            icon={link.icon}
-            className="size-5 transition-transform group-hover:scale-110"
-          />
-        </a>
+        <Tooltip key={link.label}>
+          <TooltipTrigger asChild>
+            <Button
+              asChild
+              variant="outline"
+              size="icon-lg"
+              className="text-muted-foreground hover:text-primary"
+            >
+              <a href={link.href} aria-label={link.label}>
+                <HugeiconsIcon icon={link.icon} className="size-4.5" />
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>{link.label}</TooltipContent>
+        </Tooltip>
       ))}
     </div>
   )

@@ -2303,6 +2303,12 @@
       "type": "registry:component",
       "title": "Portfolio Hero",
       "description": "Intro header with avatar, role, location, an availability status, and CTAs.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/portfolio-hero.tsx",
@@ -2319,6 +2325,12 @@
       "type": "registry:component",
       "title": "About Card",
       "description": "Bio card with a headline, paragraph, and a list of quick personal facts.",
+      "registryDependencies": [
+        "badge",
+        "card",
+        "item",
+        "separator"
+      ],
       "files": [
         {
           "path": "registry/portfolio/about-card.tsx",
@@ -2335,6 +2347,12 @@
       "type": "registry:component",
       "title": "Project Card",
       "description": "Featured-project card with a gradient cover, tech tags, stars, and live/repo links.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "tooltip"
+      ],
       "files": [
         {
           "path": "registry/portfolio/project-card.tsx",
@@ -2351,6 +2369,10 @@
       "type": "registry:component",
       "title": "Project Gallery",
       "description": "Responsive grid of project tiles with gradient covers and hover reveals.",
+      "registryDependencies": [
+        "aspect-ratio",
+        "badge"
+      ],
       "files": [
         {
           "path": "registry/portfolio/project-gallery.tsx",
@@ -2367,6 +2389,10 @@
       "type": "registry:component",
       "title": "Tech Stack",
       "description": "Grouped grid of the languages, frameworks, and tools you work with.",
+      "registryDependencies": [
+        "badge",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/tech-stack.tsx",
@@ -2383,6 +2409,10 @@
       "type": "registry:component",
       "title": "Skill Bars",
       "description": "Labeled proficiency bars with animated gradient fills for each skill.",
+      "registryDependencies": [
+        "card",
+        "progress"
+      ],
       "files": [
         {
           "path": "registry/portfolio/skill-bars.tsx",
@@ -2395,6 +2425,10 @@
       "type": "registry:component",
       "title": "Experience Timeline",
       "description": "Vertical work-history timeline with company, role, period, and a current badge.",
+      "registryDependencies": [
+        "badge",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/experience-timeline.tsx",
@@ -2411,6 +2445,9 @@
       "type": "registry:component",
       "title": "Stats Row",
       "description": "Row of headline metrics — years, projects, clients — with gradient numbers.",
+      "registryDependencies": [
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/stats-row.tsx",
@@ -2423,6 +2460,10 @@
       "type": "registry:component",
       "title": "Testimonial Card",
       "description": "Client quote card with a star rating, avatar, name, and title.",
+      "registryDependencies": [
+        "avatar",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/testimonial-card.tsx",
@@ -2439,6 +2480,11 @@
       "type": "registry:component",
       "title": "Contact CTA",
       "description": "Closing call-to-action with a mailto button and a copy-to-clipboard email.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "tooltip"
+      ],
       "files": [
         {
           "path": "registry/portfolio/contact-cta.tsx",
@@ -2455,6 +2501,10 @@
       "type": "registry:component",
       "title": "Social Links",
       "description": "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
       "files": [
         {
           "path": "registry/portfolio/social-links.tsx",
@@ -2471,6 +2521,10 @@
       "type": "registry:component",
       "title": "Resume Download",
       "description": "File-style card that downloads your CV with name, size, and updated date.",
+      "registryDependencies": [
+        "button",
+        "item"
+      ],
       "files": [
         {
           "path": "registry/portfolio/resume-download.tsx",
@@ -2487,6 +2541,11 @@
       "type": "registry:component",
       "title": "GitHub Contributions",
       "description": "Contribution heatmap grid with intensity levels and a Less→More legend.",
+      "registryDependencies": [
+        "badge",
+        "card",
+        "scroll-area"
+      ],
       "files": [
         {
           "path": "registry/portfolio/github-contributions.tsx",
@@ -2503,6 +2562,10 @@
       "type": "registry:component",
       "title": "Service Card",
       "description": "Offering card with an icon, feature checklist, starting price, and a link.",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/service-card.tsx",
@@ -2519,6 +2582,9 @@
       "type": "registry:component",
       "title": "Availability Badge",
       "description": "Pulsing status pill that flips between available and fully-booked states.",
+      "registryDependencies": [
+        "badge"
+      ],
       "files": [
         {
           "path": "registry/portfolio/availability-badge.tsx",
@@ -2531,6 +2597,10 @@
       "type": "registry:component",
       "title": "Tech Marquee",
       "description": "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
+      "registryDependencies": [
+        "badge",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/tech-marquee.tsx",
@@ -2543,6 +2613,10 @@
       "type": "registry:component",
       "title": "Blog Post Card",
       "description": "Article card with a gradient cover, tag, excerpt, date, and read time.",
+      "registryDependencies": [
+        "badge",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/portfolio/blog-post-card.tsx",
@@ -2559,6 +2633,10 @@
       "type": "registry:component",
       "title": "Certifications",
       "description": "List of credentials with issuer, year, and an external link per item.",
+      "registryDependencies": [
+        "card",
+        "item"
+      ],
       "files": [
         {
           "path": "registry/portfolio/certifications.tsx",

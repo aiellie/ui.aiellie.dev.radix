@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 
 export function AvailabilityBadge({
   available = true,
@@ -12,9 +13,9 @@ export function AvailabilityBadge({
   className?: string
 }) {
   return (
-    <span
+    <Badge
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium",
+        "h-auto gap-2 px-3 py-1.5 text-sm",
         available
           ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
           : "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400",
@@ -33,6 +34,6 @@ export function AvailabilityBadge({
         />
       </span>
       {available ? labelAvailable : labelUnavailable}
-    </span>
+    </Badge>
   )
 }

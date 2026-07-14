@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card"
 
 type Stat = { value: string; label: string }
 
@@ -17,9 +18,9 @@ export function StatsRow({
   className?: string
 }) {
   return (
-    <div
+    <Card
       className={cn(
-        "grid w-full max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border sm:grid-cols-4",
+        "grid w-full max-w-2xl grid-cols-2 gap-px bg-border py-0 sm:grid-cols-4",
         className
       )}
     >
@@ -34,6 +35,6 @@ export function StatsRow({
           <span className="text-xs text-muted-foreground">{stat.label}</span>
         </div>
       ))}
-    </div>
+    </Card>
   )
 }

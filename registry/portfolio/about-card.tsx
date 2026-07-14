@@ -7,6 +7,22 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Item,
+  ItemContent,
+  ItemGroup,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/ui/item"
+import { Separator } from "@/components/ui/separator"
 
 type Fact = { icon: typeof Briefcase01Icon; label: string }
 
@@ -28,31 +44,37 @@ export function AboutCard({
   className?: string
 }) {
   return (
-    <div
-      className={cn(
-        "w-full max-w-md rounded-2xl border bg-card p-6",
-        className
-      )}
+    <Card
+      className={cn("w-full max-w-md [--card-spacing:--spacing(6)]", className)}
     >
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
-        <HugeiconsIcon icon={SparklesIcon} className="size-3.5" />
-        About {name.split(" ")[0]}
-      </span>
-      <h2 className="mt-4 text-lg font-semibold tracking-tight">{headline}</h2>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{bio}</p>
-      <ul className="mt-5 flex flex-col gap-3 border-t pt-5">
-        {facts.map((fact) => (
-          <li
-            key={fact.label}
-            className="flex items-center gap-3 text-sm text-foreground"
-          >
-            <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
-              <HugeiconsIcon icon={fact.icon} className="size-4" />
-            </span>
-            {fact.label}
-          </li>
-        ))}
-      </ul>
-    </div>
+      <CardHeader>
+        <Badge variant="secondary" className="mb-2 w-fit text-primary">
+          <HugeiconsIcon icon={SparklesIcon} />
+          About {name.split(" ")[0]}
+        </Badge>
+        <CardTitle className="text-lg font-semibold tracking-tight">
+          {headline}
+        </CardTitle>
+        <CardDescription className="leading-relaxed">{bio}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Separator className="mb-4" />
+        <ItemGroup className="gap-2">
+          {facts.map((fact) => (
+            <Item key={fact.label} size="xs" className="px-0">
+              <ItemMedia
+                variant="icon"
+                className="size-8 rounded-lg bg-muted text-muted-foreground"
+              >
+                <HugeiconsIcon icon={fact.icon} className="size-4" />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle className="font-normal">{fact.label}</ItemTitle>
+              </ItemContent>
+            </Item>
+          ))}
+        </ItemGroup>
+      </CardContent>
+    </Card>
   )
 }

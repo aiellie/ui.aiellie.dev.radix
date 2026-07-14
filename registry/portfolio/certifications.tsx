@@ -5,6 +5,17 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "@/components/ui/item"
 
 type Cert = {
   name: string
@@ -39,34 +50,45 @@ export function Certifications({
   className?: string
 }) {
   return (
-    <div
-      className={cn("w-full max-w-md rounded-2xl border bg-card p-6", className)}
+    <Card
+      className={cn("w-full max-w-md [--card-spacing:--spacing(6)]", className)}
     >
-      <h2 className="font-semibold tracking-tight">Certifications</h2>
-      <ul className="mt-4 flex flex-col divide-y">
-        {certs.map((cert) => (
-          <li key={cert.name}>
-            <a
-              href={cert.href ?? "#"}
-              className="group flex items-center gap-3 py-3 first:pt-0 last:pb-0"
-            >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <HugeiconsIcon icon={Certificate01Icon} className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{cert.name}</p>
-                <p className="truncate text-xs text-muted-foreground">
-                  {cert.issuer} · {cert.year}
-                </p>
-              </div>
-              <HugeiconsIcon
-                icon={ArrowUpRight01Icon}
-                className="size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
-              />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <CardHeader>
+        <CardTitle className="font-semibold tracking-tight">
+          Certifications
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ItemGroup className="gap-0">
+          {certs.map((cert, i) => (
+            <div key={cert.name}>
+              {i > 0 ? <ItemSeparator /> : null}
+              <Item asChild size="sm" className="group px-0">
+                <a href={cert.href ?? "#"}>
+                  <ItemMedia
+                    variant="icon"
+                    className="size-10 rounded-xl bg-primary/10 text-primary"
+                  >
+                    <HugeiconsIcon icon={Certificate01Icon} className="size-5" />
+                  </ItemMedia>
+                  <ItemContent>
+                    <ItemTitle>{cert.name}</ItemTitle>
+                    <ItemDescription className="text-xs">
+                      {cert.issuer} · {cert.year}
+                    </ItemDescription>
+                  </ItemContent>
+                  <ItemActions>
+                    <HugeiconsIcon
+                      icon={ArrowUpRight01Icon}
+                      className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                    />
+                  </ItemActions>
+                </a>
+              </Item>
+            </div>
+          ))}
+        </ItemGroup>
+      </CardContent>
+    </Card>
   )
 }

@@ -2,6 +2,8 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Building01Icon } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Role = {
   company: string
@@ -44,49 +46,60 @@ export function ExperienceTimeline({
   className?: string
 }) {
   return (
-    <div
-      className={cn("w-full max-w-md rounded-2xl border bg-card p-6", className)}
+    <Card
+      className={cn("w-full max-w-md [--card-spacing:--spacing(6)]", className)}
     >
-      <h2 className="font-semibold tracking-tight">Experience</h2>
-      <ol className="mt-5">
-        {roles.map((role, i) => (
-          <li key={role.company} className="relative flex gap-4 pb-6 last:pb-0">
-            {i < roles.length - 1 ? (
-              <span
-                aria-hidden
-                className="absolute top-9 left-[15px] h-full w-px bg-border"
-              />
-            ) : null}
-            <span
-              className={cn(
-                "z-10 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full border",
-                role.current
-                  ? "border-primary/40 bg-primary/10 text-primary"
-                  : "bg-muted text-muted-foreground"
-              )}
+      <CardHeader>
+        <CardTitle className="font-semibold tracking-tight">
+          Experience
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ol>
+          {roles.map((role, i) => (
+            <li
+              key={role.company}
+              className="relative flex gap-4 pb-6 last:pb-0"
             >
-              <HugeiconsIcon icon={Building01Icon} className="size-4" />
-            </span>
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-sm font-semibold">{role.title}</h3>
-                {role.current ? (
-                  <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
-                    Current
-                  </span>
-                ) : null}
+              {i < roles.length - 1 ? (
+                <span
+                  aria-hidden
+                  className="absolute top-9 left-[15px] h-full w-px bg-border"
+                />
+              ) : null}
+              <span
+                className={cn(
+                  "z-10 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full border",
+                  role.current
+                    ? "border-primary/40 bg-primary/10 text-primary"
+                    : "bg-muted text-muted-foreground"
+                )}
+              >
+                <HugeiconsIcon icon={Building01Icon} className="size-4" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-sm font-semibold">{role.title}</h3>
+                  {role.current ? (
+                    <Badge className="border-emerald-500/20 bg-emerald-500/10 text-[10px] text-emerald-600 dark:text-emerald-400">
+                      Current
+                    </Badge>
+                  ) : null}
+                </div>
+                <p className="text-sm font-medium text-primary">
+                  {role.company}
+                </p>
+                <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
+                  {role.period}
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {role.description}
+                </p>
               </div>
-              <p className="text-sm font-medium text-primary">{role.company}</p>
-              <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
-                {role.period}
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                {role.description}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
+            </li>
+          ))}
+        </ol>
+      </CardContent>
+    </Card>
   )
 }

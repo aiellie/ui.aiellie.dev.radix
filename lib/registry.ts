@@ -794,6 +794,7 @@ export const registry: RegistryItem[] = [
       "Intro header with avatar, role, location, an availability status, and CTAs.",
     category: "portfolio",
     icon: SparklesIcon,
+    registryDependencies: ["avatar", "badge", "button", "card"],
     isNew: true,
   },
   {
@@ -803,6 +804,7 @@ export const registry: RegistryItem[] = [
       "Bio card with a headline, paragraph, and a list of quick personal facts.",
     category: "portfolio",
     icon: UserCircleIcon,
+    registryDependencies: ["badge", "card", "item", "separator"],
     isNew: true,
   },
   {
@@ -812,6 +814,7 @@ export const registry: RegistryItem[] = [
       "Featured-project card with a gradient cover, tech tags, stars, and live/repo links.",
     category: "portfolio",
     icon: Rocket01Icon,
+    registryDependencies: ["badge", "button", "card", "tooltip"],
     isNew: true,
   },
   {
@@ -821,6 +824,7 @@ export const registry: RegistryItem[] = [
       "Responsive grid of project tiles with gradient covers and hover reveals.",
     category: "portfolio",
     icon: GalleryHorizontalIcon,
+    registryDependencies: ["aspect-ratio", "badge"],
     isNew: true,
   },
   {
@@ -830,6 +834,7 @@ export const registry: RegistryItem[] = [
       "Grouped grid of the languages, frameworks, and tools you work with.",
     category: "portfolio",
     icon: Layers01Icon,
+    registryDependencies: ["badge", "card"],
     isNew: true,
   },
   {
@@ -839,6 +844,7 @@ export const registry: RegistryItem[] = [
       "Labeled proficiency bars with animated gradient fills for each skill.",
     category: "portfolio",
     icon: Analytics01Icon,
+    registryDependencies: ["card", "progress"],
     isNew: true,
   },
   {
@@ -848,6 +854,7 @@ export const registry: RegistryItem[] = [
       "Vertical work-history timeline with company, role, period, and a current badge.",
     category: "portfolio",
     icon: TimelineIcon,
+    registryDependencies: ["badge", "card"],
     isNew: true,
   },
   {
@@ -857,6 +864,7 @@ export const registry: RegistryItem[] = [
       "Row of headline metrics — years, projects, clients — with gradient numbers.",
     category: "portfolio",
     icon: Chart01Icon,
+    registryDependencies: ["card"],
     isNew: true,
   },
   {
@@ -866,6 +874,7 @@ export const registry: RegistryItem[] = [
       "Client quote card with a star rating, avatar, name, and title.",
     category: "portfolio",
     icon: QuoteUpIcon,
+    registryDependencies: ["avatar", "card"],
     isNew: true,
   },
   {
@@ -875,6 +884,7 @@ export const registry: RegistryItem[] = [
       "Closing call-to-action with a mailto button and a copy-to-clipboard email.",
     category: "portfolio",
     icon: Mail01Icon,
+    registryDependencies: ["button", "card", "tooltip"],
     isNew: true,
   },
   {
@@ -884,6 +894,7 @@ export const registry: RegistryItem[] = [
       "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
     category: "portfolio",
     icon: Share08Icon,
+    registryDependencies: ["button", "tooltip"],
     isNew: true,
   },
   {
@@ -893,6 +904,7 @@ export const registry: RegistryItem[] = [
       "File-style card that downloads your CV with name, size, and updated date.",
     category: "portfolio",
     icon: Download04Icon,
+    registryDependencies: ["button", "item"],
     isNew: true,
   },
   {
@@ -902,6 +914,7 @@ export const registry: RegistryItem[] = [
       "Contribution heatmap grid with intensity levels and a Less→More legend.",
     category: "portfolio",
     icon: Github01Icon,
+    registryDependencies: ["badge", "card", "scroll-area"],
     isNew: true,
   },
   {
@@ -911,6 +924,7 @@ export const registry: RegistryItem[] = [
       "Offering card with an icon, feature checklist, starting price, and a link.",
     category: "portfolio",
     icon: Briefcase01Icon,
+    registryDependencies: ["button", "card"],
     isNew: true,
   },
   {
@@ -920,6 +934,7 @@ export const registry: RegistryItem[] = [
       "Pulsing status pill that flips between available and fully-booked states.",
     category: "portfolio",
     icon: RadioIcon,
+    registryDependencies: ["badge"],
     isNew: true,
   },
   {
@@ -929,6 +944,7 @@ export const registry: RegistryItem[] = [
       "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
     category: "portfolio",
     icon: WorkflowSquare01Icon,
+    registryDependencies: ["badge", "card"],
     isNew: true,
   },
   {
@@ -938,6 +954,7 @@ export const registry: RegistryItem[] = [
       "Article card with a gradient cover, tag, excerpt, date, and read time.",
     category: "portfolio",
     icon: News01Icon,
+    registryDependencies: ["badge", "card"],
     isNew: true,
   },
   {
@@ -947,6 +964,7 @@ export const registry: RegistryItem[] = [
       "List of credentials with issuer, year, and an external link per item.",
     category: "portfolio",
     icon: Certificate01Icon,
+    registryDependencies: ["card", "item"],
     isNew: true,
   },
   // Backgrounds

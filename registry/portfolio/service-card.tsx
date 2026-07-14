@@ -1,8 +1,20 @@
 import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowRight01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
-import { PaintBoardIcon } from "@hugeicons/core-free-icons"
+import {
+  ArrowRight01Icon,
+  PaintBoardIcon,
+  Tick02Icon,
+} from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export function ServiceCard({
   icon = PaintBoardIcon,
@@ -26,45 +38,49 @@ export function ServiceCard({
   className?: string
 }) {
   return (
-    <div
+    <Card
       className={cn(
-        "group flex w-full max-w-sm flex-col rounded-2xl border bg-card p-6 transition-shadow hover:shadow-lg",
+        "group w-full max-w-sm [--card-spacing:--spacing(6)] transition-shadow hover:shadow-lg",
         className
       )}
     >
-      <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-        <HugeiconsIcon icon={icon} className="size-5.5" />
-      </span>
-      <h3 className="mt-4 font-semibold tracking-tight">{title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      <CardHeader>
+        <span className="mb-2 flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+          <HugeiconsIcon icon={icon} className="size-5.5" />
+        </span>
+        <CardTitle className="font-semibold tracking-tight">{title}</CardTitle>
+        <CardDescription className="leading-relaxed">
+          {description}
+        </CardDescription>
+      </CardHeader>
 
-      <ul className="mt-4 flex flex-col gap-2">
-        {features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2 text-sm">
-            <HugeiconsIcon
-              icon={Tick02Icon}
-              className="mt-0.5 size-4 shrink-0 text-emerald-500"
-            />
-            <span className="text-muted-foreground">{feature}</span>
-          </li>
-        ))}
-      </ul>
+      <CardContent>
+        <ul className="flex flex-col gap-2">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-start gap-2 text-sm">
+              <HugeiconsIcon
+                icon={Tick02Icon}
+                className="mt-0.5 size-4 shrink-0 text-emerald-500"
+              />
+              <span className="text-muted-foreground">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
 
-      <div className="mt-5 flex items-center justify-between border-t pt-4">
+      <CardFooter className="justify-between">
         <span className="text-sm font-semibold">{price}</span>
-        <a
-          href={href}
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:opacity-80"
-        >
-          Learn more
-          <HugeiconsIcon
-            icon={ArrowRight01Icon}
-            className="size-4 transition-transform group-hover:translate-x-0.5"
-          />
-        </a>
-      </div>
-    </div>
+        <Button asChild variant="link" className="px-0">
+          <a href={href}>
+            Learn more
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              data-icon="inline-end"
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }

@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Progress } from "@/components/ui/progress"
 
 type Skill = { name: string; level: number }
 
@@ -18,11 +20,13 @@ export function SkillBars({
   className?: string
 }) {
   return (
-    <div
-      className={cn("w-full max-w-md rounded-2xl border bg-card p-6", className)}
+    <Card
+      className={cn("w-full max-w-md [--card-spacing:--spacing(6)]", className)}
     >
-      <h2 className="font-semibold tracking-tight">Skills</h2>
-      <div className="mt-5 flex flex-col gap-4">
+      <CardHeader>
+        <CardTitle className="font-semibold tracking-tight">Skills</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
         {skills.map((skill) => (
           <div key={skill.name}>
             <div className="flex items-center justify-between text-sm">
@@ -31,15 +35,13 @@ export function SkillBars({
                 {skill.level}%
               </span>
             </div>
-            <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-[width] duration-700 ease-out"
-                style={{ width: `${skill.level}%` }}
-              />
-            </div>
+            <Progress
+              value={skill.level}
+              className="mt-1.5 h-2 *:data-[slot=progress-indicator]:rounded-full *:data-[slot=progress-indicator]:bg-gradient-to-r *:data-[slot=progress-indicator]:from-violet-500 *:data-[slot=progress-indicator]:to-fuchsia-500"
+            />
           </div>
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

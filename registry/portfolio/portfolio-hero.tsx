@@ -5,10 +5,18 @@ import {
   ArrowRight01Icon,
   Mail01Icon,
   MapPinIcon,
-  RadioIcon,
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
 export function PortfolioHero({
   name = "Ellie Nakamura",
@@ -34,9 +42,9 @@ export function PortfolioHero({
     .join("")
 
   return (
-    <div
+    <Card
       className={cn(
-        "relative w-full max-w-2xl overflow-hidden rounded-2xl border bg-card p-6 sm:p-8",
+        "relative w-full max-w-2xl [--card-spacing:--spacing(6)]",
         className
       )}
     >
@@ -44,59 +52,58 @@ export function PortfolioHero({
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-16 size-64 rounded-full bg-gradient-to-br from-violet-400/25 via-fuchsia-300/15 to-transparent blur-2xl"
       />
-      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center">
-        <div className="relative shrink-0">
-          <div className="flex size-20 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-xl font-semibold text-white shadow-lg shadow-violet-500/20">
-            {avatar ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={avatar} alt={name} className="size-full object-cover" />
-            ) : (
-              initials
-            )}
-          </div>
+      <CardContent className="relative flex flex-col gap-6 sm:flex-row sm:items-center">
+        <Avatar className="size-20 shrink-0">
+          <AvatarImage src={avatar} alt={name} />
+          <AvatarFallback className="bg-gradient-to-br from-violet-500 to-fuchsia-500 text-xl font-semibold text-white">
+            {initials}
+          </AvatarFallback>
           {available ? (
-            <span className="absolute -right-1 -bottom-1 flex size-6 items-center justify-center rounded-full border-2 border-card bg-emerald-500">
-              <span className="size-2 animate-pulse rounded-full bg-white" />
-            </span>
+            <AvatarBadge className="size-4 bg-emerald-500 ring-4 ring-card" />
           ) : null}
-        </div>
+        </Avatar>
 
-        <div className="flex min-w-0 flex-col gap-2">
+        <div className="flex min-w-0 flex-col items-start gap-2">
           {available ? (
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-              <HugeiconsIcon icon={RadioIcon} className="size-3.5" />
+            <Badge className="border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+              </span>
               Available for work
-            </span>
+            </Badge>
           ) : null}
-          <h1 className="text-2xl font-bold tracking-tight">{name}</h1>
+          <h1 className="font-heading text-2xl font-bold tracking-tight">
+            {name}
+          </h1>
           <p className="text-sm font-medium text-primary">{role}</p>
           <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <HugeiconsIcon icon={MapPinIcon} className="size-3.5" />
             {location}
           </p>
         </div>
-      </div>
+      </CardContent>
 
-      <p className="relative mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
-        {blurb}
-      </p>
+      <CardContent className="relative">
+        <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+          {blurb}
+        </p>
+      </CardContent>
 
-      <div className="relative mt-6 flex flex-wrap items-center gap-3">
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Get in touch
-          <HugeiconsIcon icon={ArrowRight01Icon} className="size-4" />
-        </a>
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 rounded-lg border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:bg-accent"
-        >
-          <HugeiconsIcon icon={Mail01Icon} className="size-4" />
-          Email me
-        </a>
-      </div>
-    </div>
+      <CardFooter className="relative gap-2 border-t-0 bg-transparent pt-0">
+        <Button asChild>
+          <a href="#contact">
+            Get in touch
+            <HugeiconsIcon icon={ArrowRight01Icon} data-icon="inline-end" />
+          </a>
+        </Button>
+        <Button asChild variant="outline">
+          <a href="#contact">
+            <HugeiconsIcon icon={Mail01Icon} data-icon="inline-start" />
+            Email me
+          </a>
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }
