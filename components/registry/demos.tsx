@@ -104,6 +104,20 @@ import { TechMarquee } from "@/registry/portfolio/tech-marquee"
 import { BlogPostCard } from "@/registry/portfolio/blog-post-card"
 import { Certifications } from "@/registry/portfolio/certifications"
 
+// Backgrounds
+import { Orb as ShaderOrb } from "@/registry/backgrounds/shader-orb"
+import { AuroraHero } from "@/registry/backgrounds/aurora-hero"
+import { MeshGradientBackground } from "@/registry/backgrounds/mesh-gradient"
+import { DotOrbitBackground } from "@/registry/backgrounds/dot-orbit"
+import { WavesBackground } from "@/registry/backgrounds/waves"
+import { SwirlBackground } from "@/registry/backgrounds/swirl"
+import { MetaballsBackground } from "@/registry/backgrounds/metaballs"
+import { GrainGradientBackground } from "@/registry/backgrounds/grain-gradient"
+import { NeuroNoiseBackground } from "@/registry/backgrounds/neuro-noise"
+import { GodRaysBackground } from "@/registry/backgrounds/god-rays"
+import { VoronoiBackground } from "@/registry/backgrounds/voronoi"
+import { PulsingBorderCard } from "@/registry/backgrounds/pulsing-border"
+
 export const demos: Record<string, React.ReactNode> = {
   agent: <Agent />,
   artifact: <Artifact />,
@@ -275,4 +289,58 @@ export const demos: Record<string, React.ReactNode> = {
   "tech-marquee": <TechMarquee />,
   "blog-post-card": <BlogPostCard />,
   certifications: <Certifications />,
+
+  // Backgrounds
+  "shader-orb": <ShaderOrb />,
+  "aurora-hero": (
+    <div className="w-full max-w-2xl">
+      <AuroraHero />
+    </div>
+  ),
+  "mesh-gradient": (
+    <div className="w-full max-w-2xl">
+      <MeshGradientBackground />
+    </div>
+  ),
+  "dot-orbit": (
+    <div className="w-full max-w-2xl">
+      <DotOrbitBackground />
+    </div>
+  ),
+  waves: (
+    <div className="w-full max-w-2xl">
+      <WavesBackground />
+    </div>
+  ),
+  swirl: (
+    <div className="w-full max-w-2xl">
+      <SwirlBackground />
+    </div>
+  ),
+  metaballs: (
+    <div className="w-full max-w-2xl">
+      <MetaballsBackground />
+    </div>
+  ),
+  "grain-gradient": (
+    <div className="w-full max-w-2xl">
+      <GrainGradientBackground />
+    </div>
+  ),
+  "neuro-noise": (
+    <div className="w-full max-w-2xl">
+      <NeuroNoiseBackground />
+    </div>
+  ),
+  "god-rays": (
+    <div className="w-full max-w-2xl">
+      <GodRaysBackground />
+    </div>
+  ),
+  voronoi: (
+    <div className="w-full max-w-2xl">
+      <VoronoiBackground />
+    </div>
+  ),
+  "pulsing-border": <PulsingBorderCard />,
 }

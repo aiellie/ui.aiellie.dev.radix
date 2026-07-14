@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dot-orbit",
+  "title": "Dot Orbit",
+  "description": "Field of orbiting dots that drift and pulse over a dark backdrop.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/dot-orbit.tsx",
+      "content": "\"use client\"\n\nimport { DotOrbit } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype DotOrbitBackgroundProps = {\n  colors?: string[]\n  colorBack?: string\n  speed?: number\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#a5b4fc\", \"#c4b5fd\", \"#f0abfc\", \"#4f46e5\"]\n\nexport function DotOrbitBackground({\n  colors = DEFAULT_COLORS,\n  colorBack = \"#0b0b12\",\n  speed = 1,\n  className,\n}: DotOrbitBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <DotOrbit\n        className=\"absolute inset-0 size-full\"\n        colors={colors}\n        colorBack={colorBack}\n        size={0.6}\n        sizeRange={0.5}\n        spreading={0.8}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

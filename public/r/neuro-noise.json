@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neuro-noise",
+  "title": "Neuro Noise",
+  "description": "Organic neural-network noise field with front, mid, and back colors.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/neuro-noise.tsx",
+      "content": "\"use client\"\n\nimport { NeuroNoise } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype NeuroNoiseBackgroundProps = {\n  colorFront?: string\n  colorMid?: string\n  colorBack?: string\n  speed?: number\n  className?: string\n}\n\nexport function NeuroNoiseBackground({\n  colorFront = \"#c4b5fd\",\n  colorMid = \"#6d28d9\",\n  colorBack = \"#0b0b12\",\n  speed = 0.7,\n  className,\n}: NeuroNoiseBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <NeuroNoise\n        className=\"absolute inset-0 size-full\"\n        colorFront={colorFront}\n        colorMid={colorMid}\n        colorBack={colorBack}\n        brightness={1.1}\n        contrast={0.9}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

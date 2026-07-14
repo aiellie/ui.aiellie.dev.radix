@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mesh-gradient",
+  "title": "Mesh Gradient",
+  "description": "Slowly morphing multi-color mesh gradient panel for section backdrops.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/mesh-gradient.tsx",
+      "content": "\"use client\"\n\nimport { MeshGradient } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype MeshGradientBackgroundProps = {\n  colors?: string[]\n  speed?: number\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#4f46e5\", \"#a855f7\", \"#ec4899\", \"#e0e7ff\"]\n\nexport function MeshGradientBackground({\n  colors = DEFAULT_COLORS,\n  speed = 0.5,\n  className,\n}: MeshGradientBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <MeshGradient\n        className=\"absolute inset-0 size-full\"\n        colors={colors}\n        distortion={0.8}\n        swirl={0.6}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

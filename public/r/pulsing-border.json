@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pulsing-border",
+  "title": "Pulsing Border",
+  "description": "Card wrapper with a living, glowing shader border around your content.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/pulsing-border.tsx",
+      "content": "\"use client\"\n\nimport type { ReactNode } from \"react\"\nimport { PulsingBorder } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype PulsingBorderCardProps = {\n  colors?: string[]\n  speed?: number\n  children?: ReactNode\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#a5b4fc\", \"#f0abfc\", \"#818cf8\", \"#4f46e5\"]\n\nexport function PulsingBorderCard({\n  colors = DEFAULT_COLORS,\n  speed = 1,\n  children,\n  className,\n}: PulsingBorderCardProps) {\n  return (\n    <div\n      className={cn(\n        \"relative isolate w-full max-w-sm overflow-hidden rounded-2xl\",\n        className\n      )}\n    >\n      <PulsingBorder\n        className=\"absolute inset-0 -z-10 size-full\"\n        colors={colors}\n        colorBack=\"#0b0b12\"\n        roundness={0.15}\n        thickness={0.12}\n        softness={0.6}\n        intensity={0.55}\n        bloom={0.9}\n        spots={4}\n        spotSize={0.35}\n        pulse={0.15}\n        speed={speed}\n      />\n      <div className=\"m-[3px] rounded-[calc(1rem-3px)] bg-card p-6\">\n        {children ?? (\n          <>\n            <p className=\"text-xs font-medium tracking-wide text-primary uppercase\">\n              Now available\n            </p>\n            <h3 className=\"mt-2 text-lg font-semibold tracking-tight\">\n              Taking on new projects\n            </h3>\n            <p className=\"mt-1.5 text-sm text-muted-foreground\">\n              A living, glowing border to make your call-to-action impossible to\n              scroll past.\n            </p>\n          </>\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

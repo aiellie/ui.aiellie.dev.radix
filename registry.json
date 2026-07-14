@@ -2569,6 +2569,186 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ]
+    },
+    {
+      "name": "shader-orb",
+      "type": "registry:component",
+      "title": "Shader Orb",
+      "description": "A living, iridescent WebGL orb built on the Paper warp shader.",
+      "files": [
+        {
+          "path": "registry/backgrounds/shader-orb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "aurora-hero",
+      "type": "registry:component",
+      "title": "Aurora Hero",
+      "description": "Full-bleed animated aurora backdrop with an overlaid heading and scrim.",
+      "files": [
+        {
+          "path": "registry/backgrounds/aurora-hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "mesh-gradient",
+      "type": "registry:component",
+      "title": "Mesh Gradient",
+      "description": "Slowly morphing multi-color mesh gradient panel for section backdrops.",
+      "files": [
+        {
+          "path": "registry/backgrounds/mesh-gradient.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "dot-orbit",
+      "type": "registry:component",
+      "title": "Dot Orbit",
+      "description": "Field of orbiting dots that drift and pulse over a dark backdrop.",
+      "files": [
+        {
+          "path": "registry/backgrounds/dot-orbit.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "waves",
+      "type": "registry:component",
+      "title": "Waves",
+      "description": "Layered flowing wave bands rendered on the GPU.",
+      "files": [
+        {
+          "path": "registry/backgrounds/waves.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "swirl",
+      "type": "registry:component",
+      "title": "Swirl",
+      "description": "Hypnotic concentric swirl of brand colors with soft banding.",
+      "files": [
+        {
+          "path": "registry/backgrounds/swirl.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "metaballs",
+      "type": "registry:component",
+      "title": "Metaballs",
+      "description": "Gooey blobs that merge and split — a classic lava-lamp backdrop.",
+      "files": [
+        {
+          "path": "registry/backgrounds/metaballs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "grain-gradient",
+      "type": "registry:component",
+      "title": "Grain Gradient",
+      "description": "Film-grain gradient that adds texture and depth to any section.",
+      "files": [
+        {
+          "path": "registry/backgrounds/grain-gradient.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "neuro-noise",
+      "type": "registry:component",
+      "title": "Neuro Noise",
+      "description": "Organic neural-network noise field with front, mid, and back colors.",
+      "files": [
+        {
+          "path": "registry/backgrounds/neuro-noise.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "god-rays",
+      "type": "registry:component",
+      "title": "God Rays",
+      "description": "Volumetric light rays blooming from a point — dramatic hero lighting.",
+      "files": [
+        {
+          "path": "registry/backgrounds/god-rays.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "voronoi",
+      "type": "registry:component",
+      "title": "Voronoi",
+      "description": "Glowing cellular voronoi tessellation that shifts and breathes.",
+      "files": [
+        {
+          "path": "registry/backgrounds/voronoi.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
+    },
+    {
+      "name": "pulsing-border",
+      "type": "registry:component",
+      "title": "Pulsing Border",
+      "description": "Card wrapper with a living, glowing shader border around your content.",
+      "files": [
+        {
+          "path": "registry/backgrounds/pulsing-border.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@paper-design/shaders-react"
+      ]
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "swirl",
+  "title": "Swirl",
+  "description": "Hypnotic concentric swirl of brand colors with soft banding.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/swirl.tsx",
+      "content": "\"use client\"\n\nimport { Swirl } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype SwirlBackgroundProps = {\n  colors?: string[]\n  colorBack?: string\n  speed?: number\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#e0e7ff\", \"#a855f7\", \"#4f46e5\"]\n\nexport function SwirlBackground({\n  colors = DEFAULT_COLORS,\n  colorBack = \"#0b0b12\",\n  speed = 0.8,\n  className,\n}: SwirlBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <Swirl\n        className=\"absolute inset-0 size-full\"\n        colors={colors}\n        colorBack={colorBack}\n        bandCount={4}\n        twist={0.3}\n        center={0.5}\n        proportion={0.5}\n        softness={0.6}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

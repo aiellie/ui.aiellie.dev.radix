@@ -96,6 +96,17 @@ import {
   WorkflowSquare01Icon,
   News01Icon,
   Certificate01Icon,
+  // backgrounds
+  AiMagicIcon,
+  CircleIcon,
+  Sun03Icon,
+  PaintBrush01Icon,
+  Orbit01Icon,
+  DashboardCircleIcon,
+  ApertureIcon,
+  FlashIcon,
+  HexagonIcon,
+  RippleIcon,
 } from "@hugeicons/core-free-icons"
 import type { IconSvgElement } from "@hugeicons/react"
 
@@ -110,6 +121,7 @@ export type Category =
   | "ui"
   | "brand"
   | "portfolio"
+  | "backgrounds"
 
 export type RegistryItem = {
   slug: string
@@ -181,6 +193,13 @@ export const categories: {
     description:
       "Sections for dev & web portfolios: hero, projects, timeline, skills, and contact.",
     icon: UserSquareIcon,
+  },
+  {
+    id: "backgrounds",
+    label: "Backgrounds",
+    description:
+      "Animated WebGL shader backdrops, orbs, and glowing frames for heroes and cards.",
+    icon: AiMagicIcon,
   },
 ]
 
@@ -921,6 +940,125 @@ export const registry: RegistryItem[] = [
       "List of credentials with issuer, year, and an external link per item.",
     category: "portfolio",
     icon: Certificate01Icon,
+    isNew: true,
+  },
+  // Backgrounds
+  {
+    slug: "shader-orb",
+    title: "Shader Orb",
+    description:
+      "A living, iridescent WebGL orb built on the Paper warp shader.",
+    category: "backgrounds",
+    icon: CircleIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "aurora-hero",
+    title: "Aurora Hero",
+    description:
+      "Full-bleed animated aurora backdrop with an overlaid heading and scrim.",
+    category: "backgrounds",
+    icon: Sun03Icon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "mesh-gradient",
+    title: "Mesh Gradient",
+    description:
+      "Slowly morphing multi-color mesh gradient panel for section backdrops.",
+    category: "backgrounds",
+    icon: PaintBrush01Icon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "dot-orbit",
+    title: "Dot Orbit",
+    description:
+      "Field of orbiting dots that drift and pulse over a dark backdrop.",
+    category: "backgrounds",
+    icon: Orbit01Icon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "waves",
+    title: "Waves",
+    description: "Layered flowing wave bands rendered on the GPU.",
+    category: "backgrounds",
+    icon: WaveIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "swirl",
+    title: "Swirl",
+    description: "Hypnotic concentric swirl of brand colors with soft banding.",
+    category: "backgrounds",
+    icon: Loading03Icon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "metaballs",
+    title: "Metaballs",
+    description:
+      "Gooey blobs that merge and split — a classic lava-lamp backdrop.",
+    category: "backgrounds",
+    icon: DashboardCircleIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "grain-gradient",
+    title: "Grain Gradient",
+    description:
+      "Film-grain gradient that adds texture and depth to any section.",
+    category: "backgrounds",
+    icon: ApertureIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "neuro-noise",
+    title: "Neuro Noise",
+    description:
+      "Organic neural-network noise field with front, mid, and back colors.",
+    category: "backgrounds",
+    icon: NeuralNetworkIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "god-rays",
+    title: "God Rays",
+    description:
+      "Volumetric light rays blooming from a point — dramatic hero lighting.",
+    category: "backgrounds",
+    icon: FlashIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "voronoi",
+    title: "Voronoi",
+    description:
+      "Glowing cellular voronoi tessellation that shifts and breathes.",
+    category: "backgrounds",
+    icon: HexagonIcon,
+    dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "pulsing-border",
+    title: "Pulsing Border",
+    description:
+      "Card wrapper with a living, glowing shader border around your content.",
+    category: "backgrounds",
+    icon: RippleIcon,
+    dependencies: ["@paper-design/shaders-react"],
     isNew: true,
   },
   ...uiItems,

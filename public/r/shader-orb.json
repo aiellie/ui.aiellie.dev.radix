@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shader-orb",
+  "title": "Shader Orb",
+  "description": "A living, iridescent WebGL orb built on the Paper warp shader.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/shader-orb.tsx",
+      "content": "\"use client\"\n\nimport { Warp } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst ORB_PARAMS = {\n  colors: [\"#a5b4fc\", \"#e0e7ff\", \"#4f46e5\"] as [string, string, string],\n  proportion: 0.35,\n  softness: 1,\n  distortion: 0.32,\n  swirl: 1,\n  swirlIterations: 0,\n  shape: \"edge\" as const,\n  shapeScale: 0,\n  speed: 12.2,\n  scale: 0.31,\n  rotation: 176,\n  offsetX: 0.65,\n  offsetY: 0.09,\n}\n\ntype OrbProps = {\n  size?: number\n  className?: string\n}\n\nexport function Orb({ size = 280, className }: OrbProps) {\n  return (\n    <div\n      className={cn(\"shrink-0 overflow-hidden rounded-full\", className)}\n      style={{ width: size, height: size }}\n    >\n      <Warp width={size} height={size} {...ORB_PARAMS} />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

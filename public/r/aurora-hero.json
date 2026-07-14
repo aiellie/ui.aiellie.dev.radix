@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aurora-hero",
+  "title": "Aurora Hero",
+  "description": "Full-bleed animated aurora backdrop with an overlaid heading and scrim.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/aurora-hero.tsx",
+      "content": "\"use client\"\n\nimport type { ReactNode } from \"react\"\nimport { Warp } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype AuroraHeroProps = {\n  colors?: string[]\n  speed?: number\n  children?: ReactNode\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#4f46e5\", \"#a855f7\", \"#ec4899\", \"#0f172a\"]\n\nexport function AuroraHero({\n  colors = DEFAULT_COLORS,\n  speed = 0.6,\n  children,\n  className,\n}: AuroraHeroProps) {\n  return (\n    <div\n      className={cn(\n        \"relative isolate w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <Warp\n        className=\"absolute inset-0 -z-10 size-full\"\n        colors={colors}\n        proportion={0.4}\n        softness={1}\n        distortion={0.25}\n        swirl={0.8}\n        swirlIterations={10}\n        shape=\"stripes\"\n        scale={1}\n        speed={speed}\n      />\n      <div className=\"pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent\" />\n      <div className=\"flex min-h-64 flex-col items-start justify-end gap-2 p-8\">\n        {children ?? (\n          <>\n            <span className=\"rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur\">\n              Design Engineer\n            </span>\n            <h2 className=\"text-3xl font-bold tracking-tight text-white\">\n              Ellie Nakamura\n            </h2>\n            <p className=\"max-w-sm text-sm text-white/80\">\n              I build fast, beautiful web experiences — from the data layer to\n              the last pixel.\n            </p>\n          </>\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

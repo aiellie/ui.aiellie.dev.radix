@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metaballs",
+  "title": "Metaballs",
+  "description": "Gooey blobs that merge and split — a classic lava-lamp backdrop.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/metaballs.tsx",
+      "content": "\"use client\"\n\nimport { Metaballs } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype MetaballsBackgroundProps = {\n  colors?: string[]\n  colorBack?: string\n  count?: number\n  speed?: number\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#a5b4fc\", \"#f0abfc\", \"#818cf8\"]\n\nexport function MetaballsBackground({\n  colors = DEFAULT_COLORS,\n  colorBack = \"#0b0b12\",\n  count = 8,\n  speed = 1,\n  className,\n}: MetaballsBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <Metaballs\n        className=\"absolute inset-0 size-full\"\n        colors={colors}\n        colorBack={colorBack}\n        count={count}\n        size={0.8}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

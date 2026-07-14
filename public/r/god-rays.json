@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "god-rays",
+  "title": "God Rays",
+  "description": "Volumetric light rays blooming from a point — dramatic hero lighting.",
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/god-rays.tsx",
+      "content": "\"use client\"\n\nimport { GodRays } from \"@paper-design/shaders-react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype GodRaysBackgroundProps = {\n  colors?: string[]\n  colorBack?: string\n  colorBloom?: string\n  speed?: number\n  className?: string\n}\n\nconst DEFAULT_COLORS = [\"#a5b4fc\", \"#f0abfc\", \"#818cf8\"]\n\nexport function GodRaysBackground({\n  colors = DEFAULT_COLORS,\n  colorBack = \"#07070d\",\n  colorBloom = \"#e0e7ff\",\n  speed = 0.5,\n  className,\n}: GodRaysBackgroundProps) {\n  return (\n    <div\n      className={cn(\n        \"relative h-64 w-full overflow-hidden rounded-2xl border\",\n        className\n      )}\n    >\n      <GodRays\n        className=\"absolute inset-0 size-full\"\n        colors={colors}\n        colorBack={colorBack}\n        colorBloom={colorBloom}\n        density={0.7}\n        intensity={0.9}\n        bloom={0.6}\n        speed={speed}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
