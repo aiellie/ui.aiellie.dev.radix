@@ -80,6 +80,22 @@ import {
   Atom01Icon,
   Moon02Icon,
   Github01Icon,
+  // portfolio
+  UserSquareIcon,
+  Rocket01Icon,
+  Layers01Icon,
+  Analytics01Icon,
+  TimelineIcon,
+  Chart01Icon,
+  UserCircleIcon,
+  Mail01Icon,
+  Share08Icon,
+  Download04Icon,
+  Briefcase01Icon,
+  RadioIcon,
+  WorkflowSquare01Icon,
+  News01Icon,
+  Certificate01Icon,
 } from "@hugeicons/core-free-icons"
 import type { IconSvgElement } from "@hugeicons/react"
 
@@ -93,6 +109,7 @@ export type Category =
   | "voice"
   | "ui"
   | "brand"
+  | "portfolio"
 
 export type RegistryItem = {
   slug: string
@@ -157,6 +174,13 @@ export const categories: {
     label: "Brand",
     description: "AIEllie's identity kit: the orb, mascot, logo lockup, and site-chrome buttons.",
     icon: PaintBoardIcon,
+  },
+  {
+    id: "portfolio",
+    label: "Portfolio",
+    description:
+      "Sections for dev & web portfolios: hero, projects, timeline, skills, and contact.",
+    icon: UserSquareIcon,
   },
 ]
 
@@ -734,6 +758,169 @@ export const registry: RegistryItem[] = [
     category: "brand",
     icon: Github01Icon,
     registryDependencies: ["button", "tooltip"],
+    isNew: true,
+  },
+  // Portfolio
+  {
+    slug: "portfolio-hero",
+    title: "Portfolio Hero",
+    description:
+      "Intro header with avatar, role, location, an availability status, and CTAs.",
+    category: "portfolio",
+    icon: SparklesIcon,
+    isNew: true,
+  },
+  {
+    slug: "about-card",
+    title: "About Card",
+    description:
+      "Bio card with a headline, paragraph, and a list of quick personal facts.",
+    category: "portfolio",
+    icon: UserCircleIcon,
+    isNew: true,
+  },
+  {
+    slug: "project-card",
+    title: "Project Card",
+    description:
+      "Featured-project card with a gradient cover, tech tags, stars, and live/repo links.",
+    category: "portfolio",
+    icon: Rocket01Icon,
+    isNew: true,
+  },
+  {
+    slug: "project-gallery",
+    title: "Project Gallery",
+    description:
+      "Responsive grid of project tiles with gradient covers and hover reveals.",
+    category: "portfolio",
+    icon: GalleryHorizontalIcon,
+    isNew: true,
+  },
+  {
+    slug: "tech-stack",
+    title: "Tech Stack",
+    description:
+      "Grouped grid of the languages, frameworks, and tools you work with.",
+    category: "portfolio",
+    icon: Layers01Icon,
+    isNew: true,
+  },
+  {
+    slug: "skill-bars",
+    title: "Skill Bars",
+    description:
+      "Labeled proficiency bars with animated gradient fills for each skill.",
+    category: "portfolio",
+    icon: Analytics01Icon,
+    isNew: true,
+  },
+  {
+    slug: "experience-timeline",
+    title: "Experience Timeline",
+    description:
+      "Vertical work-history timeline with company, role, period, and a current badge.",
+    category: "portfolio",
+    icon: TimelineIcon,
+    isNew: true,
+  },
+  {
+    slug: "stats-row",
+    title: "Stats Row",
+    description:
+      "Row of headline metrics — years, projects, clients — with gradient numbers.",
+    category: "portfolio",
+    icon: Chart01Icon,
+    isNew: true,
+  },
+  {
+    slug: "testimonial-card",
+    title: "Testimonial Card",
+    description:
+      "Client quote card with a star rating, avatar, name, and title.",
+    category: "portfolio",
+    icon: QuoteUpIcon,
+    isNew: true,
+  },
+  {
+    slug: "contact-cta",
+    title: "Contact CTA",
+    description:
+      "Closing call-to-action with a mailto button and a copy-to-clipboard email.",
+    category: "portfolio",
+    icon: Mail01Icon,
+    isNew: true,
+  },
+  {
+    slug: "social-links",
+    title: "Social Links",
+    description:
+      "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
+    category: "portfolio",
+    icon: Share08Icon,
+    isNew: true,
+  },
+  {
+    slug: "resume-download",
+    title: "Resume Download",
+    description:
+      "File-style card that downloads your CV with name, size, and updated date.",
+    category: "portfolio",
+    icon: Download04Icon,
+    isNew: true,
+  },
+  {
+    slug: "github-contributions",
+    title: "GitHub Contributions",
+    description:
+      "Contribution heatmap grid with intensity levels and a Less→More legend.",
+    category: "portfolio",
+    icon: Github01Icon,
+    isNew: true,
+  },
+  {
+    slug: "service-card",
+    title: "Service Card",
+    description:
+      "Offering card with an icon, feature checklist, starting price, and a link.",
+    category: "portfolio",
+    icon: Briefcase01Icon,
+    isNew: true,
+  },
+  {
+    slug: "availability-badge",
+    title: "Availability Badge",
+    description:
+      "Pulsing status pill that flips between available and fully-booked states.",
+    category: "portfolio",
+    icon: RadioIcon,
+    isNew: true,
+  },
+  {
+    slug: "tech-marquee",
+    title: "Tech Marquee",
+    description:
+      "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
+    category: "portfolio",
+    icon: WorkflowSquare01Icon,
+    isNew: true,
+  },
+  {
+    slug: "blog-post-card",
+    title: "Blog Post Card",
+    description:
+      "Article card with a gradient cover, tag, excerpt, date, and read time.",
+    category: "portfolio",
+    icon: News01Icon,
+    isNew: true,
+  },
+  {
+    slug: "certifications",
+    title: "Certifications",
+    description:
+      "List of credentials with issuer, year, and an external link per item.",
+    category: "portfolio",
+    icon: Certificate01Icon,
     isNew: true,
   },
   ...uiItems,

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skill-bars",
+  "title": "Skill Bars",
+  "description": "Labeled proficiency bars with animated gradient fills for each skill.",
+  "files": [
+    {
+      "path": "registry/portfolio/skill-bars.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype Skill = { name: string; level: number }\n\nconst defaultSkills: Skill[] = [\n  { name: \"React / Next.js\", level: 95 },\n  { name: \"TypeScript\", level: 92 },\n  { name: \"UI / Design Systems\", level: 88 },\n  { name: \"Node.js / APIs\", level: 84 },\n  { name: \"Databases\", level: 76 },\n]\n\nexport function SkillBars({\n  skills = defaultSkills,\n  className,\n}: {\n  skills?: Skill[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\"w-full max-w-md rounded-2xl border bg-card p-6\", className)}\n    >\n      <h2 className=\"font-semibold tracking-tight\">Skills</h2>\n      <div className=\"mt-5 flex flex-col gap-4\">\n        {skills.map((skill) => (\n          <div key={skill.name}>\n            <div className=\"flex items-center justify-between text-sm\">\n              <span className=\"font-medium\">{skill.name}</span>\n              <span className=\"font-mono text-xs text-muted-foreground\">\n                {skill.level}%\n              </span>\n            </div>\n            <div className=\"mt-1.5 h-2 overflow-hidden rounded-full bg-muted\">\n              <div\n                className=\"h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-[width] duration-700 ease-out\"\n                style={{ width: `${skill.level}%` }}\n              />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

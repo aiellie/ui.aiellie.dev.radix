@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "availability-badge",
+  "title": "Availability Badge",
+  "description": "Pulsing status pill that flips between available and fully-booked states.",
+  "files": [
+    {
+      "path": "registry/portfolio/availability-badge.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nexport function AvailabilityBadge({\n  available = true,\n  labelAvailable = \"Available for new projects\",\n  labelUnavailable = \"Fully booked right now\",\n  className,\n}: {\n  available?: boolean\n  labelAvailable?: string\n  labelUnavailable?: string\n  className?: string\n}) {\n  return (\n    <span\n      className={cn(\n        \"inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium\",\n        available\n          ? \"border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\"\n          : \"border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400\",\n        className\n      )}\n    >\n      <span className=\"relative flex size-2.5\">\n        {available ? (\n          <span className=\"absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75\" />\n        ) : null}\n        <span\n          className={cn(\n            \"relative inline-flex size-2.5 rounded-full\",\n            available ? \"bg-emerald-500\" : \"bg-amber-500\"\n          )}\n        />\n      </span>\n      {available ? labelAvailable : labelUnavailable}\n    </span>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

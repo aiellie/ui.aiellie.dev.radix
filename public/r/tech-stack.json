@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tech-stack",
+  "title": "Tech Stack",
+  "description": "Grouped grid of the languages, frameworks, and tools you work with.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/portfolio/tech-stack.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  CodeIcon,\n  DatabaseIcon,\n  Layers01Icon,\n  PaintBoardIcon,\n  ServerStack01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype Group = {\n  label: string\n  icon: typeof CodeIcon\n  items: string[]\n}\n\nconst defaultGroups: Group[] = [\n  {\n    label: \"Languages\",\n    icon: CodeIcon,\n    items: [\"TypeScript\", \"Python\", \"Go\", \"SQL\"],\n  },\n  {\n    label: \"Frontend\",\n    icon: PaintBoardIcon,\n    items: [\"React\", \"Next.js\", \"Tailwind\", \"Motion\"],\n  },\n  {\n    label: \"Backend\",\n    icon: ServerStack01Icon,\n    items: [\"Node.js\", \"tRPC\", \"GraphQL\", \"Bun\"],\n  },\n  {\n    label: \"Data\",\n    icon: DatabaseIcon,\n    items: [\"Postgres\", \"Redis\", \"ClickHouse\", \"Prisma\"],\n  },\n]\n\nexport function TechStack({\n  groups = defaultGroups,\n  className,\n}: {\n  groups?: Group[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\"w-full max-w-lg rounded-2xl border bg-card p-6\", className)}\n    >\n      <div className=\"flex items-center gap-2\">\n        <HugeiconsIcon icon={Layers01Icon} className=\"size-5 text-primary\" />\n        <h2 className=\"font-semibold tracking-tight\">Tech stack</h2>\n      </div>\n\n      <div className=\"mt-5 grid gap-4 sm:grid-cols-2\">\n        {groups.map((group) => (\n          <div key={group.label} className=\"rounded-xl border bg-muted/30 p-4\">\n            <div className=\"flex items-center gap-2 text-sm font-medium\">\n              <HugeiconsIcon\n                icon={group.icon}\n                className=\"size-4 text-muted-foreground\"\n              />\n              {group.label}\n            </div>\n            <div className=\"mt-3 flex flex-wrap gap-1.5\">\n              {group.items.map((item) => (\n                <span\n                  key={item}\n                  className=\"rounded-md border bg-background px-2 py-0.5 font-mono text-[11px] text-foreground\"\n                >\n                  {item}\n                </span>\n              ))}\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tech-marquee",
+  "title": "Tech Marquee",
+  "description": "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
+  "files": [
+    {
+      "path": "registry/portfolio/tech-marquee.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nconst defaultItems = [\n  \"TypeScript\",\n  \"React\",\n  \"Next.js\",\n  \"Tailwind\",\n  \"Node.js\",\n  \"GraphQL\",\n  \"Postgres\",\n  \"Redis\",\n  \"Docker\",\n  \"AWS\",\n  \"Motion\",\n  \"Prisma\",\n]\n\nexport function TechMarquee({\n  items = defaultItems,\n  className,\n}: {\n  items?: string[]\n  className?: string\n}) {\n  const loop = [...items, ...items]\n\n  return (\n    <div\n      className={cn(\n        \"group relative w-full max-w-2xl overflow-hidden rounded-2xl border bg-card py-5\",\n        className\n      )}\n    >\n      <div className=\"pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-card to-transparent\" />\n      <div className=\"pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-card to-transparent\" />\n      <div className=\"flex w-max animate-[marquee_22s_linear_infinite] items-center gap-3 group-hover:[animation-play-state:paused]\">\n        {loop.map((item, i) => (\n          <span\n            key={i}\n            className=\"flex items-center gap-2 rounded-full border bg-muted/40 px-4 py-1.5 text-sm font-medium text-foreground\"\n          >\n            <span className=\"size-1.5 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500\" />\n            {item}\n          </span>\n        ))}\n      </div>\n      <style>{`\n        @keyframes marquee {\n          from { transform: translateX(0); }\n          to { transform: translateX(-50%); }\n        }\n      `}</style>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

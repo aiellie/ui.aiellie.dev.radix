@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-row",
+  "title": "Stats Row",
+  "description": "Row of headline metrics — years, projects, clients — with gradient numbers.",
+  "files": [
+    {
+      "path": "registry/portfolio/stats-row.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype Stat = { value: string; label: string }\n\nconst defaultStats: Stat[] = [\n  { value: \"8+\", label: \"Years experience\" },\n  { value: \"60+\", label: \"Projects shipped\" },\n  { value: \"24\", label: \"Happy clients\" },\n  { value: \"12k\", label: \"GitHub stars\" },\n]\n\nexport function StatsRow({\n  stats = defaultStats,\n  className,\n}: {\n  stats?: Stat[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\n        \"grid w-full max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border sm:grid-cols-4\",\n        className\n      )}\n    >\n      {stats.map((stat) => (\n        <div\n          key={stat.label}\n          className=\"flex flex-col items-center justify-center gap-1 bg-card px-4 py-6 text-center\"\n        >\n          <span className=\"bg-gradient-to-br from-violet-500 to-fuchsia-500 bg-clip-text text-3xl font-bold tracking-tight text-transparent\">\n            {stat.value}\n          </span>\n          <span className=\"text-xs text-muted-foreground\">{stat.label}</span>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

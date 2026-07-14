@@ -865,7 +865,7 @@
       "name": "orb",
       "type": "registry:component",
       "title": "Orb",
-      "description": "AIEllie's signature iridescent sphere \u2014 a pure-CSS gradient orb with an optional float.",
+      "description": "AIEllie's signature iridescent sphere — a pure-CSS gradient orb with an optional float.",
       "files": [
         {
           "path": "registry/brand/orb.tsx",
@@ -892,7 +892,7 @@
       "name": "logo",
       "type": "registry:component",
       "title": "Logo",
-      "description": "The AIEllie brand lockup \u2014 the Ellie orb mark beside the wordmark and version.",
+      "description": "The AIEllie brand lockup — the Ellie orb mark beside the wordmark and version.",
       "registryDependencies": [
         "ellie"
       ],
@@ -2292,6 +2292,278 @@
       "registryDependencies": [
         "button",
         "tooltip"
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "portfolio-hero",
+      "type": "registry:component",
+      "title": "Portfolio Hero",
+      "description": "Intro header with avatar, role, location, an availability status, and CTAs.",
+      "files": [
+        {
+          "path": "registry/portfolio/portfolio-hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "about-card",
+      "type": "registry:component",
+      "title": "About Card",
+      "description": "Bio card with a headline, paragraph, and a list of quick personal facts.",
+      "files": [
+        {
+          "path": "registry/portfolio/about-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "project-card",
+      "type": "registry:component",
+      "title": "Project Card",
+      "description": "Featured-project card with a gradient cover, tech tags, stars, and live/repo links.",
+      "files": [
+        {
+          "path": "registry/portfolio/project-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "project-gallery",
+      "type": "registry:component",
+      "title": "Project Gallery",
+      "description": "Responsive grid of project tiles with gradient covers and hover reveals.",
+      "files": [
+        {
+          "path": "registry/portfolio/project-gallery.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "tech-stack",
+      "type": "registry:component",
+      "title": "Tech Stack",
+      "description": "Grouped grid of the languages, frameworks, and tools you work with.",
+      "files": [
+        {
+          "path": "registry/portfolio/tech-stack.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "skill-bars",
+      "type": "registry:component",
+      "title": "Skill Bars",
+      "description": "Labeled proficiency bars with animated gradient fills for each skill.",
+      "files": [
+        {
+          "path": "registry/portfolio/skill-bars.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "experience-timeline",
+      "type": "registry:component",
+      "title": "Experience Timeline",
+      "description": "Vertical work-history timeline with company, role, period, and a current badge.",
+      "files": [
+        {
+          "path": "registry/portfolio/experience-timeline.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "stats-row",
+      "type": "registry:component",
+      "title": "Stats Row",
+      "description": "Row of headline metrics — years, projects, clients — with gradient numbers.",
+      "files": [
+        {
+          "path": "registry/portfolio/stats-row.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-card",
+      "type": "registry:component",
+      "title": "Testimonial Card",
+      "description": "Client quote card with a star rating, avatar, name, and title.",
+      "files": [
+        {
+          "path": "registry/portfolio/testimonial-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "contact-cta",
+      "type": "registry:component",
+      "title": "Contact CTA",
+      "description": "Closing call-to-action with a mailto button and a copy-to-clipboard email.",
+      "files": [
+        {
+          "path": "registry/portfolio/contact-cta.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "social-links",
+      "type": "registry:component",
+      "title": "Social Links",
+      "description": "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
+      "files": [
+        {
+          "path": "registry/portfolio/social-links.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "resume-download",
+      "type": "registry:component",
+      "title": "Resume Download",
+      "description": "File-style card that downloads your CV with name, size, and updated date.",
+      "files": [
+        {
+          "path": "registry/portfolio/resume-download.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "github-contributions",
+      "type": "registry:component",
+      "title": "GitHub Contributions",
+      "description": "Contribution heatmap grid with intensity levels and a Less→More legend.",
+      "files": [
+        {
+          "path": "registry/portfolio/github-contributions.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "service-card",
+      "type": "registry:component",
+      "title": "Service Card",
+      "description": "Offering card with an icon, feature checklist, starting price, and a link.",
+      "files": [
+        {
+          "path": "registry/portfolio/service-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "availability-badge",
+      "type": "registry:component",
+      "title": "Availability Badge",
+      "description": "Pulsing status pill that flips between available and fully-booked states.",
+      "files": [
+        {
+          "path": "registry/portfolio/availability-badge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tech-marquee",
+      "type": "registry:component",
+      "title": "Tech Marquee",
+      "description": "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
+      "files": [
+        {
+          "path": "registry/portfolio/tech-marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blog-post-card",
+      "type": "registry:component",
+      "title": "Blog Post Card",
+      "description": "Article card with a gradient cover, tag, excerpt, date, and read time.",
+      "files": [
+        {
+          "path": "registry/portfolio/blog-post-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
+    },
+    {
+      "name": "certifications",
+      "type": "registry:component",
+      "title": "Certifications",
+      "description": "List of credentials with issuer, year, and an external link per item.",
+      "files": [
+        {
+          "path": "registry/portfolio/certifications.tsx",
+          "type": "registry:component"
+        }
       ],
       "dependencies": [
         "@hugeicons/react",

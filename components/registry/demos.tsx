@@ -84,6 +84,26 @@ import { Logo } from "@/registry/brand/logo"
 import { ThemeSwitcher } from "@/registry/brand/theme-switcher"
 import { GithubButton } from "@/registry/brand/github-button"
 
+// Portfolio
+import { PortfolioHero } from "@/registry/portfolio/portfolio-hero"
+import { AboutCard } from "@/registry/portfolio/about-card"
+import { ProjectCard } from "@/registry/portfolio/project-card"
+import { ProjectGallery } from "@/registry/portfolio/project-gallery"
+import { TechStack } from "@/registry/portfolio/tech-stack"
+import { SkillBars } from "@/registry/portfolio/skill-bars"
+import { ExperienceTimeline } from "@/registry/portfolio/experience-timeline"
+import { StatsRow } from "@/registry/portfolio/stats-row"
+import { TestimonialCard } from "@/registry/portfolio/testimonial-card"
+import { ContactCta } from "@/registry/portfolio/contact-cta"
+import { SocialLinks } from "@/registry/portfolio/social-links"
+import { ResumeDownload } from "@/registry/portfolio/resume-download"
+import { GithubContributions } from "@/registry/portfolio/github-contributions"
+import { ServiceCard } from "@/registry/portfolio/service-card"
+import { AvailabilityBadge } from "@/registry/portfolio/availability-badge"
+import { TechMarquee } from "@/registry/portfolio/tech-marquee"
+import { BlogPostCard } from "@/registry/portfolio/blog-post-card"
+import { Certifications } from "@/registry/portfolio/certifications"
+
 export const demos: Record<string, React.ReactNode> = {
   agent: <Agent />,
   artifact: <Artifact />,
@@ -235,4 +255,24 @@ export const demos: Record<string, React.ReactNode> = {
   logo: <Logo />,
   "theme-switcher": <ThemeSwitcher />,
   "github-button": <GithubButton />,
+
+  // Portfolio
+  "portfolio-hero": <PortfolioHero />,
+  "about-card": <AboutCard />,
+  "project-card": <ProjectCard />,
+  "project-gallery": <ProjectGallery />,
+  "tech-stack": <TechStack />,
+  "skill-bars": <SkillBars />,
+  "experience-timeline": <ExperienceTimeline />,
+  "stats-row": <StatsRow />,
+  "testimonial-card": <TestimonialCard />,
+  "contact-cta": <ContactCta />,
+  "social-links": <SocialLinks />,
+  "resume-download": <ResumeDownload />,
+  "github-contributions": <GithubContributions />,
+  "service-card": <ServiceCard />,
+  "availability-badge": <AvailabilityBadge />,
+  "tech-marquee": <TechMarquee />,
+  "blog-post-card": <BlogPostCard />,
+  certifications: <Certifications />,
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "about-card",
+  "title": "About Card",
+  "description": "Bio card with a headline, paragraph, and a list of quick personal facts.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/portfolio/about-card.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  Briefcase01Icon,\n  Coffee02Icon,\n  MapPinIcon,\n  SparklesIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype Fact = { icon: typeof Briefcase01Icon; label: string }\n\nexport function AboutCard({\n  name = \"Ellie Nakamura\",\n  headline = \"Design engineer who cares about the details\",\n  bio = \"I've spent the last 8 years turning fuzzy product ideas into polished, production web apps. I love TypeScript, design systems, and shaving milliseconds off render times. When I'm not shipping, I'm mentoring juniors and rebuilding my keyboard for the nth time.\",\n  facts = [\n    { icon: Briefcase01Icon, label: \"8+ years building for the web\" },\n    { icon: MapPinIcon, label: \"Based in Lisbon, works remotely\" },\n    { icon: Coffee02Icon, label: \"Fueled by cortados & side projects\" },\n  ],\n  className,\n}: {\n  name?: string\n  headline?: string\n  bio?: string\n  facts?: Fact[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\n        \"w-full max-w-md rounded-2xl border bg-card p-6\",\n        className\n      )}\n    >\n      <span className=\"inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary\">\n        <HugeiconsIcon icon={SparklesIcon} className=\"size-3.5\" />\n        About {name.split(\" \")[0]}\n      </span>\n      <h2 className=\"mt-4 text-lg font-semibold tracking-tight\">{headline}</h2>\n      <p className=\"mt-2 text-sm leading-relaxed text-muted-foreground\">{bio}</p>\n      <ul className=\"mt-5 flex flex-col gap-3 border-t pt-5\">\n        {facts.map((fact) => (\n          <li\n            key={fact.label}\n            className=\"flex items-center gap-3 text-sm text-foreground\"\n          >\n            <span className=\"flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground\">\n              <HugeiconsIcon icon={fact.icon} className=\"size-4\" />\n            </span>\n            {fact.label}\n          </li>\n        ))}\n      </ul>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

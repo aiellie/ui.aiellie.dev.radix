@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "certifications",
+  "title": "Certifications",
+  "description": "List of credentials with issuer, year, and an external link per item.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/portfolio/certifications.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  ArrowUpRight01Icon,\n  Certificate01Icon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype Cert = {\n  name: string\n  issuer: string\n  year: string\n  href?: string\n}\n\nconst defaultCerts: Cert[] = [\n  {\n    name: \"AWS Solutions Architect\",\n    issuer: \"Amazon Web Services\",\n    year: \"2025\",\n  },\n  {\n    name: \"Professional Cloud Developer\",\n    issuer: \"Google Cloud\",\n    year: \"2024\",\n  },\n  {\n    name: \"Accessibility Specialist (CPACC)\",\n    issuer: \"IAAP\",\n    year: \"2023\",\n  },\n]\n\nexport function Certifications({\n  certs = defaultCerts,\n  className,\n}: {\n  certs?: Cert[]\n  className?: string\n}) {\n  return (\n    <div\n      className={cn(\"w-full max-w-md rounded-2xl border bg-card p-6\", className)}\n    >\n      <h2 className=\"font-semibold tracking-tight\">Certifications</h2>\n      <ul className=\"mt-4 flex flex-col divide-y\">\n        {certs.map((cert) => (\n          <li key={cert.name}>\n            <a\n              href={cert.href ?? \"#\"}\n              className=\"group flex items-center gap-3 py-3 first:pt-0 last:pb-0\"\n            >\n              <span className=\"flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary\">\n                <HugeiconsIcon icon={Certificate01Icon} className=\"size-5\" />\n              </span>\n              <div className=\"min-w-0 flex-1\">\n                <p className=\"truncate text-sm font-medium\">{cert.name}</p>\n                <p className=\"truncate text-xs text-muted-foreground\">\n                  {cert.issuer} · {cert.year}\n                </p>\n              </div>\n              <HugeiconsIcon\n                icon={ArrowUpRight01Icon}\n                className=\"size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100\"\n              />\n            </a>\n          </li>\n        ))}\n      </ul>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

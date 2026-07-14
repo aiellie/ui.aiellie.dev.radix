@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "social-links",
+  "title": "Social Links",
+  "description": "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/portfolio/social-links.tsx",
+      "content": "import { HugeiconsIcon } from \"@hugeicons/react\"\nimport {\n  DribbbleIcon,\n  Github01Icon,\n  Globe02Icon,\n  Linkedin01Icon,\n  Mail01Icon,\n  NewTwitterIcon,\n} from \"@hugeicons/core-free-icons\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype Social = {\n  label: string\n  href: string\n  icon: typeof Github01Icon\n}\n\nconst defaultLinks: Social[] = [\n  { label: \"GitHub\", href: \"#\", icon: Github01Icon },\n  { label: \"X\", href: \"#\", icon: NewTwitterIcon },\n  { label: \"LinkedIn\", href: \"#\", icon: Linkedin01Icon },\n  { label: \"Dribbble\", href: \"#\", icon: DribbbleIcon },\n  { label: \"Website\", href: \"#\", icon: Globe02Icon },\n  { label: \"Email\", href: \"#\", icon: Mail01Icon },\n]\n\nexport function SocialLinks({\n  links = defaultLinks,\n  className,\n}: {\n  links?: Social[]\n  className?: string\n}) {\n  return (\n    <div className={cn(\"flex flex-wrap items-center gap-2\", className)}>\n      {links.map((link) => (\n        <a\n          key={link.label}\n          href={link.href}\n          aria-label={link.label}\n          className=\"group flex size-10 items-center justify-center rounded-xl border bg-card text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary/5 hover:text-primary\"\n        >\n          <HugeiconsIcon\n            icon={link.icon}\n            className=\"size-5 transition-transform group-hover:scale-110\"\n          />\n        </a>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
