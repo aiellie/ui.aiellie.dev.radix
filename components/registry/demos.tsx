@@ -125,6 +125,7 @@ import { Ripple } from "@/registry/backgrounds/ripple"
 import { Spotlight } from "@/registry/backgrounds/spotlight"
 import { DotPattern } from "@/registry/backgrounds/dot-pattern"
 import { GridPattern } from "@/registry/backgrounds/grid-pattern"
+import { AnimatedBots } from "@/registry/backgrounds/animated-bots"
 
 export const demos: Record<string, React.ReactNode> = {
   agent: <Agent />,
@@ -413,6 +414,15 @@ export const demos: Record<string, React.ReactNode> = {
       <span className="relative text-lg font-semibold tracking-tight">
         Grid Pattern
       </span>
+    </div>
+  ),
+  "animated-bots": (
+    <div className="relative flex h-64 w-full max-w-2xl items-end justify-center overflow-hidden rounded-2xl border bg-background text-foreground/80">
+      <GridPattern className="text-foreground/[0.07]" />
+      <span className="relative mb-16 text-lg font-semibold tracking-tight">
+        Animated Bots
+      </span>
+      <AnimatedBots />
     </div>
   ),
 }

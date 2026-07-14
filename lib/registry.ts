@@ -1139,6 +1139,15 @@ export const registry: RegistryItem[] = [
     icon: GridViewIcon,
     isNew: true,
   },
+  {
+    slug: "animated-bots",
+    title: "Animated Bots",
+    description:
+      "Pixel-art robots that patrol across the bottom of a hero — pure SVG + CSS.",
+    category: "backgrounds",
+    icon: RoboticIcon,
+    isNew: true,
+  },
   ...uiItems,
 ]
 
