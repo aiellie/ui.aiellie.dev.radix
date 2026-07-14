@@ -117,6 +117,14 @@ import { NeuroNoiseBackground } from "@/registry/backgrounds/neuro-noise"
 import { GodRaysBackground } from "@/registry/backgrounds/god-rays"
 import { VoronoiBackground } from "@/registry/backgrounds/voronoi"
 import { PulsingBorderCard } from "@/registry/backgrounds/pulsing-border"
+import { Particles } from "@/registry/backgrounds/particles"
+import { FlickeringGrid } from "@/registry/backgrounds/flickering-grid"
+import { Meteors } from "@/registry/backgrounds/meteors"
+import { RetroGrid } from "@/registry/backgrounds/retro-grid"
+import { Ripple } from "@/registry/backgrounds/ripple"
+import { Spotlight } from "@/registry/backgrounds/spotlight"
+import { DotPattern } from "@/registry/backgrounds/dot-pattern"
+import { GridPattern } from "@/registry/backgrounds/grid-pattern"
 
 export const demos: Record<string, React.ReactNode> = {
   agent: <Agent />,
@@ -343,4 +351,68 @@ export const demos: Record<string, React.ReactNode> = {
     </div>
   ),
   "pulsing-border": <PulsingBorderCard />,
+  particles: (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <Particles className="absolute inset-0" quantity={140} color="#c4b5fd" />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Move your cursor
+      </span>
+    </div>
+  ),
+  "flickering-grid": (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <FlickeringGrid className="absolute inset-0" />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Flickering Grid
+      </span>
+    </div>
+  ),
+  meteors: (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <Meteors number={24} />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Meteors
+      </span>
+    </div>
+  ),
+  "retro-grid": (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <RetroGrid />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Retro Grid
+      </span>
+    </div>
+  ),
+  ripple: (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <Ripple />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Ripple
+      </span>
+    </div>
+  ),
+  spotlight: (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-neutral-950">
+      <Spotlight />
+      <span className="relative text-lg font-semibold tracking-tight text-white">
+        Spotlight
+      </span>
+    </div>
+  ),
+  "dot-pattern": (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-background">
+      <DotPattern />
+      <span className="relative text-lg font-semibold tracking-tight">
+        Dot Pattern
+      </span>
+    </div>
+  ),
+  "grid-pattern": (
+    <div className="relative flex h-64 w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border bg-background">
+      <GridPattern />
+      <span className="relative text-lg font-semibold tracking-tight">
+        Grid Pattern
+      </span>
+    </div>
+  ),
 }

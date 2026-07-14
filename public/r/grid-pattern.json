@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-pattern",
+  "title": "Grid Pattern",
+  "description": "Theme-aware grid-line background layer with an optional radial fade mask.",
+  "files": [
+    {
+      "path": "registry/backgrounds/grid-pattern.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype GridPatternProps = {\n  /** Cell size, in px. */\n  size?: number\n  /** Line thickness, in px. */\n  lineWidth?: number\n  /** Fade the grid toward the edges with a radial mask. */\n  fade?: boolean\n  className?: string\n}\n\n/**\n * A theme-aware grid background layer. Drop it inside a `relative` container.\n * Uses `currentColor`, so set the color with a text utility (e.g. `text-foreground/10`).\n */\nexport function GridPattern({\n  size = 40,\n  lineWidth = 1,\n  fade = true,\n  className,\n}: GridPatternProps) {\n  return (\n    <div\n      aria-hidden\n      className={cn(\n        \"pointer-events-none absolute inset-0 text-foreground/10\",\n        fade &&\n          \"[mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]\",\n        className\n      )}\n      style={{\n        backgroundImage: `linear-gradient(to right, currentColor ${lineWidth}px, transparent ${lineWidth}px), linear-gradient(to bottom, currentColor ${lineWidth}px, transparent ${lineWidth}px)`,\n        backgroundSize: `${size}px ${size}px`,\n      }}\n    />\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

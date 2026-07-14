@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "meteors",
+  "title": "Meteors",
+  "description": "A shower of diagonal meteors with trailing tails, pure CSS and SSR-safe.",
+  "files": [
+    {
+      "path": "registry/backgrounds/meteors.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype MeteorsProps = {\n  /** Number of meteors. */\n  number?: number\n  className?: string\n}\n\n/**\n * A shower of diagonal meteors. Drop it inside a `relative overflow-hidden`\n * container. Positions and timings are deterministic (SSR-safe).\n */\nexport function Meteors({ number = 20, className }: MeteorsProps) {\n  const meteors = Array.from({ length: number })\n\n  return (\n    <div\n      aria-hidden\n      className={cn(\n        \"pointer-events-none absolute inset-0 overflow-hidden\",\n        className\n      )}\n    >\n      {meteors.map((_, i) => {\n        const left = `${((i + 1) / (number + 1)) * 100}%`\n        const delay = `${(i % 5) * 0.8 + (i % 3) * 0.2}s`\n        const duration = `${3 + (i % 5)}s`\n        return (\n          <span\n            key={i}\n            className=\"absolute top-[-10%] size-0.5 rotate-[215deg] animate-[ae-meteor_linear_infinite] rounded-full bg-violet-300 shadow-[0_0_6px_2px_rgba(196,181,253,0.35)] before:absolute before:top-1/2 before:h-px before:w-14 before:-translate-y-1/2 before:bg-gradient-to-r before:from-violet-300 before:to-transparent before:content-['']\"\n            style={{ left, animationDelay: delay, animationDuration: duration }}\n          />\n        )\n      })}\n      <style>{`\n        @keyframes ae-meteor {\n          0% { transform: rotate(215deg) translateX(0); opacity: 1; }\n          70% { opacity: 1; }\n          100% { transform: rotate(215deg) translateX(-600px); opacity: 0; }\n        }\n        @media (prefers-reduced-motion: reduce) {\n          .animate-\\\\[ae-meteor_linear_infinite\\\\] { animation: none; opacity: 0.4; }\n        }\n      `}</style>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

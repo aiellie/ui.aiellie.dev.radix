@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple",
+  "title": "Ripple",
+  "description": "Concentric, softly pulsing rings radiating from the center.",
+  "files": [
+    {
+      "path": "registry/backgrounds/ripple.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype RippleProps = {\n  /** Number of concentric rings. */\n  count?: number\n  /** Diameter of the innermost ring, in px. */\n  baseSize?: number\n  className?: string\n}\n\n/**\n * Concentric, softly pulsing rings radiating from the center. Drop it inside a\n * `relative overflow-hidden` container.\n */\nexport function Ripple({ count = 7, baseSize = 120, className }: RippleProps) {\n  return (\n    <div\n      aria-hidden\n      className={cn(\n        \"pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,white,transparent)]\",\n        className\n      )}\n    >\n      {Array.from({ length: count }).map((_, i) => {\n        const size = baseSize + i * 80\n        const opacity = Math.max(0.05, 0.28 - i * 0.035)\n        return (\n          <div\n            key={i}\n            className=\"absolute top-1/2 left-1/2 animate-[ae-ripple_3.5s_ease_infinite] rounded-full border border-violet-500/30 bg-violet-500/5\"\n            style={{\n              width: size,\n              height: size,\n              opacity,\n              animationDelay: `${i * 0.18}s`,\n              transform: \"translate(-50%, -50%)\",\n            }}\n          />\n        )\n      })}\n      <style>{`\n        @keyframes ae-ripple {\n          0%, 100% { transform: translate(-50%, -50%) scale(1); }\n          50% { transform: translate(-50%, -50%) scale(1.08); }\n        }\n        @media (prefers-reduced-motion: reduce) {\n          .animate-\\\\[ae-ripple_3\\\\.5s_ease_infinite\\\\] { animation: none; }\n        }\n      `}</style>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

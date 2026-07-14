@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "retro-grid",
+  "title": "Retro Grid",
+  "description": "Animated perspective grid scrolling toward the horizon — synthwave vibes.",
+  "files": [
+    {
+      "path": "registry/backgrounds/retro-grid.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype RetroGridProps = {\n  /** Grid tilt in degrees. */\n  angle?: number\n  /** Cell size, in px. */\n  cellSize?: number\n  /** Line color (any CSS color). */\n  color?: string\n  className?: string\n}\n\n/**\n * An animated, perspective \"retro\" grid that scrolls toward the horizon.\n * Drop it inside a `relative overflow-hidden` container.\n */\nexport function RetroGrid({\n  angle = 65,\n  cellSize = 60,\n  color = \"#8b5cf6\",\n  className,\n}: RetroGridProps) {\n  return (\n    <div\n      aria-hidden\n      className={cn(\n        \"pointer-events-none absolute inset-0 overflow-hidden opacity-60 [perspective:200px]\",\n        className\n      )}\n      style={{ [\"--ae-grid-angle\" as string]: `${angle}deg` }}\n    >\n      <div className=\"absolute inset-0 [transform:rotateX(var(--ae-grid-angle))]\">\n        <div\n          className=\"absolute [inset:0%_0px] [margin-left:-50%] [transform-origin:100%_0_0] [width:600%] animate-[ae-retro-grid_18s_linear_infinite]\"\n          style={{\n            height: \"300%\",\n            backgroundImage: `linear-gradient(to right, ${color} 1px, transparent 0), linear-gradient(to bottom, ${color} 1px, transparent 0)`,\n            backgroundSize: `${cellSize}px ${cellSize}px`,\n          }}\n        />\n      </div>\n      <div className=\"absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent\" />\n      <style>{`\n        @keyframes ae-retro-grid {\n          0% { transform: translateY(0); }\n          100% { transform: translateY(${cellSize}px); }\n        }\n        @media (prefers-reduced-motion: reduce) {\n          .animate-\\\\[ae-retro-grid_18s_linear_infinite\\\\] { animation: none; }\n        }\n      `}</style>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

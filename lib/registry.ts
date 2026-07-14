@@ -107,6 +107,13 @@ import {
   FlashIcon,
   HexagonIcon,
   RippleIcon,
+  MoreHorizontalIcon,
+  GridViewIcon,
+  PerspectiveIcon,
+  StarsIcon,
+  Target01Icon,
+  FlashlightIcon,
+  MatrixIcon,
 } from "@hugeicons/core-free-icons"
 import type { IconSvgElement } from "@hugeicons/react"
 
@@ -1059,6 +1066,77 @@ export const registry: RegistryItem[] = [
     category: "backgrounds",
     icon: RippleIcon,
     dependencies: ["@paper-design/shaders-react"],
+    isNew: true,
+  },
+  {
+    slug: "particles",
+    title: "Particles",
+    description:
+      "Mouse-reactive canvas particle field that drifts and parallaxes on hover.",
+    category: "backgrounds",
+    icon: Atom01Icon,
+    isNew: true,
+  },
+  {
+    slug: "flickering-grid",
+    title: "Flickering Grid",
+    description:
+      "Canvas grid of squares that randomly flicker in and out — subtle and cheap.",
+    category: "backgrounds",
+    icon: MatrixIcon,
+    isNew: true,
+  },
+  {
+    slug: "meteors",
+    title: "Meteors",
+    description:
+      "A shower of diagonal meteors with trailing tails, pure CSS and SSR-safe.",
+    category: "backgrounds",
+    icon: StarsIcon,
+    isNew: true,
+  },
+  {
+    slug: "retro-grid",
+    title: "Retro Grid",
+    description:
+      "Animated perspective grid scrolling toward the horizon — synthwave vibes.",
+    category: "backgrounds",
+    icon: PerspectiveIcon,
+    isNew: true,
+  },
+  {
+    slug: "ripple",
+    title: "Ripple",
+    description: "Concentric, softly pulsing rings radiating from the center.",
+    category: "backgrounds",
+    icon: Target01Icon,
+    isNew: true,
+  },
+  {
+    slug: "spotlight",
+    title: "Spotlight",
+    description:
+      "Soft, drifting light blooms for gentle hero ambience — pure CSS.",
+    category: "backgrounds",
+    icon: FlashlightIcon,
+    isNew: true,
+  },
+  {
+    slug: "dot-pattern",
+    title: "Dot Pattern",
+    description:
+      "Theme-aware dotted background layer with an optional radial fade mask.",
+    category: "backgrounds",
+    icon: MoreHorizontalIcon,
+    isNew: true,
+  },
+  {
+    slug: "grid-pattern",
+    title: "Grid Pattern",
+    description:
+      "Theme-aware grid-line background layer with an optional radial fade mask.",
+    category: "backgrounds",
+    icon: GridViewIcon,
     isNew: true,
   },
   ...uiItems,

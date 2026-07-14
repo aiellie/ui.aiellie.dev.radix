@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dot-pattern",
+  "title": "Dot Pattern",
+  "description": "Theme-aware dotted background layer with an optional radial fade mask.",
+  "files": [
+    {
+      "path": "registry/backgrounds/dot-pattern.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype DotPatternProps = {\n  /** Gap between dots, in px. */\n  gap?: number\n  /** Dot radius, in px. */\n  dotSize?: number\n  /** Fade the pattern toward the edges with a radial mask. */\n  fade?: boolean\n  className?: string\n}\n\n/**\n * A theme-aware dotted background layer. Drop it inside a `relative` container.\n * Uses `currentColor`, so set the color with a text utility (e.g. `text-foreground/15`).\n */\nexport function DotPattern({\n  gap = 16,\n  dotSize = 1,\n  fade = true,\n  className,\n}: DotPatternProps) {\n  return (\n    <div\n      aria-hidden\n      className={cn(\n        \"pointer-events-none absolute inset-0 text-foreground/15\",\n        fade &&\n          \"[mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]\",\n        className\n      )}\n      style={{\n        backgroundImage: `radial-gradient(currentColor ${dotSize}px, transparent ${dotSize}px)`,\n        backgroundSize: `${gap}px ${gap}px`,\n      }}\n    />\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

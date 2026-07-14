@@ -2749,6 +2749,102 @@
       "dependencies": [
         "@paper-design/shaders-react"
       ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:component",
+      "title": "Particles",
+      "description": "Mouse-reactive canvas particle field that drifts and parallaxes on hover.",
+      "files": [
+        {
+          "path": "registry/backgrounds/particles.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "flickering-grid",
+      "type": "registry:component",
+      "title": "Flickering Grid",
+      "description": "Canvas grid of squares that randomly flicker in and out — subtle and cheap.",
+      "files": [
+        {
+          "path": "registry/backgrounds/flickering-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "meteors",
+      "type": "registry:component",
+      "title": "Meteors",
+      "description": "A shower of diagonal meteors with trailing tails, pure CSS and SSR-safe.",
+      "files": [
+        {
+          "path": "registry/backgrounds/meteors.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "retro-grid",
+      "type": "registry:component",
+      "title": "Retro Grid",
+      "description": "Animated perspective grid scrolling toward the horizon — synthwave vibes.",
+      "files": [
+        {
+          "path": "registry/backgrounds/retro-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ripple",
+      "type": "registry:component",
+      "title": "Ripple",
+      "description": "Concentric, softly pulsing rings radiating from the center.",
+      "files": [
+        {
+          "path": "registry/backgrounds/ripple.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight",
+      "type": "registry:component",
+      "title": "Spotlight",
+      "description": "Soft, drifting light blooms for gentle hero ambience — pure CSS.",
+      "files": [
+        {
+          "path": "registry/backgrounds/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dot-pattern",
+      "type": "registry:component",
+      "title": "Dot Pattern",
+      "description": "Theme-aware dotted background layer with an optional radial fade mask.",
+      "files": [
+        {
+          "path": "registry/backgrounds/dot-pattern.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "grid-pattern",
+      "type": "registry:component",
+      "title": "Grid Pattern",
+      "description": "Theme-aware grid-line background layer with an optional radial fade mask.",
+      "files": [
+        {
+          "path": "registry/backgrounds/grid-pattern.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
