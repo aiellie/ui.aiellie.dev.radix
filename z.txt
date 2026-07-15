@@ -1,5 +1,5 @@
 git add .
-git commit -m modelsregistryjson.
+git commit -m logosidebar.
 git push origin main
 
 git reset --hard 687da77

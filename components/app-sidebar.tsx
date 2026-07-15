@@ -9,7 +9,7 @@ import {
   BubbleChatIcon,
   StarIcon,
 } from "@hugeicons/core-free-icons"
-import { Logo } from "@/registry/brand/logo"
+import { LogoSidebar } from "@/registry/brand/logo-sidebar"
 import { NavUser } from "@/components/nav-user"
 import {
   categories,
@@ -72,8 +72,20 @@ export function AppSidebar({
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <Logo />
-      </SidebarHeader>
+      <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              size="lg"
+              tooltip="Home"
+              className="[&_[data-logo-icon]_svg]:!size-full"
+              asChild
+            >
+              <Link href="/">
+                <LogoSidebar />
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>      </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:overflow-auto">
         {featuredItems.length > 0 && (
