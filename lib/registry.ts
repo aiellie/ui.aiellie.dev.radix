@@ -123,7 +123,7 @@ import type { IconSvgElement } from "@hugeicons/react"
 import { uiItems } from "@/lib/ui-items"
 
 export type Category =
-  | "agents"
+  | "models"
   | "ai"
   | "code"
   | "auth"
@@ -158,8 +158,8 @@ export const categories: {
   icon: IconSvgElement
 }[] = [
   {
-    id: "agents",
-    label: "Agents",
+    id: "models",
+    label: "Models",
     description: "Building blocks for agentic AI interfaces.",
     icon: Robot01Icon,
   },
@@ -464,7 +464,7 @@ export const registry: RegistryItem[] = [
     title: "Model Card",
     description:
       "Spec card for an AI model with capabilities, context, pricing, and a select action.",
-    category: "agents",
+    category: "models",
     icon: AiChipIcon,
     registryDependencies: ["badge", "button", "card"],
     dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
@@ -483,7 +483,7 @@ export const registry: RegistryItem[] = [
     slug: "rate-limits",
     title: "Rate Limits",
     description: "Table of rate limits for different AI models.",
-    category: "agents",
+    category: "models",
     icon: BoltIcon,
     registryDependencies: ["badge", "label", "switch", "table"],
     isNew: true,

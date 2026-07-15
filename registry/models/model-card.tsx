@@ -39,7 +39,7 @@ import {
   ModelCardTitle,
   ModelCardTools,
   ModelCardTool,
-} from "@/components/ai/model-card"
+} from "@/components/models/model-card"
 
 export interface ModelCardCapabilityItem {
   label: string

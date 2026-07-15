@@ -4,6 +4,39 @@
   "homepage": "https://ui.aiellie.dev",
   "items": [
     {
+      "name": "model-card",
+      "type": "registry:component",
+      "title": "Model Card",
+      "description": "Spec card for an AI model with capabilities, context, pricing, and a select action.",
+      "registryDependencies": ["badge", "button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/models/model-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/models/model-card.tsx",
+          "type": "registry:component",
+          "target": "components/models/model-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rate-limits",
+      "type": "registry:component",
+      "title": "Rate Limits",
+      "description": "Table of rate limits for different AI models.",
+      "category": "agents",
+      "registryDependencies": ["badge", "label", "switch", "table"],
+      "files": [
+        {
+          "path": "registry/models/rate-limits.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "chat-message",
       "type": "registry:component",
       "title": "Chat Message",
@@ -66,39 +99,6 @@
       "files": [
         {
           "path": "registry/ai/model-selector.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "model-card",
-      "type": "registry:component",
-      "title": "Model Card",
-      "description": "Spec card for an AI model with capabilities, context, pricing, and a select action.",
-      "registryDependencies": ["badge", "button", "card"],
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
-      "files": [
-        {
-          "path": "registry/ai/model-card.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "components/ai/model-card.tsx",
-          "type": "registry:component",
-          "target": "components/ai/model-card.tsx"
-        }
-      ]
-    },
-    {
-      "name": "rate-limits",
-      "type": "registry:component",
-      "title": "Rate Limits",
-      "description": "Table of rate limits for different AI models.",
-      "category": "agents",
-      "registryDependencies": ["badge", "label", "switch", "table"],
-      "files": [
-        {
-          "path": "registry/ai/rate-limits.tsx",
           "type": "registry:component"
         }
       ]
