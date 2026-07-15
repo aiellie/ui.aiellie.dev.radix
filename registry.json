@@ -8,13 +8,8 @@
       "type": "registry:component",
       "title": "Chat Message",
       "description": "User and assistant message bubbles with avatars, timestamps, and streaming support.",
-      "registryDependencies": [
-        "avatar"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["avatar"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/chat-message.tsx",
@@ -27,14 +22,8 @@
       "type": "registry:component",
       "title": "Prompt Input",
       "description": "Auto-resizing composer with attachment, voice, model picker, and send controls.",
-      "registryDependencies": [
-        "button",
-        "textarea"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "textarea"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/prompt-input.tsx",
@@ -59,9 +48,7 @@
       "type": "registry:component",
       "title": "Typing Indicator",
       "description": "Animated indicator that shows when the assistant is thinking.",
-      "registryDependencies": [
-        "loader"
-      ],
+      "registryDependencies": ["loader"],
       "files": [
         {
           "path": "registry/ai/typing-indicator.tsx",
@@ -74,14 +61,8 @@
       "type": "registry:component",
       "title": "Model Selector",
       "description": "Dropdown for switching between AI models, with provider badges and context sizes.",
-      "registryDependencies": [
-        "button",
-        "dropdown-menu"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "dropdown-menu"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/model-selector.tsx",
@@ -90,14 +71,30 @@
       ]
     },
     {
+      "name": "model-card",
+      "type": "registry:component",
+      "title": "Model Card",
+      "description": "Spec card for an AI model with capabilities, context, pricing, and a select action.",
+      "registryDependencies": ["badge", "button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/ai/model-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/ai/model-card.tsx",
+          "type": "registry:component",
+          "target": "components/ai/model-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "prompt-suggestions",
       "type": "registry:component",
       "title": "Prompt Suggestions",
       "description": "A grid of suggested starter prompts to kick off a conversation.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/prompt-suggestions.tsx",
@@ -110,13 +107,8 @@
       "type": "registry:component",
       "title": "Reasoning Panel",
       "description": "Collapsible chain-of-thought panel with a live duration timer.",
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/reasoning-panel.tsx",
@@ -129,14 +121,8 @@
       "type": "registry:component",
       "title": "Message Actions",
       "description": "Copy, regenerate, and feedback toolbar that sits under an assistant reply.",
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "tooltip"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/message-actions.tsx",
@@ -149,13 +135,8 @@
       "type": "registry:component",
       "title": "Citation List",
       "description": "Numbered source citations with favicons, titles, and snippets for RAG answers.",
-      "registryDependencies": [
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/citation-list.tsx",
@@ -168,15 +149,8 @@
       "type": "registry:component",
       "title": "Media Player",
       "description": "Compact audio/video transport with scrubber, time, and volume controls.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "slider"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "card", "slider"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/media-player.tsx",
@@ -189,14 +163,8 @@
       "type": "registry:component",
       "title": "Audio Waveform",
       "description": "Waveform player with animated bars and seek-on-click.",
-      "registryDependencies": [
-        "button",
-        "card"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/audio-waveform.tsx",
@@ -209,10 +177,7 @@
       "type": "registry:component",
       "title": "Image Gallery",
       "description": "Responsive masonry gallery with hover overlays and a selectable lead image.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/image-gallery.tsx",
@@ -225,14 +190,8 @@
       "type": "registry:component",
       "title": "Video Card",
       "description": "Thumbnail card with duration pill, channel avatar, and view metadata.",
-      "registryDependencies": [
-        "avatar",
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["avatar", "badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/video-card.tsx",
@@ -245,15 +204,8 @@
       "type": "registry:component",
       "title": "Image Generation Card",
       "description": "Generated-image result card with the prompt, variations, and quick actions.",
-      "registryDependencies": [
-        "badge",
-        "button",
-        "card"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["badge", "button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/image-generation-card.tsx",
@@ -266,13 +218,8 @@
       "type": "registry:component",
       "title": "File Dropzone",
       "description": "Drag-and-drop upload surface with per-file progress and status.",
-      "registryDependencies": [
-        "progress"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["progress"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/file-dropzone.tsx",
@@ -285,15 +232,8 @@
       "type": "registry:component",
       "title": "Now Playing",
       "description": "Music widget with album art, marquee title, scrubber, and transport controls.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "slider"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button", "card", "slider"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/now-playing.tsx",
@@ -306,10 +246,7 @@
       "type": "registry:component",
       "title": "Image Compare",
       "description": "Before/after slider for comparing two images with a draggable handle.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/image-compare.tsx",
@@ -322,13 +259,8 @@
       "type": "registry:component",
       "title": "Code Block",
       "description": "Code surface with a filename tab, language badge, line numbers, and copy button.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/code-block.tsx",
@@ -353,9 +285,7 @@
       "type": "registry:component",
       "title": "Diff View",
       "description": "Unified diff with added/removed lines, gutter markers, and a stat summary.",
-      "registryDependencies": [
-        "badge"
-      ],
+      "registryDependencies": ["badge"],
       "files": [
         {
           "path": "registry/code/diff-view.tsx",
@@ -368,10 +298,7 @@
       "type": "registry:component",
       "title": "File Tree",
       "description": "Collapsible file explorer with folder/file icons and an active item.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/file-tree.tsx",
@@ -384,13 +311,8 @@
       "type": "registry:component",
       "title": "Command Menu",
       "description": "Command palette with grouped, keyboard-navigable actions.",
-      "registryDependencies": [
-        "command"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["command"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/command-menu.tsx",
@@ -403,16 +325,8 @@
       "type": "registry:component",
       "title": "Pull Request Card",
       "description": "Pull-request summary with status, reviewers, checks, and additions/deletions.",
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["avatar", "badge", "button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/pull-request-card.tsx",
@@ -425,14 +339,8 @@
       "type": "registry:component",
       "title": "Package Install",
       "description": "Tabbed install command for npm, pnpm, yarn, and bun with one-click copy.",
-      "registryDependencies": [
-        "tabs",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["tabs", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/package-install.tsx",
@@ -445,16 +353,8 @@
       "type": "registry:component",
       "title": "Snippet Card",
       "description": "Shareable code snippet card with language badge, author, copy, and actions.",
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["avatar", "badge", "button", "card"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/snippet-card.tsx",
@@ -467,10 +367,7 @@
       "type": "registry:component",
       "title": "Conversation",
       "description": "Scrollable message thread with a floating scroll-to-bottom button.",
-      "registryDependencies": [
-        "button",
-        "scroll-area"
-      ],
+      "registryDependencies": ["button", "scroll-area"],
       "dependencies": [
         "use-stick-to-bottom",
         "@hugeicons/react",
@@ -488,10 +385,7 @@
       "type": "registry:component",
       "title": "Attachments",
       "description": "Removable file chips for images, PDFs, and code attached to a prompt.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/attachments.tsx",
@@ -504,13 +398,8 @@
       "type": "registry:component",
       "title": "Chain of Thought",
       "description": "Collapsible multi-step reasoning trail with statuses and search results.",
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/chain-of-thought.tsx",
@@ -523,13 +412,8 @@
       "type": "registry:component",
       "title": "Tool",
       "description": "Tool-call card with status, JSON parameters, and the returned result.",
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/tool.tsx",
@@ -542,13 +426,8 @@
       "type": "registry:component",
       "title": "Task",
       "description": "Collapsible agent task showing the files and actions it touched.",
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/task.tsx",
@@ -561,10 +440,7 @@
       "type": "registry:component",
       "title": "Plan",
       "description": "Agent task plan with done, active, and todo steps and a progress count.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/plan.tsx",
@@ -577,13 +453,8 @@
       "type": "registry:component",
       "title": "Sources",
       "description": "Collapsible list of the web sources cited in a RAG answer.",
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/sources.tsx",
@@ -596,10 +467,7 @@
       "type": "registry:component",
       "title": "Inline Citation",
       "description": "Inline numbered citation markers that reveal the source on hover.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/inline-citation.tsx",
@@ -612,14 +480,8 @@
       "type": "registry:component",
       "title": "Context",
       "description": "Hover-card breakdown of model context usage with token and cost details.",
-      "registryDependencies": [
-        "button",
-        "hover-card",
-        "progress"
-      ],
-      "dependencies": [
-        "tokenlens"
-      ],
+      "registryDependencies": ["button", "hover-card", "progress"],
+      "dependencies": ["tokenlens"],
       "files": [
         {
           "path": "registry/ai/context.tsx",
@@ -632,13 +494,8 @@
       "type": "registry:component",
       "title": "Confirmation",
       "description": "Approve/reject card for gating a tool call or risky action.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/confirmation.tsx",
@@ -651,10 +508,7 @@
       "type": "registry:component",
       "title": "Checkpoint",
       "description": "A labeled restore-point divider for rewinding a conversation.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/checkpoint.tsx",
@@ -667,10 +521,7 @@
       "type": "registry:component",
       "title": "Queue",
       "description": "Pending prompt queue with positions and one-click removal.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/queue.tsx",
@@ -695,13 +546,8 @@
       "type": "registry:component",
       "title": "Open in Chat",
       "description": "Button that hands the current context off to a chat assistant.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/ai/open-in-chat.tsx",
@@ -714,10 +560,7 @@
       "type": "registry:component",
       "title": "Image",
       "description": "AI image frame with a loading state, AI badge, and hover actions.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/media/image.tsx",
@@ -730,10 +573,7 @@
       "type": "registry:component",
       "title": "Web Preview",
       "description": "Browser frame with a URL bar and a live site viewport.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/web-preview.tsx",
@@ -746,12 +586,7 @@
       "type": "registry:component",
       "title": "Login Form",
       "description": "Split-card login with email/password, social sign-in buttons, and a sign-up link.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/auth/login-form.tsx",
@@ -764,12 +599,7 @@
       "type": "registry:component",
       "title": "Forgot Password Form",
       "description": "Centered card that collects an email to send a password-reset link.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/auth/forgot-password-form.tsx",
@@ -812,12 +642,7 @@
       "type": "registry:component",
       "title": "Magic Link Form",
       "description": "Passwordless sign-in card that emails a magic link, with Google and GitHub options.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/auth/magic-link-form.tsx",
@@ -830,12 +655,7 @@
       "type": "registry:component",
       "title": "Reset Password Form",
       "description": "Centered card to choose and confirm a new password after a reset request.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/auth/reset-password-form.tsx",
@@ -848,12 +668,7 @@
       "type": "registry:component",
       "title": "OTP Form",
       "description": "Verification card with a grouped six-digit one-time-code input and resend link.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "card", "field", "input-otp"],
       "files": [
         {
           "path": "registry/auth/otp-form.tsx",
@@ -878,9 +693,7 @@
       "type": "registry:component",
       "title": "Ellie",
       "description": "The orb turned mascot: a face on the iridescent sphere with calm, happy, and wink expressions.",
-      "registryDependencies": [
-        "orb"
-      ],
+      "registryDependencies": ["orb"],
       "files": [
         {
           "path": "registry/brand/ellie.tsx",
@@ -893,9 +706,7 @@
       "type": "registry:component",
       "title": "Logo",
       "description": "The AIEllie brand lockup — the Ellie orb mark beside the wordmark and version.",
-      "registryDependencies": [
-        "ellie"
-      ],
+      "registryDependencies": ["ellie"],
       "files": [
         {
           "path": "registry/brand/logo.tsx",
@@ -908,9 +719,7 @@
       "type": "registry:component",
       "title": "Theme Switcher",
       "description": "Ghost icon button that flips between light and dark with next-themes.",
-      "registryDependencies": [
-        "button"
-      ],
+      "registryDependencies": ["button"],
       "dependencies": [
         "next-themes",
         "@hugeicons/react",
@@ -928,10 +737,7 @@
       "type": "registry:component",
       "title": "GitHub Button",
       "description": "Tooltip-wrapped ghost icon button that links out to a GitHub repository.",
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
+      "registryDependencies": ["button", "tooltip"],
       "files": [
         {
           "path": "registry/brand/github-button.tsx",
@@ -944,10 +750,7 @@
       "type": "registry:component",
       "title": "Agent",
       "description": "Live agent run card with model, status, current step, and tools.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/agent.tsx",
@@ -960,10 +763,7 @@
       "type": "registry:component",
       "title": "Artifact",
       "description": "Framed artifact panel with a title, type badge, and copy/download actions.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/artifact.tsx",
@@ -976,13 +776,8 @@
       "type": "registry:component",
       "title": "Commit",
       "description": "Git commit card with message, author, short hash, and diff stats.",
-      "registryDependencies": [
-        "avatar"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["avatar"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/commit.tsx",
@@ -995,10 +790,7 @@
       "type": "registry:component",
       "title": "Test Results",
       "description": "Test run summary with pass/fail counts and inline failure messages.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/test-results.tsx",
@@ -1011,10 +803,7 @@
       "type": "registry:component",
       "title": "Stack Trace",
       "description": "Error stack viewer with highlighted app frames and copy-to-clipboard.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/stack-trace.tsx",
@@ -1027,10 +816,7 @@
       "type": "registry:component",
       "title": "Sandbox",
       "description": "Runnable code panel with a Run button and console output.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/sandbox.tsx",
@@ -1043,10 +829,7 @@
       "type": "registry:component",
       "title": "JSX Preview",
       "description": "Preview / code toggle that renders a JSX snippet live.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/jsx-preview.tsx",
@@ -1059,10 +842,7 @@
       "type": "registry:component",
       "title": "Schema Display",
       "description": "Field-by-field schema table with types and required badges.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/schema-display.tsx",
@@ -1075,13 +855,8 @@
       "type": "registry:component",
       "title": "Package Info",
       "description": "npm package summary with version, downloads, license, and keywords.",
-      "registryDependencies": [
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "registryDependencies": ["badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/package-info.tsx",
@@ -1094,10 +869,7 @@
       "type": "registry:component",
       "title": "Environment Variables",
       "description": "Editable .env list with masked secrets, reveal, and copy.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/code/environment-variables.tsx",
@@ -1110,10 +882,7 @@
       "type": "registry:component",
       "title": "Audio Player",
       "description": "Voice-note player with a waveform scrubber, speed control, and download.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/voice/audio-player.tsx",
@@ -1126,13 +895,8 @@
       "type": "registry:component",
       "title": "Speech Input",
       "description": "Press-to-talk mic button with live speech recognition and transcript display.",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/voice/speech-input.tsx",
@@ -1168,11 +932,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "button",
-        "command",
-        "dialog"
-      ],
+      "registryDependencies": ["button", "command", "dialog"],
       "files": [
         {
           "path": "registry/voice/voice-selector.tsx",
@@ -1185,11 +945,7 @@
       "type": "registry:component",
       "title": "Mic Selector",
       "description": "Input device picker with a live microphone level meter.",
-      "registryDependencies": [
-        "button",
-        "command",
-        "popover"
-      ],
+      "registryDependencies": ["button", "command", "popover"],
       "dependencies": [
         "@radix-ui/react-use-controllable-state",
         "@hugeicons/react",
@@ -1212,10 +968,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
+      "registryDependencies": ["button", "tooltip"],
       "files": [
         {
           "path": "registry/voice/persona.tsx",
@@ -1234,9 +987,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "accordion"
-      ]
+      "registryDependencies": ["accordion"]
     },
     {
       "name": "alert-dialog",
@@ -1249,10 +1000,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "alert-dialog",
-        "button"
-      ],
+      "registryDependencies": ["alert-dialog", "button"],
       "dependencies": [
         "sonner",
         "@hugeicons/react",
@@ -1270,14 +1018,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "alert",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["alert", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "aspect-ratio",
@@ -1290,14 +1032,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "aspect-ratio",
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["aspect-ratio", "badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "avatar",
@@ -1310,13 +1046,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "avatar"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["avatar"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "badge",
@@ -1329,13 +1060,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "breadcrumb",
@@ -1348,13 +1074,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "breadcrumb"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["breadcrumb"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "button-group",
@@ -1367,15 +1088,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button-group",
-        "button",
-        "tooltip"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button-group", "button", "tooltip"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "button",
@@ -1388,13 +1102,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "calendar",
@@ -1407,13 +1116,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "calendar"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["calendar"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "card",
@@ -1426,15 +1130,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "card",
-        "badge",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["card", "badge", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "carousel",
@@ -1447,9 +1144,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "carousel"
-      ]
+      "registryDependencies": ["carousel"]
     },
     {
       "name": "chart",
@@ -1462,13 +1157,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "card",
-        "chart"
-      ],
-      "dependencies": [
-        "recharts"
-      ]
+      "registryDependencies": ["card", "chart"],
+      "dependencies": ["recharts"]
     },
     {
       "name": "checkbox",
@@ -1481,10 +1171,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "checkbox",
-        "label"
-      ]
+      "registryDependencies": ["checkbox", "label"]
     },
     {
       "name": "collapsible",
@@ -1497,13 +1184,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "collapsible"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["collapsible"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "combobox",
@@ -1516,15 +1198,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "command",
-        "popover"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "command", "popover"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "command",
@@ -1537,13 +1212,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "command"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["command"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "context-window",
@@ -1556,13 +1226,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "context"
-      ],
-      "dependencies": [
-        "ai",
-        "tokenlens"
-      ]
+      "registryDependencies": ["context"],
+      "dependencies": ["ai", "tokenlens"]
     },
     {
       "name": "context-menu",
@@ -1575,13 +1240,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "context-menu"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["context-menu"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "data-table",
@@ -1601,10 +1261,7 @@
         "checkbox",
         "dropdown-menu"
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "date-picker",
@@ -1617,12 +1274,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "calendar",
-        "label",
-        "popover"
-      ],
+      "registryDependencies": ["button", "calendar", "label", "popover"],
       "dependencies": [
         "date-fns",
         "@hugeicons/react",
@@ -1640,11 +1292,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "dialog",
-        "input"
-      ],
+      "registryDependencies": ["button", "dialog", "input"],
       "dependencies": [
         "sonner",
         "@hugeicons/react",
@@ -1662,14 +1310,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "direction",
-        "toggle-group"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["direction", "toggle-group"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "drawer",
@@ -1682,14 +1324,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "drawer"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "drawer"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "dropdown-menu",
@@ -1702,14 +1338,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "dropdown-menu"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "dropdown-menu"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "empty",
@@ -1722,14 +1352,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "empty",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["empty", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "field",
@@ -1742,11 +1366,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "field",
-        "input",
-        "switch"
-      ]
+      "registryDependencies": ["field", "input", "switch"]
     },
     {
       "name": "hover-card",
@@ -1759,14 +1379,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "hover-card",
-        "badge"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["hover-card", "badge"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "input-group",
@@ -1779,13 +1393,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "input-group"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["input-group"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "input-otp",
@@ -1798,14 +1407,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "input-otp",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["input-otp", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "input",
@@ -1818,14 +1421,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "input",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["input", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "item",
@@ -1838,15 +1435,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "item",
-        "badge",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["item", "badge", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "kbd",
@@ -1859,9 +1449,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "kbd"
-      ]
+      "registryDependencies": ["kbd"]
     },
     {
       "name": "label",
@@ -1874,10 +1462,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "label",
-        "input"
-      ]
+      "registryDependencies": ["label", "input"]
     },
     {
       "name": "menubar",
@@ -1890,9 +1475,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "menubar"
-      ]
+      "registryDependencies": ["menubar"]
     },
     {
       "name": "native-select",
@@ -1905,10 +1488,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "native-select",
-        "label"
-      ]
+      "registryDependencies": ["native-select", "label"]
     },
     {
       "name": "navigation-menu",
@@ -1921,9 +1501,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "navigation-menu"
-      ]
+      "registryDependencies": ["navigation-menu"]
     },
     {
       "name": "pagination",
@@ -1936,9 +1514,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "pagination"
-      ]
+      "registryDependencies": ["pagination"]
     },
     {
       "name": "popover",
@@ -1951,16 +1527,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "popover",
-        "label",
-        "slider"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "popover", "label", "slider"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "progress",
@@ -1973,9 +1541,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "progress"
-      ]
+      "registryDependencies": ["progress"]
     },
     {
       "name": "radio-group",
@@ -1988,10 +1554,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "radio-group",
-        "label"
-      ]
+      "registryDependencies": ["radio-group", "label"]
     },
     {
       "name": "resizable",
@@ -2004,14 +1567,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "resizable",
-        "code-block"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["resizable", "code-block"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "scroll-area",
@@ -2024,9 +1581,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "scroll-area"
-      ]
+      "registryDependencies": ["scroll-area"]
     },
     {
       "name": "select",
@@ -2039,10 +1594,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "select",
-        "label"
-      ]
+      "registryDependencies": ["select", "label"]
     },
     {
       "name": "separator",
@@ -2055,9 +1607,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "separator"
-      ]
+      "registryDependencies": ["separator"]
     },
     {
       "name": "sheet",
@@ -2078,10 +1628,7 @@
         "switch",
         "select"
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "sidebar",
@@ -2094,14 +1641,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "avatar"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "avatar"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "skeleton",
@@ -2114,13 +1655,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "skeleton"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["skeleton"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "slider",
@@ -2133,10 +1669,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "slider",
-        "label"
-      ]
+      "registryDependencies": ["slider", "label"]
     },
     {
       "name": "sonner",
@@ -2149,12 +1682,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "sonner"
-      ]
+      "registryDependencies": ["button"],
+      "dependencies": ["sonner"]
     },
     {
       "name": "spinner",
@@ -2167,14 +1696,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "spinner",
-        "button"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["spinner", "button"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "switch",
@@ -2187,14 +1710,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "switch",
-        "label"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["switch", "label"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "table",
@@ -2207,10 +1724,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "table",
-        "badge"
-      ]
+      "registryDependencies": ["table", "badge"]
     },
     {
       "name": "tabs",
@@ -2223,10 +1737,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "tabs",
-        "code-block"
-      ]
+      "registryDependencies": ["tabs", "code-block"]
     },
     {
       "name": "textarea",
@@ -2239,10 +1750,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "textarea",
-        "button"
-      ]
+      "registryDependencies": ["textarea", "button"]
     },
     {
       "name": "toggle",
@@ -2255,13 +1763,8 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "toggle"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["toggle"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "toggle-group",
@@ -2274,9 +1777,7 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "toggle-group"
-      ]
+      "registryDependencies": ["toggle-group"]
     },
     {
       "name": "tooltip",
@@ -2289,130 +1790,85 @@
           "type": "registry:component"
         }
       ],
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "registryDependencies": ["button", "tooltip"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "portfolio-hero",
       "type": "registry:component",
       "title": "Portfolio Hero",
       "description": "Intro header with avatar, role, location, an availability status, and CTAs.",
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card"
-      ],
+      "registryDependencies": ["avatar", "badge", "button", "card"],
       "files": [
         {
           "path": "registry/portfolio/portfolio-hero.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "about-card",
       "type": "registry:component",
       "title": "About Card",
       "description": "Bio card with a headline, paragraph, and a list of quick personal facts.",
-      "registryDependencies": [
-        "badge",
-        "card",
-        "item",
-        "separator"
-      ],
+      "registryDependencies": ["badge", "card", "item", "separator"],
       "files": [
         {
           "path": "registry/portfolio/about-card.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "project-card",
       "type": "registry:component",
       "title": "Project Card",
       "description": "Featured-project card with a gradient cover, tech tags, stars, and live/repo links.",
-      "registryDependencies": [
-        "badge",
-        "button",
-        "card",
-        "tooltip"
-      ],
+      "registryDependencies": ["badge", "button", "card", "tooltip"],
       "files": [
         {
           "path": "registry/portfolio/project-card.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "project-gallery",
       "type": "registry:component",
       "title": "Project Gallery",
       "description": "Responsive grid of project tiles with gradient covers and hover reveals.",
-      "registryDependencies": [
-        "aspect-ratio",
-        "badge"
-      ],
+      "registryDependencies": ["aspect-ratio", "badge"],
       "files": [
         {
           "path": "registry/portfolio/project-gallery.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "tech-stack",
       "type": "registry:component",
       "title": "Tech Stack",
       "description": "Grouped grid of the languages, frameworks, and tools you work with.",
-      "registryDependencies": [
-        "badge",
-        "card"
-      ],
+      "registryDependencies": ["badge", "card"],
       "files": [
         {
           "path": "registry/portfolio/tech-stack.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "skill-bars",
       "type": "registry:component",
       "title": "Skill Bars",
       "description": "Labeled proficiency bars with animated gradient fills for each skill.",
-      "registryDependencies": [
-        "card",
-        "progress"
-      ],
+      "registryDependencies": ["card", "progress"],
       "files": [
         {
           "path": "registry/portfolio/skill-bars.tsx",
@@ -2425,29 +1881,21 @@
       "type": "registry:component",
       "title": "Experience Timeline",
       "description": "Vertical work-history timeline with company, role, period, and a current badge.",
-      "registryDependencies": [
-        "badge",
-        "card"
-      ],
+      "registryDependencies": ["badge", "card"],
       "files": [
         {
           "path": "registry/portfolio/experience-timeline.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "stats-row",
       "type": "registry:component",
       "title": "Stats Row",
       "description": "Row of headline metrics — years, projects, clients — with gradient numbers.",
-      "registryDependencies": [
-        "card"
-      ],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "registry/portfolio/stats-row.tsx",
@@ -2460,131 +1908,91 @@
       "type": "registry:component",
       "title": "Testimonial Card",
       "description": "Client quote card with a star rating, avatar, name, and title.",
-      "registryDependencies": [
-        "avatar",
-        "card"
-      ],
+      "registryDependencies": ["avatar", "card"],
       "files": [
         {
           "path": "registry/portfolio/testimonial-card.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "contact-cta",
       "type": "registry:component",
       "title": "Contact CTA",
       "description": "Closing call-to-action with a mailto button and a copy-to-clipboard email.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "tooltip"
-      ],
+      "registryDependencies": ["button", "card", "tooltip"],
       "files": [
         {
           "path": "registry/portfolio/contact-cta.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "social-links",
       "type": "registry:component",
       "title": "Social Links",
       "description": "Row of icon buttons linking to GitHub, X, LinkedIn, Dribbble, and more.",
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
+      "registryDependencies": ["button", "tooltip"],
       "files": [
         {
           "path": "registry/portfolio/social-links.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "resume-download",
       "type": "registry:component",
       "title": "Resume Download",
       "description": "File-style card that downloads your CV with name, size, and updated date.",
-      "registryDependencies": [
-        "button",
-        "item"
-      ],
+      "registryDependencies": ["button", "item"],
       "files": [
         {
           "path": "registry/portfolio/resume-download.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "github-contributions",
       "type": "registry:component",
       "title": "GitHub Contributions",
       "description": "Contribution heatmap grid with intensity levels and a Less→More legend.",
-      "registryDependencies": [
-        "badge",
-        "card",
-        "scroll-area"
-      ],
+      "registryDependencies": ["badge", "card", "scroll-area"],
       "files": [
         {
           "path": "registry/portfolio/github-contributions.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "service-card",
       "type": "registry:component",
       "title": "Service Card",
       "description": "Offering card with an icon, feature checklist, starting price, and a link.",
-      "registryDependencies": [
-        "button",
-        "card"
-      ],
+      "registryDependencies": ["button", "card"],
       "files": [
         {
           "path": "registry/portfolio/service-card.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "availability-badge",
       "type": "registry:component",
       "title": "Availability Badge",
       "description": "Pulsing status pill that flips between available and fully-booked states.",
-      "registryDependencies": [
-        "badge"
-      ],
+      "registryDependencies": ["badge"],
       "files": [
         {
           "path": "registry/portfolio/availability-badge.tsx",
@@ -2597,10 +2005,7 @@
       "type": "registry:component",
       "title": "Tech Marquee",
       "description": "Infinite auto-scrolling marquee of tech pills that pauses on hover.",
-      "registryDependencies": [
-        "badge",
-        "card"
-      ],
+      "registryDependencies": ["badge", "card"],
       "files": [
         {
           "path": "registry/portfolio/tech-marquee.tsx",
@@ -2613,40 +2018,28 @@
       "type": "registry:component",
       "title": "Blog Post Card",
       "description": "Article card with a gradient cover, tag, excerpt, date, and read time.",
-      "registryDependencies": [
-        "badge",
-        "card"
-      ],
+      "registryDependencies": ["badge", "card"],
       "files": [
         {
           "path": "registry/portfolio/blog-post-card.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "certifications",
       "type": "registry:component",
       "title": "Certifications",
       "description": "List of credentials with issuer, year, and an external link per item.",
-      "registryDependencies": [
-        "card",
-        "item"
-      ],
+      "registryDependencies": ["card", "item"],
       "files": [
         {
           "path": "registry/portfolio/certifications.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ]
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"]
     },
     {
       "name": "shader-orb",
@@ -2659,9 +2052,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "aurora-hero",
@@ -2674,9 +2065,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "mesh-gradient",
@@ -2689,9 +2078,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "dot-orbit",
@@ -2704,9 +2091,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "waves",
@@ -2719,9 +2104,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "swirl",
@@ -2734,9 +2117,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "metaballs",
@@ -2749,9 +2130,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "grain-gradient",
@@ -2764,9 +2143,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "neuro-noise",
@@ -2779,9 +2156,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "god-rays",
@@ -2794,9 +2169,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "voronoi",
@@ -2809,9 +2182,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "pulsing-border",
@@ -2824,9 +2195,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ]
+      "dependencies": ["@paper-design/shaders-react"]
     },
     {
       "name": "particles",

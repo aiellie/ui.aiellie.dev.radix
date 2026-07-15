@@ -5,6 +5,7 @@ import {
   SourceCodeIcon,
   // ai
   BubbleChatIcon,
+  Robot01Icon,
   SentIcon,
   Loading03Icon,
   Login03Icon,
@@ -33,6 +34,7 @@ import {
   // voice category
   Mic02Icon,
   // new ai
+  AiChipIcon,
   Attachment01Icon,
   Brain02Icon,
   Location01Icon,
@@ -120,7 +122,9 @@ import type { IconSvgElement } from "@hugeicons/react"
 import { uiItems } from "@/lib/ui-items"
 
 export type Category =
+  | "agents"
   | "ai"
+  | "code"
   | "auth"
   | "media"
   | "code"
@@ -153,8 +157,14 @@ export const categories: {
   icon: IconSvgElement
 }[] = [
   {
+    id: "agents",
+    label: "Agents",
+    description: "Building blocks for agentic AI interfaces.",
+    icon: Robot01Icon,
+  },
+  {
     id: "ai",
-    label: "AI Chat",
+    label: "Chat",
     description: "Building blocks for conversational AI interfaces.",
     icon: AiChat02Icon,
   },
@@ -191,7 +201,8 @@ export const categories: {
   {
     id: "brand",
     label: "Brand",
-    description: "AIEllie's identity kit: the orb, mascot, logo lockup, and site-chrome buttons.",
+    description:
+      "AIEllie's identity kit: the orb, mascot, logo lockup, and site-chrome buttons.",
     icon: PaintBoardIcon,
   },
   {
@@ -274,7 +285,8 @@ export const registry: RegistryItem[] = [
   {
     slug: "checkpoint",
     title: "Checkpoint",
-    description: "A labeled restore-point divider for rewinding a conversation.",
+    description:
+      "A labeled restore-point divider for rewinding a conversation.",
     category: "ai",
     icon: Location01Icon,
   },
@@ -447,6 +459,17 @@ export const registry: RegistryItem[] = [
     icon: Mic01Icon,
   },
   {
+    slug: "model-card",
+    title: "Model Card",
+    description:
+      "Spec card for an AI model with capabilities, context, pricing, and a select action.",
+    category: "agents",
+    icon: AiChipIcon,
+    registryDependencies: ["badge", "button", "card"],
+    dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+    isNew: true,
+  },
+  {
     slug: "model-selector",
     title: "Model Selector",
     description:
@@ -467,7 +490,8 @@ export const registry: RegistryItem[] = [
   {
     slug: "open-in-chat",
     title: "Open in Chat",
-    description: "Button that hands the current context off to a chat assistant.",
+    description:
+      "Button that hands the current context off to a chat assistant.",
     category: "ai",
     icon: BubbleChatAddIcon,
     registryDependencies: ["button"],
@@ -654,7 +678,8 @@ export const registry: RegistryItem[] = [
   {
     slug: "loader",
     title: "Loader",
-    description: "Multi-variant loading indicators including spinners, dots, waves, and text animations.",
+    description:
+      "Multi-variant loading indicators including spinners, dots, waves, and text animations.",
     category: "ai",
     icon: LoaderPinwheelIcon,
     isNew: true,

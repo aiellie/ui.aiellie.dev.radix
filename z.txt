@@ -1,5 +1,5 @@
 git add .
-git commit -m componentschange.
+git commit -m modelcard.
 git push origin main
 
 git reset --hard 687da77

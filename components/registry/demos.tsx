@@ -37,6 +37,7 @@ import { Confirmation } from "@/registry/ai/confirmation"
 import { ContextExample } from "@/registry/ai/context"
 import { Conversation } from "@/registry/ai/conversation"
 import { InlineCitation } from "@/registry/ai/inline-citation"
+import { ModelCard } from "@/registry/ai/model-card"
 import { Plan } from "@/registry/ai/plan"
 import { Queue } from "@/registry/ai/queue"
 import { Shimmer } from "@/registry/ai/shimmer"
@@ -196,6 +197,7 @@ export const demos: Record<string, React.ReactNode> = {
     <MessageActions value="Wrap it in a flex container and use place-items-center." />
   ),
   "mic-selector": <MicSelector />,
+  "model-card": <ModelCard />,
   "model-selector": <ModelSelector />,
   "now-playing": <NowPlaying />,
   "open-in-chat": <OpenInChat />,
