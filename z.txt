@@ -1,12 +1,12 @@
 git add .
-git commit -m logosidebar.
+git commit -m radixui.
 git push origin main
 
 git reset --hard 687da77
 git push origin main --force
 
 git init
-git remote add origin https://github.com/aiellie/ui.aiellie.dev.git
+git remote add origin https://github.com/aiellie/radixui.aiellie.dev.git
 git branch -M main
 git push -u origin main
 
@@ -17,10 +17,10 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/aiellie/ui.aiellie.dev.git
+git remote add origin https://github.com/aiellie/radixui.aiellie.dev.git
 git push -u origin main
 …or push an existing repository from the command line
-git remote add origin https://github.com/aiellie/ui.aiellie.dev.git
+git remote add origin https://github.com/aiellie/radixui.aiellie.dev.git
 git branch -M main
 git push -u origin main
 

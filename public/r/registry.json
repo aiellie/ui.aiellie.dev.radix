@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "aiellieui",
-  "homepage": "https://ui.aiellie.dev",
+  "name": "radix-aiellieui",
+  "homepage": "https://radixui-aiellie.dev",
   "items": [
     {
       "name": "chat-message",
