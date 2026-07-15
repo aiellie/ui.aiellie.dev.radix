@@ -11,12 +11,8 @@ export async function getComponentSource(slug: string): Promise<string | null> {
   const item = getItem(slug)
   if (!item) return null
 
-  const file = path.join(
-    process.cwd(),
-    "registry",
-    item.category,
-    `${slug}.tsx`
-  )
+  const folder = item.category === "agents" ? "ai" : item.category
+  const file = path.join(process.cwd(), "registry", folder, `${slug}.tsx`)
 
   try {
     return await fs.readFile(file, "utf8")

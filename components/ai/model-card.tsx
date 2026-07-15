@@ -132,11 +132,13 @@ export const ModelCardStats = ({
 export type ModelCardStatProps = Omit<ComponentProps<"div">, "children"> & {
   label: string
   value: string
+  icon?: ReactNode
 }
 
 export const ModelCardStat = ({
   label,
   value,
+  icon,
   className,
   ...props
 }: ModelCardStatProps) => (
@@ -145,7 +147,10 @@ export const ModelCardStat = ({
     {...props}
   >
     <span className="text-xs text-muted-foreground">{label}</span>
-    <span className="text-sm font-medium tabular-nums">{value}</span>
+    <span className="inline-flex items-center gap-1.5 text-sm font-medium tabular-nums">
+      {icon}
+      {value}
+    </span>
   </div>
 )
 
@@ -191,5 +196,5 @@ export const ModelCardFooter = ({
   className,
   ...props
 }: ModelCardFooterProps) => (
-  <CardFooter className={cn("justify-between gap-3", className)} {...props} />
+  <CardFooter className={cn("justify-between gap-3 bg-card", className)} {...props} />
 )

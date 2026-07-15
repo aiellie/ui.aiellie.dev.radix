@@ -38,6 +38,7 @@ import { ContextExample } from "@/registry/ai/context"
 import { Conversation } from "@/registry/ai/conversation"
 import { InlineCitation } from "@/registry/ai/inline-citation"
 import { ModelCard } from "@/registry/ai/model-card"
+import RateLimits from "@/registry/ai/rate-limits"
 import { Plan } from "@/registry/ai/plan"
 import { Queue } from "@/registry/ai/queue"
 import { Shimmer } from "@/registry/ai/shimmer"
@@ -199,6 +200,11 @@ export const demos: Record<string, React.ReactNode> = {
   "mic-selector": <MicSelector />,
   "model-card": <ModelCard />,
   "model-selector": <ModelSelector />,
+  "rate-limits": (
+    <div className="w-full max-w-2xl">
+      <RateLimits />
+    </div>
+  ),
   "now-playing": <NowPlaying />,
   "open-in-chat": <OpenInChat />,
   "package-info": <PackageInfo />,

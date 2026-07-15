@@ -19,6 +19,7 @@ import {
   WaveIcon,
   GalleryHorizontalIcon,
   VideoReplayIcon,
+  BoltIcon,
   ImageAdd01Icon,
   CloudUploadIcon,
   MusicNote03Icon,
@@ -477,6 +478,15 @@ export const registry: RegistryItem[] = [
     category: "ai",
     icon: AiBrain01Icon,
     registryDependencies: ["button", "dropdown-menu"],
+  },
+  {
+    slug: "rate-limits",
+    title: "Rate Limits",
+    description: "Table of rate limits for different AI models.",
+    category: "agents",
+    icon: BoltIcon,
+    registryDependencies: ["badge", "label", "switch", "table"],
+    isNew: true,
   },
   {
     slug: "now-playing",

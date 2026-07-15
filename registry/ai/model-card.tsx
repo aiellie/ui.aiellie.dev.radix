@@ -4,10 +4,13 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import type { IconSvgElement } from "@hugeicons/react"
 import {
   ArrowRight01Icon,
+  ArrowUpFromLineIcon,
   Brain02Icon,
   BulbIcon,
+  Calendar03Icon,
   Globe02Icon,
   Image01Icon,
+  Layers01Icon,
   LightbulbOffIcon,
   MusicNote03Icon,
   TextCreationIcon,
@@ -84,11 +87,11 @@ const DEFAULT_MODEL: ModelCardModel = {
   ],
   contextWindow: 200_000,
   description:
-    "Balanced intelligence, speed, and cost for agents, coding, and high-volume production workloads.",
+    "The best combination of speed and intelligence",
   id: "claude-sonnet-5",
   inputModalities: ["text", "image"],
   inputPricePerMTok: 3,
-  knowledgeCutoff: "Jan 2026",
+  knowledgeCutoff: "Jan 01 2026",
   maxOutputTokens: 64_000,
   name: "Claude Sonnet 5",
   outputModalities: ["text"],
@@ -240,10 +243,14 @@ export function ModelCard({
         </ModelCardCapabilities>
         <ModelCardStats>
           <ModelCardStat
+            icon={<HugeiconsIcon icon={Layers01Icon} className="size-3.5" />}
             label="Context"
-            value={`${tokenCount.format(model.contextWindow)} tokens`}
+            value={`${tokenCount.format(model.contextWindow)} window`}
           />
           <ModelCardStat
+            icon={
+              <HugeiconsIcon icon={ArrowUpFromLineIcon} className="size-3.5" />
+            }
             label="Max output"
             value={`${tokenCount.format(model.maxOutputTokens)} tokens`}
           />
@@ -286,13 +293,10 @@ export function ModelCard({
         </ModelCardTools>
       </ModelCardContent>
       <ModelCardFooter>
-        <span className="text-xs text-muted-foreground">
-        {model.knowledgeCutoff} - Knowledge cutoff
+        <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+          <HugeiconsIcon icon={Calendar03Icon} className="size-3.5" />
+          {model.knowledgeCutoff} - Knowledge Cutoff
         </span>
-        <Button onClick={() => onSelect?.(model)} size="sm">
-          Use model
-          <HugeiconsIcon icon={ArrowRight01Icon} />
-        </Button>
       </ModelCardFooter>
     </ModelCardRoot>
   )

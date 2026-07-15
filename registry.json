@@ -90,6 +90,20 @@
       ]
     },
     {
+      "name": "rate-limits",
+      "type": "registry:component",
+      "title": "Rate Limits",
+      "description": "Table of rate limits for different AI models.",
+      "category": "agents",
+      "registryDependencies": ["badge", "label", "switch", "table"],
+      "files": [
+        {
+          "path": "registry/ai/rate-limits.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "prompt-suggestions",
       "type": "registry:component",
       "title": "Prompt Suggestions",
