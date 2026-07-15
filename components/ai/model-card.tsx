@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps, ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
@@ -148,6 +148,42 @@ export const ModelCardStat = ({
     <span className="text-sm font-medium tabular-nums">{value}</span>
   </div>
 )
+
+export type ModelCardToolsProps = ComponentProps<"div">
+
+export const ModelCardTools = ({
+  className,
+  ...props
+}: ModelCardStatsProps) => (
+  <div
+    className={cn(
+      "grid grid-cols-2 gap-px overflow-hidden rounded-lg border bg-border",
+      className
+    )}
+    {...props}
+  />
+)
+
+export type ModelCardToolProps = Omit<ComponentProps<"div">, "children"> & {
+  label: string
+  value: ReactNode
+}
+
+export const ModelCardTool = ({
+  label,
+  value,
+  className,
+  ...props
+}: ModelCardToolProps) => (
+  <div
+    className={cn("flex flex-col gap-0.5 bg-card p-2.5", className)}
+    {...props}
+  >
+    <span className="text-xs text-muted-foreground">{label}</span>
+    <span className="text-sm font-medium tabular-nums">{value}</span>
+  </div>
+)
+
 
 export type ModelCardFooterProps = ComponentProps<typeof CardFooter>
 
